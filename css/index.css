@@ -1,0 +1,31 @@
+img {
+    width: 240px;
+    height: 300px;
+}
+
+h1 {
+    color: coral;
+}
+
+.nav-link {
+    color: coral;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: coral;
+    border: none;
+}
+
+.btn.d-md-none {
+    margin: 4%;
+    height: 80%;
+}
+
+main h2 {
+    color: coral;
+}
+
+#navbar {
+    padding: 1% 0;
+}
