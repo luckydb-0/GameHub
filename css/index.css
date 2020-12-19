@@ -1,3 +1,7 @@
+body {
+    margin: 0;
+}
+
 img {
     width: 240px;
     height: 300px;
@@ -28,4 +32,26 @@ main h2 {
 
 #navbar {
     padding: 1% 0;
+}
+
+footer {
+    color: coral;
+}
+
+#ultime-uscite img {
+    width: 30%;
+    height: 30%;
+    margin-left: 10%;
+}
+
+.testo { 
+    float: right; 
+    width: 25%;
+    margin-top: 10%;
+    margin-right: 20%;
+    color: coral; 
+}
+
+.carousel-indicators {
+    bottom: -30px;
 }
