@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    color: white;
 }
 
 img {
@@ -9,6 +10,15 @@ img {
 
 h1 {
     color: coral;
+}
+
+a {
+    color: coral;
+}
+
+a:hover {
+    color: coral;
+    text-decoration: none;
 }
 
 .nav-link {
@@ -36,12 +46,12 @@ main h2 {
 
 footer {
     color: coral;
+    margin-bottom: 0;
 }
 
 #ultime-uscite img {
-    width: 30%;
-    height: 30%;
-    margin-left: 10%;
+    width: 60%;
+    height: 60%;
 }
 
 .testo { 
@@ -54,4 +64,70 @@ footer {
 
 .carousel-indicators {
     bottom: -30px;
+}
+
+/* To display two covers in a row */
+.content-section-b {
+    padding: 50px 0;
+    background-color: #3C5A78;
+}
+
+.carousel-control.left {
+    background-image:none;
+}
+
+.carousel-control.right {
+    background-image:none;
+}
+
+.carousel-inner > .item > a > img, .carousel-inner > .item > img {
+    display: inline-block;
+}
+
+figcaption {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+section {
+    margin-left: 50%;
+    padding: 20px 60px;
+}
+
+section p {
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+section a {
+    margin-top: 8px;
+    margin-bottom: 0px;
+    color: coral;
+}
+
+.genres {
+    list-style-type:square;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+input[type=button] {
+    background-color: coral;
+    color: white;
+    padding: 1em;
+    border-radius: 20px;
+    margin: 5px 0;
+    outline: none;
+    justify-content: right;
+}
+
+ul {
+    list-style-position: inside;
+    margin-top: 2%;
+}
+
+p {
+    margin-bottom: 0;
 }
