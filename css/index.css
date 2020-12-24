@@ -1,11 +1,11 @@
 html, body {
     height: 100%;
     margin: 0;
-  }
+    color:white;
+}
 
-body {
-    margin: 0;
-    color: white;
+.container-fluid {
+    height: 100%;
 }
 
 img {
@@ -149,7 +149,7 @@ p {
 
 #cart-recap p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 #cart-recap p:nth-child(2) {
@@ -158,11 +158,6 @@ p {
 
 .list-group-item {
     border-color: coral;
-}
-
-#copies-selector {
-    position: absolute;
-    bottom: 0;
 }
 
 /* Chrome, Safari, Edge, Opera */
