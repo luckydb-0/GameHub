@@ -26,7 +26,7 @@
                                         <div class="col">
                                             <div class="input-group" id="copies-selector">
                                                 <div class="input-group-prepend">
-                                                    <button type="button" class="btn btn-sm" id="minus">
+                                                    <button type="button" class="btn btn-sm" disabled id="minus">
                                                         <div class="fa fa-minus"></div>
                                                     </button>
                                                 </div>
