@@ -32,7 +32,7 @@ class DatabaseHelper{
     // Useful for searches by category name
     public function getGameByCategory($category){
         $stmt = $this->db->prepare("");
-        // $stmt->bind_param('c', $category);
+        // $stmt->bind_param('i', $category);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -63,9 +63,36 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getImageNameById($id){
+        $stmt = $this->db->prepare("");
+        // $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameNameById($id){
+        $stmt = $this->db->prepare("");
+        // $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGamePriceById($id){
+        $stmt = $this->db->prepare("");
+        // $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getCategoryById($idcategory){
         $stmt = $this->db->prepare("");
-        $stmt->bind_param('i',$idcategory);
+        //$stmt->bind_param('i',$idcategory);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -75,7 +102,7 @@ class DatabaseHelper{
     public function getGameById($id){
         $query = "";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('i',$id);
+        //$stmt->bind_param('i',$id);
         $stmt->execute();
         $result = $stmt->get_result();
 
