@@ -13,6 +13,7 @@ create table customer (
      name varchar(128) not null,
      surname varchar(128) not null,
      birthDate date not null,
+     phone char(10) not null,
      email varchar(128) not null,
      password varchar(128) not null,
      constraint IDcustomer_id primary key (userId));
