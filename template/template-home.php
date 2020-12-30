@@ -50,34 +50,32 @@
             </a>
         
         </div>
-    </div>
-</div>
-<div class="row mx-0">
-    <div class="col-*-12">
-        <h2>Preordina</h2>
-    </div>
-</div>
-<div class="row bg-dark mx-0">
-    <?php foreach($templateParams["preorder"] as $game): ?>
-    <div class="col-m*-12">
-        <a href=#>
-            <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
-            <figcaption><?php echo $game["name"]." - ".$game["price"]."€"; ?></figcaption>
-        </a>
-    </div>
-    <?php endforeach; ?>
-</div>
-<div class="row mx-0">
-    <div class="col-*-12">
-        <h2>I più venduti</h2>
-    </div>
-</div>
-<div class="row bg-dark mx-0">
-    <?php foreach($templateParams["mostSold"] as $game): ?>
-    <div class="col-m*-12">
-        <a href=#>
-            <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
-        </a>
-    </div>
-    <?php endforeach; ?>
-</div>
+        <div class="row mx-0">
+            <div class="col-*-12">
+                <h2>Preordina</h2>
+            </div>
+        </div>
+        <div class="row bg-dark mx-0">
+            <?php foreach($templateParams["preorder"] as $game): ?>
+            <div class="col-m*-12 my-auto">
+                <a href=#>
+                    <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
+                    <figcaption><?php echo $game["name"]." - ".$game["price"]."€"; ?></figcaption>
+                </a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="row mx-0">
+            <div class="col-*-12">
+                <h2>I più venduti</h2>
+            </div>
+        </div>
+        <div class="row bg-dark mx-0">
+            <?php foreach($templateParams["mostSold"] as $game): ?>
+            <div class="col-m*-12 my-auto">
+                <a href=#>
+                    <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
+                </a>
+            </div>
+            <?php endforeach; ?>
+        </div>

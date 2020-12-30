@@ -114,13 +114,13 @@ insert into videogame (title, soldCopies, releaseDate, developerId, platformId, 
 
 /* CUSTOMERS */
 
-insert into customer (name, surname, birthDate, email, password) values ('Giorgio', 'Rossi', '1998/12/31', 'giorgio.rossi98@gmail.com', 'rossipower');
+insert into customer (name, surname, birthDate, email, password, phone) values ('Giorgio', 'Rossi', '1998/12/31', 'giorgio.rossi98@gmail.com', 'rossipower', '3551204567');
 
-insert into customer (name, surname, birthDate, email, password) values ('Gianluca', 'De Bonis', '1998/09/23', 'gianluca.debonis@gmail.com', 'debonispower');
+insert into customer (name, surname, birthDate, email, password, phone) values ('Gianluca', 'De Bonis', '1998/09/23', 'gianluca.debonis@gmail.com', 'debonispower', '3448900222');
 
-insert into customer (name, surname, birthDate, email, password) values ('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower');
+insert into customer (name, surname, birthDate, email, password, phone) values ('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower', '3451119834');
 
-insert into customer (name, surname, birthDate, email, password) values ('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower');
+insert into customer (name, surname, birthDate, email, password, phone) values ('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower', '3449923610');
 
 /* SELLERS */
 
@@ -151,3 +151,206 @@ insert into address (country, city, street, postCode) values ('Italia', 'Cesena'
 insert into address (country, city, street, postCode) values ('Italia', 'Cesena', 'via di Vendita 11', '47521');
 
 insert into address (country, city, street, postCode) values ('Italia', 'Cesena', 'via di Vendita 12', '47521');
+
+/* GAME CATEGORY */
+
+/*
+Category id:
+	1 avventura
+	2 azione 
+	3 corse
+	4 GDR
+	5 Indie
+	6 MMORPG
+	7 Passatempo
+	8 Simulazione
+	9 Sparatutto
+	10 Sport
+	11 Strategia
+*/
+
+insert into game_category (gameId, categoryId) values (1, 1); 
+
+insert into game_category (gameId, categoryId) values (1, 2);
+
+insert into game_category (gameId, categoryId) values (2, 1);
+
+insert into game_category (gameId, categoryId) values (2, 2);
+
+insert into game_category (gameId, categoryId) values (2, 9);
+
+insert into game_category (gameId, categoryId) values (3, 1);
+
+insert into game_category (gameId, categoryId) values (3, 2);
+
+insert into game_category (gameId, categoryId) values (3, 9);
+
+insert into game_category (gameId, categoryId) values (4, 1);
+
+insert into game_category (gameId, categoryId) values (4, 2);
+
+insert into game_category (gameId, categoryId) values (4, 9);
+
+insert into game_category (gameId, categoryId) values (5, 7);
+
+insert into game_category (gameId, categoryId) values (5, 8);
+
+insert into game_category (gameId, categoryId) values (5, 4);
+
+insert into game_category (gameId, categoryId) values (6, 1);
+
+insert into game_category (gameId, categoryId) values (7, 2);
+
+insert into game_category (gameId, categoryId) values (7, 9);
+
+insert into game_category (gameId, categoryId) values (8, 9);
+
+insert into game_category (gameId, categoryId) values (8, 2);
+
+insert into game_category (gameId, categoryId) values (9, 9);
+
+insert into game_category (gameId, categoryId) values (9, 2);
+
+insert into game_category (gameId, categoryId) values (10, 9);
+
+insert into game_category (gameId, categoryId) values (10, 2);
+
+insert into game_category (gameId, categoryId) values (11, 9);
+
+insert into game_category (gameId, categoryId) values (11, 2);
+
+insert into game_category (gameId, categoryId) values (12, 10);
+
+insert into game_category (gameId, categoryId) values (13, 10);
+
+insert into game_category (gameId, categoryId) values (14, 10);
+
+insert into game_category (gameId, categoryId) values (15, 10);
+
+insert into game_category (gameId, categoryId) values (16, 10);
+
+insert into game_category (gameId, categoryId) values (17, 10);
+
+insert into game_category (gameId, categoryId) values (18, 1);
+
+insert into game_category (gameId, categoryId) values (18, 2);
+
+/* GAME COPY */
+
+insert into game_copy (gameId, price) values (1, 21.99);
+
+insert into game_copy (gameId, price) values (2, 80.99);
+
+insert into game_copy (gameId, price) values (3, 80.99);
+
+insert into game_copy (gameId, price) values (4, 59.99);
+
+insert into game_copy (gameId, price) values (5, 60.99);
+
+insert into game_copy (gameId, price) values (6, 80.99);
+
+insert into game_copy (gameId, price) values (7, 60.99);
+
+insert into game_copy (gameId, price) values (8, 60.99);
+
+insert into game_copy (gameId, price) values (9, 29.99);
+
+insert into game_copy (gameId, price) values (10, 29.99);
+
+insert into game_copy (gameId, price) values (11, 14.99);
+
+insert into game_copy (gameId, price) values (12, 70.99);
+
+insert into game_copy (gameId, price) values (13, 70.99);
+
+insert into game_copy (gameId, price) values (14, 60.99);
+
+insert into game_copy (gameId, price) values (15, 60.99);
+
+insert into game_copy (gameId, price) values (16, 40.99);
+
+insert into game_copy (gameId, price) values (17, 30.99);
+
+insert into game_copy (gameId, price) values (18, 40.99);
+
+insert into game_copy (gameId, price) values (18, 39.99);
+
+insert into game_copy (gameId, price) values (12, 70.99);
+
+insert into game_copy (gameId, price) values (8, 50.99);
+
+insert into game_copy (gameId, price) values (1, 21.99);
+
+insert into game_copy (gameId, price) values (6, 80.99);
+
+insert into game_copy (gameId, price) values (10, 25.99);
+
+insert into game_copy (gameId, price) values (11, 14.99);
+
+insert into game_copy (gameId, price) values (13, 70.99);
+
+
+/* SELLER ADDRESS */
+
+insert into seller_address (sellerId, addressId) values (1, 5);
+
+insert into seller_address (sellerId, addressId) values (2, 6);
+
+/* CATALOGUE */
+
+insert into catalogue (sellerId) values (1);
+
+insert into catalogue (sellerId) values (2);
+
+/* COPY IN CATALOGUE */
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 1);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 2);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 3);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 4);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 5);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 6);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 7);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 8);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 9);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 10);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 11);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 12);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 13);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 14);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 15);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 16);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 17);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (1, 18);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 19);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 20);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 21);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 22);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 23);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 24);
+
+insert into copy_in_catalogue (catalogueId, copyId) values (2, 25);
+
