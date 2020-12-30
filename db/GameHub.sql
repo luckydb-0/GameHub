@@ -146,6 +146,12 @@ create table wishlist (
      constraint IDWISHLIST primary key (wishlistId),
      constraint FKdesideres_id unique (userId));
 
+create table notification (
+     notificationId int not null AUTO_INCREMENT,
+     userId int not null,
+     description char(128) not null,
+     timeReceived timestamp not null,
+     constraint IDNOTIFICATION primary key (notificationId));
 
 -- Constraints Section
 -- ___________________ 
@@ -253,3 +259,7 @@ alter table videogame add constraint FKis_in_platform
 alter table wishlist add constraint FKdesires_FK
      foreign key (userId)
      references customer (userId);
+
+alter table notification add constraint FK_notify
+     foreign key (userId)
+     references customer (userId)
