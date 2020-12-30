@@ -58,7 +58,7 @@
         </div>
         <div class="row bg-dark mx-0">
             <?php foreach($templateParams["preorder"] as $game): ?>
-            <div class="col-m*-12">
+            <div class="col-m*-12 my-auto">
                 <a href=#>
                     <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
                     <figcaption><?php echo $game["name"]." - ".$game["price"]."€"; ?></figcaption>
@@ -73,7 +73,7 @@
         </div>
         <div class="row bg-dark mx-0">
             <?php foreach($templateParams["mostSold"] as $game): ?>
-            <div class="col-m*-12">
+            <div class="col-m*-12 my-auto">
                 <a href=#>
                     <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
                 </a>
