@@ -1,4 +1,4 @@
-<?php $user = $templateParams["user"];?>
+<?php $user = $templateParams["user"][0];?>
 
 <div class="col-md-7 my-4 bg-dark rounded offset-md-1">
     <div class="py-3">
@@ -6,17 +6,17 @@
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="name" class="col-11 text-left mt-2">Nome:</label>
-                    <input type="text" class="form-control col-11" disabled id="name" aria-describedby="" placeholder="<?php echo $user[0]["name"];?>">
+                    <input type="text" class="form-control col-11" disabled id="name" aria-describedby="" placeholder="<?php echo $user["name"];?>">
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="surname" class="col-11 text-left mt-2">Cognome:</label>
-                    <input type="text" class="form-control col-11" disabled id="surname" aria-describedby="" placeholder="<?php echo $user[0]["surname"];?>">
+                    <input type="text" class="form-control col-11" disabled id="surname" aria-describedby="" placeholder="<?php echo $user["surname"];?>">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="birthdate" class="col-11 text-left mt-2">Data di nascita:</label>
-                    <input type="text" class="form-control col-11" disabled id="birthdate" aria-describedby="" placeholder="<?php echo reverseDate($user[0]["birthDate"]);?>">
+                    <input type="text" class="form-control col-11" disabled id="birthdate" aria-describedby="" placeholder="<?php echo reverseDate($user["birthDate"]);?>">
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="phone-number" class="col-11 text-left mt-2">Telefono:</label>
@@ -26,7 +26,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="email" class="col-11 text-left mt-2">Email:</label>
-                    <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp" placeholder="<?php echo $user[0]["email"];?>">
+                    <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp" placeholder="<?php echo $user["email"];?>">
                 </div>
             </div>
             <div class="form-row">

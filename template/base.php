@@ -1,3 +1,13 @@
+<?php 
+  if(isUserLoggedIn()) {
+    $button = "Profilo";
+    $link = "profile.php";
+  } else {
+    $button = "Login";
+    $link = "login.php";
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -33,7 +43,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto my-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="profile.php">Profilo<span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="<?php echo $link; ?>"><?php echo $button; ?><span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
