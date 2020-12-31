@@ -147,7 +147,11 @@ p {
     margin-bottom: 0;
 }
 
-#cart-recap img{
+#cart-order-recap {
+    
+}
+
+#cart-recap img, #seller-order-recap img {
     display: block;
     max-height: auto;
     max-width: 100%;
