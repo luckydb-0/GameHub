@@ -1,56 +1,56 @@
-        <div class="row justify-content-center mx-0">
-            <div class="col-*-12 my-3">
-                <h2>Ultime Uscite</h2>
-            </div>
-        </div>
-        <div class="row justify-content-center mx-0">
-            <div class="container bg-dark py-3">
-                <!-- Fare altro carousel per schermi piccoli-->
-                <div id="ultime-uscite" class="carousel slide" data-ride="carousel">
+<div class="row justify-content-center mx-0">
+    <div class="col-*-12 my-3">
+        <h2>Ultime Uscite</h2>
+    </div>
+</div>
+<div class="row justify-content-center mx-0">
+    <div class="container bg-dark py-3">
+        <!-- Fare altro carousel per schermi piccoli-->
+        <div id="ultime-uscite" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicators -->
-                    <ul class="carousel-indicators">
-                    <li data-target="#ultime-uscite" data-slide-to="0" class="active"></li>
-                    <li data-target="#ultime-uscite" data-slide-to="1"></li>
-                    <li data-target="#ultime-uscite" data-slide-to="2"></li>
-                    </ul>
-                
-                    <!-- The slideshow -->
-                    <div class="carousel-inner my-3">
-                        <div class="carousel-item active">
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+            <li data-target="#ultime-uscite" data-slide-to="0" class="active"></li>
+            <li data-target="#ultime-uscite" data-slide-to="1"></li>
+            <li data-target="#ultime-uscite" data-slide-to="2"></li>
+            </ul>
+        
+            <!-- The slideshow -->
+            <div class="carousel-inner my-3">
+                <div class="carousel-item active">
 
-                            <div class="row text-center">
-                                <div class="col-md-6">
-                                    <div>
-                                        <a href="article.php">
-                                            <img src="img/GoW.jpg" alt="God of War PS4" class="img-thumbnail">
-                                            <p>God of War</p>
-                                        </a>
-                                    </div>        
-                                </div>
-                                <div class="col-md-6 clearfix">
-                                    <div>
-                                        <a href="article.php">
-                                            <img src="img/DG.jpg" alt="Days Gone PS4" class="img-thumbnail">
-                                            <p>Days Gone</p>
-                                        </a>
-                                    </div>        
-                                </div>
-                            </div>
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <div>
+                                <a href="article.php">
+                                    <img src="img/GoW.jpg" alt="God of War PS4" class="img-thumbnail">
+                                    <p>God of War</p>
+                                </a>
+                            </div>        
+                        </div>
+                        <div class="col-md-6 clearfix">
+                            <div>
+                                <a href="article.php">
+                                    <img src="img/DG.jpg" alt="Days Gone PS4" class="img-thumbnail">
+                                    <p>Days Gone</p>
+                                </a>
+                            </div>        
                         </div>
                     </div>
-                
-                    <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#ultime-uscite" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#ultime-uscite" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    </a>
-                
                 </div>
             </div>
+        
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#ultime-uscite" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#ultime-uscite" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            </a>
+        
         </div>
+    </div>
+</div>
         <div class="row mx-0">
             <div class="col-*-12">
                 <h2>Preordina</h2>

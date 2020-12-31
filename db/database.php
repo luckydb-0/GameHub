@@ -9,6 +9,69 @@ class DatabaseHelper{
             die("Connection failed: " . $db->connect_error);
         }        
     }
+
+    /* IMPLEMENTATE */
+
+    public function checkLogin($email, $password){
+        $query = "SELECT * FROM customer WHERE email = ? AND password = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$email, $password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserData($id) {
+        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email FROM customer WHERE userId = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserOrders($userId){
+        $stmt = $this->db->prepare("SELECT orderId FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
+        $stmt->bind_param('i',$userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getCopiesInOrder($orderId) {
+        $stmt = $this->db->prepare("SELECT copyId FROM copy_in_order WHERE orderId = ?");
+        $stmt->bind_param('i', $orderId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameFromCopy($copyId) {
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name as platform, C.price
+        FROM videogame V JOIN game_copy C ON V.gameId = C.gameId JOIN platform P ON V.platformId = P.platformId
+        where C.copyId = ?");
+        $stmt->bind_param('i', $copyId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameFromId($gameId) {
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, C.price
+        FROM videogame V JOIN game_copy C ON V.gameId = C.gameId JOIN platform P ON V.platformId = P.platformId
+        where V.gameId = ?");
+        $stmt->bind_param('i', $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /* DA IMPLEMENTARE */
     
     // n = number of random games
     public function getRandomGames($n){
@@ -120,15 +183,6 @@ class DatabaseHelper{
     }
 
     public function getUserWishlist($user){
-        $stmt = $this->db->prepare("");
-        // $stmt->bind_param('i',$user);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getUserOrders($user){
         $stmt = $this->db->prepare("");
         // $stmt->bind_param('i',$user);
         $stmt->execute();
