@@ -22,23 +22,6 @@
                                             <div aria-hidden="true">&times;</div>
                                         </button>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="input-group" id="copies-selector">
-                                                <div class="input-group-prepend">
-                                                    <button type="button" class="btn btn-sm" disabled id="minus">
-                                                        <div class="fa fa-minus"></div>
-                                                    </button>
-                                                </div>
-                                                <input type="number" class="form-control form-control-sm" value="1" id="copies-number">
-                                                <div class="input-group-append">
-                                                    <button type="button" class="btn btn-sm" id="plus">
-                                                        <div class="fa fa-plus"></div>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>  
                         </li>

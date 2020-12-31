@@ -1,4 +1,3 @@
-<?php var_dump($_GET); ?>
 <div class="row justify-content-center mx-0">
     <div class="col-*-12 my-3">
         <h2>Ultime Uscite</h2>
@@ -50,6 +49,8 @@
             </a>
         
         </div>
+    </div>
+</div>
         <div class="row mx-0">
             <div class="col-*-12">
                 <h2>Preordina</h2>
