@@ -50,9 +50,9 @@ class DatabaseHelper{
     }
 
     public function getGameFromCopy($copyId) {
-        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, C.price
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name as platform, C.price
         FROM videogame V JOIN game_copy C ON V.gameId = C.gameId JOIN platform P ON V.platformId = P.platformId
-        where C.copyId = ?")
+        where C.copyId = ?");
         $stmt->bind_param('i', $copyId);
         $stmt->execute();
         $result = $stmt->get_result();
