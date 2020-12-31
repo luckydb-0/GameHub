@@ -60,9 +60,9 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGameFromId($gameId) {
-        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, C.price
-        FROM videogame V JOIN game_copy C ON V.gameId = C.gameId JOIN platform P ON V.platformId = P.platformId
+    public function getGameById($gameId) {
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.suggestedPrice
+        FROM videogame V JOIN platform P ON V.platformId = P.platformId
         where V.gameId = ?");
         $stmt->bind_param('i', $gameId);
         $stmt->execute();
@@ -71,6 +71,43 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getCopiesInCart($userId){
+        $stmt = $this->db->prepare("SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
+        WHERE C.userId = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGamesInWishlist($userId){
+        $stmt = $this->db->prepare("SELECT gameId FROM game_in_wishlist CW join wishlist W ON CW.wishlistId = W.wishlistId 
+        WHERE W.userId = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserNotifications($userId) {
+        $stmt = $this->db->prepare("SELECT notificationId, timeReceived, description FROM notification WHERE userId = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserCreditCards($user) {
+        $stmt = $this->db->prepare("SELECT ccnumber, expiration FROM credit_card WHERE userId = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     /* DA IMPLEMENTARE */
     
     // n = number of random games
@@ -162,38 +199,10 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getGameById($id){
-        $query = "";
-        $stmt = $this->db->prepare($query);
-        //$stmt->bind_param('i',$id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     // For "search" option
     public function getGameByName($name){
         $stmt = $this->db->prepare("");
         // $stmt->bind_param('n',$name);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getUserWishlist($user){
-        $stmt = $this->db->prepare("");
-        // $stmt->bind_param('i',$user);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getUserCart($user){
-        $stmt = $this->db->prepare("");
-        // $stmt->bind_param('i',$user);
         $stmt->execute();
         $result = $stmt->get_result();
 

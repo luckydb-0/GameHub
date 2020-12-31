@@ -26,10 +26,17 @@
             case "wishlist":
                 $templateParams["page"] = "wishlist";
                 $templateParams["header"] = "La mia lista dei desideri";
+                $templateParams["games"] = $dbh->getGamesInWishlist($_SESSION["userId"]);
+
+                foreach($templateParams["games"] as $game) {
+                    $gameId = $game["gameId"];
+                    $templateParams["g"."$copyId"] = $dbh->getGameById($gameId);
+                }
                 break;
             case "notifications":
                 $templateParams["page"] = "notifications";
                 $templateParams["header"] = "Le mie notifiche";
+                $templateParams["notifications"] = $dbh->getUserNotifications($_SESSION["userId"]);
         }
     }
 

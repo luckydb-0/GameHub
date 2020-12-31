@@ -1,46 +1,32 @@
-<div class="col-md-7 my-4 rounded offset-md-1 px-0">      
-    <ul class="list-group m-0">
-        <li class="list-group-item bg-dark">
-            <div class="row">
-                <div class="col-4 col-sm-3 col-md-4 col-lg-4 col-xl-3">
-                    <img src="img/GoW.jpg" alt="God Of War - PS4" class="img-fluid">
-                </div>
-                <div class="col-5 col-md-3 col-xl-4 my-auto">
-                    <ul class="ml-0 pl-0">
-                        <li>God of War</li>
-                        <li>PS4</li>
-                        <li>69.99€</li>
-                    </ul>
-                </div>
-                <div class="col-3 col-sm-4 col-md-5 col-lg-4 text-right offset-lg-1">
-                    <div class="row d-flex justify-content-end">
-                        <button type="button" class="close mr-1" aria-label="Close">
-                            <div aria-hidden="true">&times;</div>
-                        </button>
-                    </div>
-                </div>
-            </div>  
-        </li>
-        <li class="list-group-item bg-dark">
-            <div class="row">
-                <div class="col-4 col-sm-3 col-md-4 col-lg-4 col-xl-3">
-                    <img src="img/GoW.jpg" alt="God Of War - PS4" class="img-fluid">
-                </div>
-                <div class="col-5 col-md-3 col-xl-4 my-auto">
-                    <ul class="ml-0 pl-0">
-                        <li>God of War</li>
-                        <li>PS4</li>
-                        <li>69.99€</li>
-                    </ul>
-                </div>
-                <div class="col-3 col-sm-4 col-md-5 col-lg-4 text-right offset-lg-1">
-                    <div class="row d-flex justify-content-end">
-                        <button type="button" class="close mr-1" aria-label="Close">
-                            <div aria-hidden="true">&times;</div>
-                        </button>
-                    </div>
-                </div>
-            </div>  
-        </li>
-    </ul>
+<div class="col-md-7 offset-md-1 px-0">
+    <?php 
+        if(count($templateParams["games"]) > 0):
+    ?>
+    <table class="table table-dark table-striped my-4">
+        <thead>
+            <tr>
+                <th id="Immagine">Immagine</th>
+                <th id="Nome">Nome</th>
+                <th id="Piattaforma">Piattaforma</th>
+                <th id="Prezzo consigliato">Prezzo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($templateParams["games"] as $game): 
+                $gameId = $copy["gameId"];
+            ?>
+            <tr> 
+                <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["g"."$gameId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
+                <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["g"."$gameId"][0]["title"]; ?></td>
+                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["g"."$gameId"][0]["platform"]; ?></td>
+                <td headers="Prezzo consigliato" data-label="Prezzo"><?php echo $templateParams["g"."$gameId"][0]["price"]."€"; ?></form></td>
+            </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
+    <?php else: ?>
+        <div class="bg-dark my-5 py-5 px-3 rounded text-center">
+            <h2>La tua lista dei desideri è vuota<h2>
+        </div>
+    <?php endif; ?>
 </div>

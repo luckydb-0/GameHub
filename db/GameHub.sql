@@ -18,10 +18,10 @@ create table customer (
      password varchar(128) not null,
      constraint IDcustomer_id primary key (userId));
 
-create table wishlist_article (
+create table game_in_wishlist (
      wishlistId int not null,
      gameId int not null,
-     constraint IDwishlist_article primary key (wishlistId, gameId));
+     constraint IDgame_in_wishlist primary key (wishlistId, gameId));
 
 create table cart (
      cartId int not null AUTO_INCREMENT,
@@ -31,6 +31,7 @@ create table cart (
 
 create table credit_card (
      ccnumber char(20) not null,
+     accountHolder varchar(128) not null,
      expiration date not null,
      cvv char(3) not null,
      userId int not null,
@@ -55,7 +56,8 @@ create table category (
 create table game_copy (
      gameId int not null,
      copyId int not null AUTO_INCREMENT,
-     price float(6) not null,
+     price float not null,
+     sold boolean not null,
      constraint IDgame_copy_id primary key (copyId));
 
 create table copy_in_catalogue (
@@ -103,7 +105,7 @@ create table seller_address (
 create table _order (
      orderId int not null AUTO_INCREMENT,
      orderDate date not null,
-     total int not null,
+     total float not null,
      userId int not null,
      constraint IDorder_id primary key (orderId));
 
@@ -139,6 +141,7 @@ create table videogame (
      developerId int not null,
      platformId int not null,
      image varchar(128) not null,
+     suggestedPrice float not null,
      constraint IDvideogame_id primary key (gameId));
 
 create table wishlist (
