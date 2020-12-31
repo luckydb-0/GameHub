@@ -239,5 +239,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSellerData($seller_id) {
+        $stmt = $this->db->prepare("SELECT name, email, p_iva, phone FROM seller WHERE sellerId = ?");
+        $stmt->bind_param('i', $seller_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
 }
 ?>

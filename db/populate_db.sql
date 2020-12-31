@@ -354,3 +354,24 @@ insert into copy_in_catalogue (catalogueId, copyId) values (2, 24);
 
 insert into copy_in_catalogue (catalogueId, copyId) values (2, 25);
 
+/* _ORDER */
+
+insert into _order (userId, orderDate, total) values (1, '2020/11/20', 82.98);
+
+insert into _order (userId, orderDate, total) values (1, '2020/07/03', 60.99);
+
+insert into _order (userId, orderDate, total) values (2, '2020/10/15', 60.99);
+
+insert into _order (userId, orderDate, total) values (3, '2020/12/22', 30.99);
+
+/* COPY_IN_ORDER */
+
+insert into copy_in_order (copyId, orderId) values (1, 1);
+
+insert into copy_in_order (copyId, orderId) values (6, 1);
+
+insert into copy_in_order (copyId, orderId) values (14, 2);
+
+insert into copy_in_order (copyId, orderId) values (9, 3);
+
+insert into copy_in_order (copyId, orderId) values (17, 4);
