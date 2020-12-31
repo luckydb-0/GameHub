@@ -70,6 +70,15 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+	
+	public function getSellerData($seller_id) {
+        $stmt = $this->db->prepare("SELECT name, email, p_iva, phone FROM seller WHERE sellerId = ?");
+        $stmt->bind_param('i', $seller_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     /* DA IMPLEMENTARE */
     
@@ -268,34 +277,6 @@ class DatabaseHelper{
 
     public function getGameSellers($game_name){
         $stmt = $this->db->prepare("");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function checkLogin($username, $password){
-        $query = "SELECT idautore, username, nome FROM autore WHERE attivo=1 AND username = ? AND password = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$username, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getUserData($id) {
-        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email FROM customer WHERE userId = ?");
-        $stmt->bind_param('i', $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getSellerData($seller_id) {
-        $stmt = $this->db->prepare("SELECT name, email, p_iva, phone FROM seller WHERE sellerId = ?");
-        $stmt->bind_param('i', $seller_id);
         $stmt->execute();
         $result = $stmt->get_result();
 
