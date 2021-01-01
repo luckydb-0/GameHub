@@ -23,7 +23,7 @@ class DatabaseHelper{
     }
 
     public function getUserData($id) {
-        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email FROM customer WHERE userId = ?");
+        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email, phone FROM customer WHERE userId = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -80,10 +80,30 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSellerOrders($seller_id) {
+        $stmt = $this->db->prepare("SELECT O.orderDate, O.total, O.userId, O.orderId FROM _order O JOIN order_seller OS
+        ON O.orderId = OS.orderId JOIN seller S ON S.sellerId = OS.sellerId WHERE S.sellerId = ?");
+        $stmt->bind_param('i', $seller_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+        
     public function getCopiesInCart($userId){
         $stmt = $this->db->prepare("SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
         WHERE C.userId = ?");
         $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserAddress($user_id) {
+        $stmt = $this->db->prepare("SELECT A.country, A.city, A.street, A.postCode FROM address A JOIN
+        shipping S ON A.addressId = S.addressId JOIN customer C ON C.userId = ?");
+        $stmt->bind_param('i', $user_id);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -100,6 +120,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getPlatforms() {
+        $stmt = $this->db->prepare("SELECT name FROM platform");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getUserNotifications($userId) {
         $stmt = $this->db->prepare("SELECT notificationId, timeReceived, description FROM notification WHERE userId = ?");
         $stmt->bind_param('i', $userId);
@@ -109,9 +137,44 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getCategories() {
+        $stmt = $this->db->prepare("SELECT categoryName FROM category");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getDevelopers() {
+        $stmt = $this->db->prepare("SELECT name FROM developer");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameByCategory($category){
+        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN game_category GC ON 
+        V.gameId = GC.gameId JOIN category C ON C.categoryId = GC.categoryId WHERE C.categoryName = ?");
+        $stmt->bind_param('s', $category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameByConsole($console){
+        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN platform P ON
+         P.platformId = V.platformId WHERE P.name = ?");
+        $stmt->bind_param('s', $console);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+        
     public function getUserCreditCards($userId) {
-        $stmt = $this->db->prepare("SELECT accountHolder, ccnumber, expiration FROM credit_card WHERE userId = ?");
-        $stmt->bind_param('i', $userId);
+        $stmt = $this->db->prepare("SELECT accountHolder, ccnumber, expiration FROM credit_card WHERE userId = ?");$stmt->bind_param('i', $userId);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -134,6 +197,45 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    /* DA IMPLEMENTARE */
+    
+    public function getGameByDeveloper($developer){
+        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D ON
+         D.developerId = V.developerId WHERE D.name = ?");
+        $stmt->bind_param('s', $developer);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice) {
+        $categoryResults = array();
+        $consoleResults = array();
+
+        foreach($categoryNames as $category) {
+            $categoryResults = $this->getGameByCategory($category);
+        }
+
+        foreach($consoleNames as $console) {
+            $consoleResults = $this->getGameByConsole($console);
+        }
+
+        $developerResults = $this->getGameByDeveloper($developerName);
+        $result = array_unique(array_merge($categoryResults, $consoleResults, $developerResults), SORT_REGULAR);
+
+        return $result;
+    }
+
+    public function filterGamesByPrice($gamesId, $price){
+        $stmt = $this->db->prepare("");
+        //$stmt->bind_param('i', );
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
     /* DA IMPLEMENTARE */
     
@@ -150,16 +252,6 @@ class DatabaseHelper{
     public function getSuggestedGames($n){
         $stmt = $this->db->prepare("");
         // $stmt->bind_param('i',$n);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }    
-
-    // Useful for searches by category name
-    public function getGameByCategory($category){
-        $stmt = $this->db->prepare("");
-        // $stmt->bind_param('i', $category);
         $stmt->execute();
         $result = $stmt->get_result();
 

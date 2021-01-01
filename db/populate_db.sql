@@ -393,3 +393,23 @@ insert into copy_in_order (copyId, orderId) values (14, 2);
 insert into copy_in_order (copyId, orderId) values (9, 3);
 
 insert into copy_in_order (copyId, orderId) values (17, 4);
+
+/* ORDER_SELLER */
+
+insert into order_seller (sellerId, orderId) values (1, 1);
+
+insert into order_seller (sellerId, orderId) values (1, 2);
+
+insert into order_seller (sellerId, orderId) values (2, 3);
+
+insert into order_seller (sellerId, orderId) values (2, 4);
+
+/* SHIPPING */
+
+insert into shipping (addressId, userId) values (1, 1);
+
+insert into shipping (addressId, userId) values (2, 2);
+
+insert into shipping (addressId, userId) values (3, 3);
+
+insert into shipping (addressId, userId) values (4, 4);
