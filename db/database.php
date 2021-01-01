@@ -109,14 +109,32 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getUserCreditCards($user) {
-        $stmt = $this->db->prepare("SELECT ccnumber, expiration FROM credit_card WHERE userId = ?");
+    public function getUserCreditCards($userId) {
+        $stmt = $this->db->prepare("SELECT accountHolder, ccnumber, expiration FROM credit_card WHERE userId = ?");
         $stmt->bind_param('i', $userId);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function addCreditCard($userId, $accountHolder, $ccnumber, $expiration, $cvv) {
+        $stmt = $this->db->prepare("INSERT INTO credit_card (userId, accountHolder, ccnumber, expiration, cvv) VALUES (?, ?, ?, ?, ?)");
+        $expDate = $expiration."-01";
+        $stmt->bind_param('isisi', $userId, $accountHolder, $ccnumber, $expDate, $cvv);
+        $stmt->execute();
+    }
+
+    public function getUserAddresses($userId) {
+        $stmt = $this->db->prepare("SELECT country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
+        WHERE S.userId = ?");
+        $stmt->bind_param('i', $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     /* DA IMPLEMENTARE */
     
     // n = number of random games

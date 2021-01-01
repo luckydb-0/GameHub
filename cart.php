@@ -6,8 +6,12 @@
     $templateParams["js"]["input"] = "input.js";
     $templateParams["copies"] = $dbh->getCopiesInCart($_SESSION["userId"]);
     $templateParams["creditCards"] = $dbh->getUserCreditCards($_SESSION["userId"]);
+    $templateParams["addresses"] = $dbh->getUserAddresses($_SESSION["userId"]);
 
     var_dump($_POST);
+    if(isset($_POST["saveMethod"])) {
+        $dbh->addCreditCard($_SESSION["userId"], $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
+    }
 
     foreach($templateParams["copies"] as $copy) {
         $copyId = $copy["copyId"];

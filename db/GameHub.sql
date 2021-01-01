@@ -107,6 +107,7 @@ create table _order (
      orderDate date not null,
      total float not null,
      userId int not null,
+     addressId int not null,
      constraint IDorder_id primary key (orderId));
 
 create table copy_in_order (
@@ -267,3 +268,7 @@ alter table wishlist add constraint FKdesires_FK
 alter table notification add constraint FK_notify
      foreign key (userId)
      references customer (userId)
+
+     alter table notification add constraint FK_order_address
+     foreign key (addressId)
+     references address (addressId)

@@ -1,10 +1,10 @@
 <div class="row mx-3">
     <div class="offset-1 my-3"><h2>Carrello</h2></div>
 </div>  
-<div class="row mx-0"> 
-    <?php 
+<?php 
         if(count($templateParams["copies"]) > 0):
-    ?>    
+?>   
+<div class="row mx-0">     
     <div class="col-md-7 offset-md-1 px-0">
         <table class="table table-dark table-striped">
             <thead>
@@ -39,62 +39,128 @@
         <p class="cart-price"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></p>
         <?php endforeach; ?>
         <p class="cart-total mr-0">Totale: <?php echo $sum?>€</p>
-        <div class="form-group text-right mb-auto mt-5">
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#orderModal">Ordina ora</button>
-            
-            <!-- The Modal -->
-            <div class="modal fade text-dark" id="orderModal">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Ordina ora</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+</div>
+<div class="row mx-0 my-3 justify-content-center">
+    <div class="col-12 col-md-10 bg-dark p-3 rounded">
+        <?php 
+            if(count($templateParams["creditCards"]) > 0 && count($templateParams["addresses"]) > 0):
+        ?>
+            <form action="#" method="POST">
+            <h2> Seleziona metodo di pagamento: </h2>
+            <fieldset id="creditCard">
+        <?php
+            foreach($templateParams["creditCards"] as $creditCard):
+        ?>
+                <div class="form-check text-left">
+                    <label class="form-check-label" for="<?php echo $creditCard["ccnumber"]; ?>">
+                    <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="credirtCard" value="<?php echo $creditCard["ccnumber"]; ?>"/>
+                    <?php echo $creditCard["accountHolder"]." - Termina con ".substr($creditCard["ccnumber"], 16, 4) ; ?>
+                    </label>                    
                 </div>
-                
-                <!-- Modal body -->
-                <div class="modal-body text-center">
-                    <?php
-                        if(count($templateParams["creditCards"]) == 0):
-                    ?>
-                    <h2> Non hai metodi di pagamento associati </h2>
-                    <form id="orderForm" role="form" action="#" method="POST">
-                        <h3>Aggiungi un metodo di pagamento</h3>
-                            <div class="form-group text-left">
-                                <label for="accountHolder">Titolare della carta: </label>
-                                <input type="text" class="form-control w-50" id="accountHolder" name="accountHolder"/>
-                            </div>
-                            <div class="form-group text-left">
-                                <label for="ccnumber">Numero della carta: </label>
-                                <input type="text" class="form-control w-50" id="ccnumber" maxlength="20" size="20" name="ccnumber" />
-                            </div>
-                            <div class="form-group text-left">
-                                <label for="expiration">Expiration: </label>
-                                <input type="month" class="form-control w-50" id="expiration" name="expiration" />
-                            </div>
-                            <div class="form-group text-left">
-                                <label for="cvv">CVV: </label>
-                                <input type="text" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" />
-                            </div>
-                            <div class="checkbox text-left">
-                                <label><input type="checkbox" value="payment_method"> Salva metodo di pagamento </label>
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-						        <input type="submit" class="btn btn-success" id="submit">
-                            </div>
+        <?php endforeach; ?>
+            </fieldset>
+            <fieldset id="address">
+                <h2> Seleziona indirizzo di spedizione: </h2>
+                <?php 
+                    foreach($templateParams["addresses"] as $address):
+                ?>
+                        <div class="form-check text-left">
+                            <label class="form-check-label" for="<?php echo $address["city"]." - ".$address["street"]; ?>">
+                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="address" value="<?php echo $address["city"]." - ".$address["street"]; ?>"/>
+                            <?php echo $address["city"]." - ".$address["street"]." - ".$address["postCode"]; ?>
+                            </label>
+                            
+                        </div>
+                <?php endforeach; ?>
+            </fieldset>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <input type="submit" class="btn btn-light" value="Ordina">
+                </div>                
+            </div>                
+        </form>
+        <p> oppure </p>
+        <?php
+            else: 
+                if(count($templateParams["creditCards"]) == 0){
+                    echo "<h2> Non hai metodi di pagamento associati </h2>";
+                };
+                if(count($templateParams["creditCards"]) == 0){
+                    echo "<h2> Non hai indirizzi di spedizione associati </h2>";
+                };
+            endif;
+        ?>
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-light m-3" id="addCardBtn"><p>Aggiungi un metodo di pagamento</p></button>
+                <div id="addCard" class="hidden mt-3" style="display: none;">
+                    <form action="#" method="POST">
+                        <div class="form-group text-left">
+                            <label for="accountHolder">Titolare della carta: </label>
+                            <input type="text" class="form-control w-50" id="accountHolder" name="accountHolder" required />
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="ccnumber">Numero della carta: </label>
+                            <input type="text" class="form-control w-50" id="ccnumber" maxlength="20" size="20" name="ccnumber" required />
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="expiration">Expiration: </label>
+                            <input type="month" class="form-control w-50" id="expiration" name="expiration" required/>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="cvv">CVV: </label>
+                            <input type="text" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" required />
+                        </div>
+                        <div class="checkbox text-left">
+                            <label><input type="checkbox" name="saveMethod"> Salva metodo di pagamento </label>
+                        </div>
+                        <div class="text-right">
+                            <input type="submit" class="btn btn-light" value="Salva modifiche"/>
+                        </div>
                     </form>
-                    <?php endif; ?>
-                </div>
-                
                 </div>
             </div>
         </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-light m-3" id="addShippingBtn"><p>Aggiungi un indirizzo di spedizione </p></button>
+                <div id="addShipping" class="hidden mt-3" style="display: none;">
+                    <form action="#" method="POST">
+                        <div class="form-group text-left">
+                            <label for="country"> Nazione: </label>
+                            <input type="text" class="form-control w-50" id="country" name="country" required />
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="city">Città: </label>
+                            <input type="text" class="form-control w-50" id="city" name="city" required />
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="street">Via: </label>
+                            <input type="text" class="form-control w-50" id="street" name="street" required/>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="postCode"> CAP: </label>
+                            <input type="number" class="form-control w-25" id="cvv" name="postCode" required />
+                        </div>
+                        <div class="checkbox text-left">
+                            <label><input type="checkbox" name="saveAddress"> Salva indirizzo di spedizione </label>
+                        </div>
+                        <div class="text-right">
+                            <input type="submit" class="btn btn-light" value="Salva modifiche"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
     </div>
-    <?php else: ?>
+</div>
+<?php else: ?>
+    <div class="row">
         <div class="col-10 offset-md-1 bg-dark my-5 py-5 px-3 rounded text-center">
             <h2>Il tuo carrello è vuoto<h2>
         </div>
-    <?php endif; ?>
 </div>
+<?php endif; ?>
