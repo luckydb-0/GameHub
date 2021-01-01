@@ -17,7 +17,7 @@
             case "orders":
                 $templateParams["page"] = "orders";
                 $templateParams["header"] = "Ordini in sospeso";
-                //$templateParams["seller-orders"] = $dbh->getSellerPendingOrders();
+                $templateParams["seller-orders"] = $dbh->getSellerOrders(1);
                 break;
             case "notifications":
                 $templateParams["page"] = "notifications";
