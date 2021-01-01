@@ -58,58 +58,58 @@ insert into developer (name) values ('Rockstar');
 
 /* VIDEOGAMES */
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Animal Crossing', 200, '2020/03/20', 2, 5, 'AnimalCrossing-Switch.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('XIII', 4, '2020/11/10', 2, 5, 'XIII.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 1, 'GTA5-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 2, 'GTA5-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 4, 'GTA5-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 6, 'GTA5-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 1, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 2, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 3, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 4, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 5, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('FIFA 20', 300, '2019/09/25', 1, 6, 'FIFA20-PS4.jpg');
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image) values 
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
 ('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg');
 
 /* CUSTOMERS */
@@ -121,6 +121,24 @@ insert into customer (name, surname, birthDate, email, password, phone) values (
 insert into customer (name, surname, birthDate, email, password, phone) values ('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower', '3451119834');
 
 insert into customer (name, surname, birthDate, email, password, phone) values ('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower', '3449923610');
+
+/* CARTS */
+
+insert into cart (userId) values (1);
+
+insert into cart (userId) values (2);
+
+insert into cart (userId) values (3);
+
+insert into cart (userId) values (4);
+
+/* COPIES IN CART */
+
+insert into copy_in_cart (cartId, copyId) values (1, 1);
+
+insert into copy_in_cart (cartId, copyId) values (1, 2);
+
+insert into copy_in_cart (cartId, copyId) values (1, 3);
 
 /* SELLERS */
 

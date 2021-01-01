@@ -1,6 +1,8 @@
-
-<div class="col-md-7 my-4 offset-md-1 px-0">
-    <table class="table table-dark table-striped">
+<div class="col-md-7 offset-md-1 px-0">
+    <?php 
+        if(count($templateParams["orders"]) > 0):
+    ?>
+    <table class="table table-dark table-striped my-4">
         <thead>
             <tr>
                 <th id="Cod.Ordine">Cod. Ordine</th>
@@ -33,4 +35,9 @@
             <?php endforeach; endforeach;?>
         </tbody>
     </table>
+    <?php else: ?>
+        <div class="bg-dark my-5 py-5 px-3 rounded text-center">
+            <h2>Non hai ordini effettuati<h2>
+        </div>
+    <?php endif; ?>
 </div>
