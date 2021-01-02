@@ -6,31 +6,63 @@ class DatabaseHelper{
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
+            die("Connection failed: " .$this->db->connect_error);
         }        
     }
 
     /* IMPLEMENTATE */
-
     public function checkLogin($email, $password){
-        $query = "SELECT * FROM customer WHERE email = ? AND password = ?";
+        $value = "";
+        if($tmp = $this->getCustomerLogin($email, $password))
+            $value = "c:".$tmp[0]['userId'];
+        if($tmp = $this->getSellerLogin($email,$password))
+            $value = "s:".$tmp[0]['sellerId'];
+        return $value;
+    }
+    public function getCustomerLogin($email, $password)
+    {
+        $query = "SELECT userId FROM customer 
+                    WHERE email=? AND password=?;";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, $password);
+        $stmt->bind_param('ss',$email,$password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getSellerLogin($email, $password)
+    {
+        $query = "SELECT sellerId FROM seller 
+                    WHERE email=? AND password=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$email,$password);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
     public function getUserData($id) {
-        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email, phone FROM customer WHERE userId = ?");
+        if(strpos($id,"c:")!== false)
+            return $this->getCustomerData(substr($id,2));
+        else return $this->getSellerData(substr($id,2));
+    }
+    private function getCustomerData($id){
+        $stmt = $this->db->prepare(
+            "SELECT name, surname, birthDate, email, phone 
+                FROM customer WHERE userId = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    public function getSellerData($id){
+        $stmt = $this->db->prepare(
+            "SELECT name, email, p_iva, phone 
+                    FROM seller WHERE sellerId = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getUserOrders($userId){
         $stmt = $this->db->prepare("SELECT orderId, total FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
         $stmt->bind_param('i',$userId);
@@ -70,15 +102,7 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-	
-	public function getSellerData($seller_id) {
-        $stmt = $this->db->prepare("SELECT name, email, p_iva, phone FROM seller WHERE sellerId = ?");
-        $stmt->bind_param('i', $seller_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
 
     public function getSellerOrders($seller_id) {
         $stmt = $this->db->prepare("SELECT O.orderDate, O.total, O.userId, O.orderId FROM _order O JOIN order_seller OS
