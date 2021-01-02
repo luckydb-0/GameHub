@@ -210,6 +210,11 @@ button#remove {
     outline: none;
 }
 
+#logCheck {
+    color: coral;
+    font-weight: bold;
+}
+
 @media screen and (min-width: 768px)
 {
     #dashboard

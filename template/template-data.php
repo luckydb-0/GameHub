@@ -1,4 +1,4 @@
-<?php $user = $templateParams["user"][0];?>
+<?php $user = $templateParams["user"][0]; ?>
 
 <div class="col-md-7 my-4 bg-dark rounded offset-md-1">
     <div class="py-3">

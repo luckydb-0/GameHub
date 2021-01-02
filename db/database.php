@@ -45,6 +45,7 @@ class DatabaseHelper{
             return $this->getCustomerData(substr($id,2));
         else return $this->getSellerData(substr($id,2));
     }
+
     private function getCustomerData($id){
         $stmt = $this->db->prepare(
             "SELECT name, surname, birthDate, email, phone 
@@ -93,9 +94,9 @@ class DatabaseHelper{
     }
 
     public function getGameById($gameId) {
-        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.suggestedPrice
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.releaseDate, V.description, V.suggestedPrice
         FROM videogame V JOIN platform P ON V.platformId = P.platformId
-        where V.gameId = ?");
+        WHERE V.gameId = ?");
         $stmt->bind_param('i', $gameId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -278,11 +279,29 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
-    /* DA IMPLEMENTARE */
+    public function getGenresFromGameId($gameId) {
+        $stmt = $this->db->prepare("SELECT categoryName FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?");
+        $stmt->bind_param("i", $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameLowestPriceAndSeller($gameId) {
+        $stmt = $this->db->prepare("SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?");
+        $stmt->bind_param('i', $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
     public function getGameByDeveloper($developer){
-        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D ON
-         D.developerId = V.developerId WHERE D.name = ?");
+        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D 
+                                    ON D.developerId = V.developerId WHERE D.name = ?");
         $stmt->bind_param('s', $developer);
         $stmt->execute();
         $result = $stmt->get_result();

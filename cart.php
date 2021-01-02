@@ -4,28 +4,29 @@
     if(!isUserLoggedIn()) {
         header("Location: login.php");
     } else {
+        $userId = substr($_SESSION["userId"], 2);
         $templateParams["title"] = "GameHub - Carrello";
         $templateParams["name"] = "template/template-cart.php";
         $templateParams["js"]["input"] = "input.js";
-        $templateParams["copies"] = $dbh->getCopiesInCart($_SESSION["userId"]);
-        $templateParams["creditCards"] = $dbh->getUserCreditCards($_SESSION["userId"]);
-        $templateParams["addresses"] = $dbh->getUserAddresses($_SESSION["userId"]);
+        $templateParams["copies"] = $dbh->getCopiesInCart($userId);
+        $templateParams["creditCards"] = $dbh->getUserCreditCards($userId);
+        $templateParams["addresses"] = $dbh->getUserAddresses($userId);
 
         if(count($_POST) > 0) {
             if(isset($_POST["remove"])) {
-                $dbh->removeFromCart($_SESSION["userId"], $_POST["remove"]);
+                $dbh->removeFromCart($userId, $_POST["remove"]);
             }
 
             if(isset($_POST["saveMethod"])) {
-                $dbh->addCreditCard($_SESSION["userId"], $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
+                $dbh->addCreditCard($userId, $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
             }
     
             if(isset($_POST["saveAddress"])) {
-                $dbh->addUserAddress($_SESSION["userId"], $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
+                $dbh->addUserAddress($userId, $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
             }
     
             if(isset($_POST["creditCard"]) && isset($_POST["addressId"])) {
-                $dbh->placeOrder($_SESSION["userId"], $_POST["addressId"], $_POST["total"]);
+                $dbh->placeOrder($userId, $_POST["addressId"], $_POST["total"]);
             }
             header("Location: cart.php");
         }
