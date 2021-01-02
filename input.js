@@ -16,13 +16,5 @@ $(document).ready(function () {
             $("#addCard").addClass("hidden").slideUp();
         }
     })
-
-    $("#addShippingBtn").click(function() {
-
-        if($("#addShipping").hasClass("hidden")) {
-            $("#addShipping").removeClass("hidden").slideDown();
-        } else {
-            $("#addShipping").addClass("hidden").slideUp();
-        }
-    })
+    
 });

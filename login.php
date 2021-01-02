@@ -15,7 +15,7 @@
     }
     
     if(isUserLoggedIn()){
-        require 'profile.php';
+        header("Location: profile.php");
     }
 
     require 'template/base.php';
