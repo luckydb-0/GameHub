@@ -7,16 +7,17 @@
     if(!isUserLoggedIn()) {
         header("Location: login.php");
     } else {
+        $userId = substr($_SESSION["userId"], 2);
         if(!isset($_GET["page"])) {
             $templateParams["page"] = "data";
             $templateParams["header"] = "Dati personali";
-            $templateParams["user"] = $dbh->getUserData($_SESSION["userId"]);
+            $templateParams["user"] = $dbh->getUserData("c:".$userId);
         } else {
             switch($_GET["page"]) {
                 case "orders":
                     $templateParams["page"] = "orders";
                     $templateParams["header"] = "I miei ordini";
-                    $templateParams["orders"] = $dbh->getUserOrders($_SESSION["userId"]);
+                    $templateParams["orders"] = $dbh->getUserOrders($userId);
                     foreach($templateParams["orders"] as $order) {
                         $orderId = $order["orderId"];
                         $templateParams["o"."$orderId"] = $dbh->getCopiesInOrder($orderId);
@@ -29,7 +30,7 @@
                 case "wishlist":
                     $templateParams["page"] = "wishlist";
                     $templateParams["header"] = "La mia lista dei desideri";
-                    $templateParams["games"] = $dbh->getGamesInWishlist($_SESSION["userId"]);
+                    $templateParams["games"] = $dbh->getGamesInWishlist($userId);
 
                     foreach($templateParams["games"] as $game) {
                         $gameId = $game["gameId"];
@@ -39,7 +40,7 @@
                 case "notifications":
                     $templateParams["page"] = "notifications";
                     $templateParams["header"] = "Le mie notifiche";
-                    $templateParams["notifications"] = $dbh->getUserNotifications($_SESSION["userId"]);
+                    $templateParams["notifications"] = $dbh->getUserNotifications($userId);
                     break;
             }
         }

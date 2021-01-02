@@ -94,8 +94,8 @@ class DatabaseHelper{
 
     public function getGameById($gameId) {
         $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.releaseDate, V.description, V.suggestedPrice
-        FROM videogame V JOIN platform P ON V.platformId = P.platformId
-        where V.gameId = ?");
+                                    FROM videogame V JOIN platform P ON V.platformId = P.platformId
+                                    WHERE V.gameId = ?");
         $stmt->bind_param('i', $gameId);
         $stmt->execute();
         $result = $stmt->get_result();
