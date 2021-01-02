@@ -143,6 +143,7 @@ create table videogame (
      platformId int not null,
      image varchar(128) not null,
      suggestedPrice float not null,
+     description varchar(256) not null,
      constraint IDvideogame_id primary key (gameId));
 
 create table wishlist (

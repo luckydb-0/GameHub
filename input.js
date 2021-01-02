@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $('[data-toggle="popover"]').popover();
+    
     //called when key is pressed in textbox
     $("#ccnumber, #cvv, #postCode").keypress(function (e) {
        //if the letter is not digit then display error and don't type anything
