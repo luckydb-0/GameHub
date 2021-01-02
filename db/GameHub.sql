@@ -161,11 +161,11 @@ create table notification (
 -- Constraints Section
 -- ___________________ 
 
-alter table wishlist_article add constraint FKcon_VID
+alter table game_in_wishlist add constraint FKcon_VID
      foreign key (gameId)
      references videogame (gameId);
 
-alter table wishlist_article add constraint FKcon_WIS
+alter table game_in_wishlist add constraint FKcon_WIS
      foreign key (wishlistId)
      references wishlist (wishlistId);
 
@@ -267,8 +267,8 @@ alter table wishlist add constraint FKdesires_FK
 
 alter table notification add constraint FK_notify
      foreign key (userId)
-     references customer (userId)
+     references customer (userId);
 
-     alter table notification add constraint FK_order_address
+     alter table _order add constraint FK_order_address
      foreign key (addressId)
-     references address (addressId)
+     references address (addressId);

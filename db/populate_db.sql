@@ -58,59 +58,59 @@ insert into developer (name) values ('Rockstar');
 
 /* VIDEOGAMES */
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Animal Crossing', 200, '2020/03/20', 2, 5, 'AnimalCrossing-Switch.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Animal Crossing', 200, '2020/03/20', 2, 5, 'AnimalCrossing-Switch.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('XIII', 4, '2020/11/10', 2, 5, 'XIII.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('XIII', 4, '2020/11/10', 2, 5, 'XIII.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Grand Theft Auto V', 500, '2013/09/17', 9, 1, 'GTA5-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Grand Theft Auto V', 500, '2013/09/17', 9, 1, 'GTA5-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Grand Theft Auto V', 500, '2013/09/17', 9, 2, 'GTA5-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Grand Theft Auto V', 500, '2013/09/17', 9, 2, 'GTA5-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Grand Theft Auto V', 500, '2013/09/17', 9, 4, 'GTA5-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Grand Theft Auto V', 500, '2013/09/17', 9, 4, 'GTA5-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Grand Theft Auto V', 500, '2013/09/17', 9, 6, 'GTA5-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Grand Theft Auto V', 500, '2013/09/17', 9, 6, 'GTA5-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 1, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 1, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 2, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 2, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 3, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 3, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 4, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 4, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 5, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 5, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('FIFA 20', 300, '2019/09/25', 1, 6, 'FIFA20-PS4.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('FIFA 20', 300, '2019/09/25', 1, 6, 'FIFA20-PS4.jpg', 69.90);
 
-insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, 69.90) values 
-('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg');
+insert into videogame (title, soldCopies, releaseDate, developerId, platformId, image, suggestedPrice) values 
+('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90);
 
 /* CUSTOMERS */
 
@@ -121,6 +121,61 @@ insert into customer (name, surname, birthDate, email, password, phone) values (
 insert into customer (name, surname, birthDate, email, password, phone) values ('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower', '3451119834');
 
 insert into customer (name, surname, birthDate, email, password, phone) values ('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower', '3449923610');
+
+
+/* GAME COPY */
+
+insert into game_copy (gameId, price) values (1, 21.99);
+
+insert into game_copy (gameId, price) values (2, 80.99);
+
+insert into game_copy (gameId, price) values (3, 80.99);
+
+insert into game_copy (gameId, price) values (4, 59.99);
+
+insert into game_copy (gameId, price) values (5, 60.99);
+
+insert into game_copy (gameId, price) values (6, 80.99);
+
+insert into game_copy (gameId, price) values (7, 60.99);
+
+insert into game_copy (gameId, price) values (8, 60.99);
+
+insert into game_copy (gameId, price) values (9, 29.99);
+
+insert into game_copy (gameId, price) values (10, 29.99);
+
+insert into game_copy (gameId, price) values (11, 14.99);
+
+insert into game_copy (gameId, price) values (12, 70.99);
+
+insert into game_copy (gameId, price) values (13, 70.99);
+
+insert into game_copy (gameId, price) values (14, 60.99);
+
+insert into game_copy (gameId, price) values (15, 60.99);
+
+insert into game_copy (gameId, price) values (16, 40.99);
+
+insert into game_copy (gameId, price) values (17, 30.99);
+
+insert into game_copy (gameId, price) values (18, 40.99);
+
+insert into game_copy (gameId, price) values (18, 39.99);
+
+insert into game_copy (gameId, price) values (12, 70.99);
+
+insert into game_copy (gameId, price) values (8, 50.99);
+
+insert into game_copy (gameId, price) values (1, 21.99);
+
+insert into game_copy (gameId, price) values (6, 80.99);
+
+insert into game_copy (gameId, price) values (10, 25.99);
+
+insert into game_copy (gameId, price) values (11, 14.99);
+
+insert into game_copy (gameId, price) values (13, 70.99);
 
 /* CARTS */
 
@@ -253,61 +308,6 @@ insert into game_category (gameId, categoryId) values (18, 1);
 
 insert into game_category (gameId, categoryId) values (18, 2);
 
-/* GAME COPY */
-
-insert into game_copy (gameId, price) values (1, 21.99);
-
-insert into game_copy (gameId, price) values (2, 80.99);
-
-insert into game_copy (gameId, price) values (3, 80.99);
-
-insert into game_copy (gameId, price) values (4, 59.99);
-
-insert into game_copy (gameId, price) values (5, 60.99);
-
-insert into game_copy (gameId, price) values (6, 80.99);
-
-insert into game_copy (gameId, price) values (7, 60.99);
-
-insert into game_copy (gameId, price) values (8, 60.99);
-
-insert into game_copy (gameId, price) values (9, 29.99);
-
-insert into game_copy (gameId, price) values (10, 29.99);
-
-insert into game_copy (gameId, price) values (11, 14.99);
-
-insert into game_copy (gameId, price) values (12, 70.99);
-
-insert into game_copy (gameId, price) values (13, 70.99);
-
-insert into game_copy (gameId, price) values (14, 60.99);
-
-insert into game_copy (gameId, price) values (15, 60.99);
-
-insert into game_copy (gameId, price) values (16, 40.99);
-
-insert into game_copy (gameId, price) values (17, 30.99);
-
-insert into game_copy (gameId, price) values (18, 40.99);
-
-insert into game_copy (gameId, price) values (18, 39.99);
-
-insert into game_copy (gameId, price) values (12, 70.99);
-
-insert into game_copy (gameId, price) values (8, 50.99);
-
-insert into game_copy (gameId, price) values (1, 21.99);
-
-insert into game_copy (gameId, price) values (6, 80.99);
-
-insert into game_copy (gameId, price) values (10, 25.99);
-
-insert into game_copy (gameId, price) values (11, 14.99);
-
-insert into game_copy (gameId, price) values (13, 70.99);
-
-
 /* SELLER ADDRESS */
 
 insert into seller_address (sellerId, addressId) values (1, 5);
@@ -374,13 +374,13 @@ insert into copy_in_catalogue (catalogueId, copyId) values (2, 25);
 
 /* _ORDER */
 
-insert into _order (userId, orderDate, total) values (1, '2020/11/20', 82.98);
+insert into _order (userId, addressId, orderDate, total) values (1, 1, '2020/11/20', 82.98);
 
-insert into _order (userId, orderDate, total) values (1, '2020/07/03', 60.99);
+insert into _order (userId, addressId, orderDate, total) values (1, 2, '2020/07/03', 60.99);
 
-insert into _order (userId, orderDate, total) values (2, '2020/10/15', 60.99);
+insert into _order (userId, addressId, orderDate, total) values (2, 3, '2020/10/15', 60.99);
 
-insert into _order (userId, orderDate, total) values (3, '2020/12/22', 30.99);
+insert into _order (userId, addressId, orderDate, total) values (3, 4, '2020/12/22', 30.99);
 
 /* COPY_IN_ORDER */
 

@@ -87,7 +87,7 @@
                 //if(isset($templateParams["games"])):
                     //var_dump($templateParams["games"]);
                     foreach($templateParams["games"] as $gameId):
-                        $game = $dbh->getGameFromId($gameId["gameId"])[0];
+                        $game = $dbh->getGameById($gameId["gameId"])[0];
                         var_dump($game);
             ?>
             <tr>
