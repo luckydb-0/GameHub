@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/GameHub.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/GameHub.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/populate_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/populate_db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subscribe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/template/template-subscribe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/base.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/base.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-login.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -42,7 +49,7 @@
       <workItem from="1609342363201" duration="9792000" />
       <workItem from="1609595463606" duration="1800000" />
       <workItem from="1609597296608" duration="1512000" />
-      <workItem from="1609599045550" duration="2421000" />
+      <workItem from="1609599045550" duration="8940000" />
     </task>
     <servers />
   </component>
