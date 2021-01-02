@@ -57,7 +57,7 @@ create table game_copy (
      gameId int not null,
      copyId int not null AUTO_INCREMENT,
      price float not null,
-     sold boolean not null,
+     sold boolean not null default 0,
      constraint IDgame_copy_id primary key (copyId));
 
 create table copy_in_catalogue (

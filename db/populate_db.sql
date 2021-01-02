@@ -203,13 +203,12 @@ insert into seller (name, email, password, p_iva, phone) values ('Grandi Vendito
 
 /* CREDIT CARDS */
 
-insert into credit_card (ccnumber, expiration, cvv, userId) values ('01234567890123456789', '2021/12/31', '123', 1);
-
-insert into credit_card (ccnumber, expiration, cvv, userId) values ('12345678901234567890', '2022/12/31', '456', 2);
-
-insert into credit_card (ccnumber, expiration, cvv, userId) values ('23456789012345678901', '2023/12/31', '789', 3);
-
-insert into credit_card (ccnumber, expiration, cvv, userId) values ('34567890123456789012', '2024/12/31', '012', 4);
+insert into credit_card (ccnumber,accountHolder, expiration, cvv, userId)
+values
+('01234567890123456789','Gianfranco Giuliacci', '2021/12/31', '123', 1),
+('12345678901234567890','Gina Paoli', '2022/12/31', '456', 2),
+('23456789012345678901','Franca Berlini', '2023/12/31', '789', 3),
+('34567890123456789012', 'Betulla D Abete','2024/12/31', '012', 4);
 
 /* ADDRESSES */
 
