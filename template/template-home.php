@@ -22,7 +22,7 @@
                     <div class="row text-center">
                         <div class="col-md-6">
                             <div>
-                                <a href="article.php">
+                                <a href="article.php?game=1">
                                     <img src="img/GoW.jpg" alt="God of War PS4" class="img-thumbnail">
                                     <p>God of War</p>
                                 </a>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-6 clearfix">
                             <div>
-                                <a href="article.php">
+                                <a href="article.php?game=18">
                                     <img src="img/DG.jpg" alt="Days Gone PS4" class="img-thumbnail">
                                     <p>Days Gone</p>
                                 </a>

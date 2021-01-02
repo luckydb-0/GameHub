@@ -10,6 +10,7 @@
                 <th id="Nome">Nome</th>
                 <th id="Piattaforma">Piattaforma</th>
                 <th id="Prezzo">Prezzo</th>
+                <th id="Totale">Totale</th>
             </tr>
         </thead>
         <tbody>
@@ -23,14 +24,15 @@
                     $copyId = $copy["copyId"]; 
                     if(!$isFirstRow) {
                         echo "<tr>";
-                    } else {
-                        $isFirstRow = false;
                     }
                 ?>
                 <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["c"."$copyId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["c"."$copyId"][0]["title"]; ?></td>
                 <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["c"."$copyId"][0]["platform"]; ?></td>
                 <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]; ?></form></td>
+                <?php if($isFirstRow): $isFirstRow = false; ?>
+                <td headers="Totale" data-label="Totale" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>"><?php echo $order["total"]; ?></td>
+                <?php endif; ?> 
             </tr>
             <?php endforeach; endforeach;?>
         </tbody>

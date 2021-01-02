@@ -6,33 +6,66 @@ class DatabaseHelper{
     public function __construct($servername, $username, $password, $dbname, $port){
         $this->db = new mysqli($servername, $username, $password, $dbname, $port);
         if ($this->db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
+            die("Connection failed: " .$this->db->connect_error);
         }        
     }
 
     /* IMPLEMENTATE */
-
     public function checkLogin($email, $password){
-        $query = "SELECT * FROM customer WHERE email = ? AND password = ?";
+        $value = "";
+        if($tmp = $this->getCustomerLogin($email, $password))
+            $value = "c:".$tmp[0]['userId'];
+        if($tmp = $this->getSellerLogin($email,$password))
+            $value = "s:".$tmp[0]['sellerId'];
+        return $value;
+    }
+    public function getCustomerLogin($email, $password)
+    {
+        $query = "SELECT userId FROM customer 
+                    WHERE email=? AND password=?;";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss',$email, $password);
+        $stmt->bind_param('ss',$email,$password);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    public function getSellerLogin($email, $password)
+    {
+        $query = "SELECT sellerId FROM seller 
+                    WHERE email=? AND password=?;";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss',$email,$password);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
     public function getUserData($id) {
-        $stmt = $this->db->prepare("SELECT name, surname, birthDate, email, phone FROM customer WHERE userId = ?");
+        if(strpos($id,"c:")!== false)
+            return $this->getCustomerData(substr($id,2));
+        else return $this->getSellerData(substr($id,2));
+    }
+
+    private function getCustomerData($id){
+        $stmt = $this->db->prepare(
+            "SELECT name, surname, birthDate, email, phone 
+                FROM customer WHERE userId = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
+    public function getSellerData($id){
+        $stmt = $this->db->prepare(
+            "SELECT name, email, p_iva, phone 
+                    FROM seller WHERE sellerId = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     public function getUserOrders($userId){
-        $stmt = $this->db->prepare("SELECT orderId FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
+        $stmt = $this->db->prepare("SELECT orderId, total FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
         $stmt->bind_param('i',$userId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -61,24 +94,16 @@ class DatabaseHelper{
     }
 
     public function getGameById($gameId) {
-        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.suggestedPrice
+        $stmt = $this->db->prepare("SELECT V.image, V.title, P.name, V.releaseDate, V.description, V.suggestedPrice
         FROM videogame V JOIN platform P ON V.platformId = P.platformId
-        where V.gameId = ?");
+        WHERE V.gameId = ?");
         $stmt->bind_param('i', $gameId);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-	
-	public function getSellerData($seller_id) {
-        $stmt = $this->db->prepare("SELECT name, email, p_iva, phone FROM seller WHERE sellerId = ?");
-        $stmt->bind_param('i', $seller_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
 
     public function getSellerOrders($seller_id) {
         $stmt = $this->db->prepare("SELECT O.orderDate, O.total, O.userId, O.orderId FROM _order O JOIN order_seller OS
@@ -185,11 +210,11 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("INSERT INTO credit_card (userId, accountHolder, ccnumber, expiration, cvv) VALUES (?, ?, ?, ?, ?)");
         $expDate = $expiration."-01";
         $stmt->bind_param('isisi', $userId, $accountHolder, $ccnumber, $expDate, $cvv);
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public function getUserAddresses($userId) {
-        $stmt = $this->db->prepare("SELECT country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
+        $stmt = $this->db->prepare("SELECT A.addressId, country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
         WHERE S.userId = ?");
         $stmt->bind_param('i', $userId);
         $stmt->execute();
@@ -197,10 +222,86 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function addUserAddress($userId, $country, $city, $street, $postCode) {
+        $stmtAddr = $this->db->prepare("INSERT INTO address (country, city, street, postCode) VALUES (?, ?, ?, ?)");
+        $stmtAddr->bind_param("sssi", $country, $city, $street, $postCode);
+        $stmtAddr->execute();
 
+        $stmtAddressId = $this->db->prepare("SELECT MAX(addressId) as id FROM address");
+        $stmtAddressId->execute();
+        $addressId = $stmtAddressId->get_result();
+        $addressId = $addressId->fetch_all(MYSQLI_ASSOC);
+        $addressId = $addressId[0]["id"];
+
+        $stmtShip = $this->db->prepare("INSERT INTO shipping (userId, addressId) VALUES (?, ?)");
+        $stmtShip->bind_param("ii", $userId, $addressId);
+        $stmtShip->execute();
+    }
+
+    public function placeOrder($userId, $addressId, $total) {
+        $stmtGetCart = $this->db->prepare("SELECT copyId FROM copy_in_cart WHERE cartId = ?");
+        $stmtGetCart->bind_param("i", $userId);
+        $stmtGetCart->execute();
+        $copies = $stmtGetCart->get_result();
+        $copies = $copies->fetch_all(MYSQLI_ASSOC);
+
+        $stmtAddOrder = $this->db->prepare("INSERT INTO _order (addressId, orderDate, total, userId) VALUES (?, ?, ?, ?)");
+        $today = date("Y-m-d");
+        $stmtAddOrder->bind_param("isdi", $addressId, $today, $total, $userId);
+        $stmtAddOrder->execute();
+
+        $stmtOrderId = $this->db->prepare("SELECT MAX(orderId) as id FROM _order");
+        $stmtOrderId->execute();
+        $orderId = $stmtOrderId->get_result();
+        $orderId = $orderId->fetch_all(MYSQLI_ASSOC);
+        $orderId = $orderId[0]["id"];
+
+        foreach($copies as $copy) {
+            $copyId = $copy["copyId"];
+            $stmtAddCopy = $this->db->prepare("INSERT INTO copy_in_order (copyId, orderId) VALUES (?, ?)");
+            $stmtAddCopy->bind_param("ii", $copyId, $orderId);
+            $stmtAddCopy->execute();
+            $stmtCopySold->$this->db->prepare("UPDATE game_copy SET sold = 1 WHERE copyId = ?");
+            $stmtCopySold->bind_param("i", $copyId);
+            $stmtCopySold->execute();
+        }
+
+        $stmtClearCart = $this->db->prepare("DELETE FROM copy_in_cart WHERE cartId = ?");
+        $stmtClearCart->bind_param("i", $userId);
+        $stmtClearCart->execute();
+
+    }
+
+    public function removeFromCart($userId, $copyId) {
+        $stmt = $this->db->prepare("DELETE FROM copy_in_cart WHERE copyId = ? AND cartId = ?");
+        $stmt->bind_param('ii', $copyId, $userId);
+        $stmt->execute();
+    }
+
+    public function getGenresFromGameId($gameId) {
+        $stmt = $this->db->prepare("SELECT categoryName FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?");
+        $stmt->bind_param("i", $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getGameLowestPriceAndSeller($gameId) {
+        $stmt = $this->db->prepare("SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?");
+        $stmt->bind_param('i', $gameId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
     public function getGameByDeveloper($developer){
-        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D ON
-         D.developerId = V.developerId WHERE D.name = ?");
+        $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D 
+                                    ON D.developerId = V.developerId WHERE D.name = ?");
         $stmt->bind_param('s', $developer);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -429,6 +530,27 @@ class DatabaseHelper{
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password)
+    {
+       return $this->executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
+    }
+
+    public function insertNewSeller($name, $p_iva, $phone, $email, $password)
+    {
+        return $this->executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
+    }
+
+    private function executeInsert($query){
+        $this->db->query($query);
+        if($this->db->errno) {
+            $file=   fopen("error.log","a");
+            fwrite($file, time().$this->db->error);
+            fwrite($file,"\n");
+            fclose($file);
+        }
+        return $this->db->insert_id;
     }
 
 }

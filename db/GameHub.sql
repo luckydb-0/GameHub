@@ -57,7 +57,7 @@ create table game_copy (
      gameId int not null,
      copyId int not null AUTO_INCREMENT,
      price float not null,
-     sold boolean not null,
+     sold boolean not null default 0,
      constraint IDgame_copy_id primary key (copyId));
 
 create table copy_in_catalogue (
@@ -143,6 +143,7 @@ create table videogame (
      platformId int not null,
      image varchar(128) not null,
      suggestedPrice float not null,
+     description varchar(256) not null,
      constraint IDvideogame_id primary key (gameId));
 
 create table wishlist (
@@ -269,6 +270,6 @@ alter table notification add constraint FK_notify
      foreign key (userId)
      references customer (userId);
 
-     alter table _order add constraint FK_order_address
+alter table _order add constraint FK_order_address
      foreign key (addressId)
      references address (addressId);

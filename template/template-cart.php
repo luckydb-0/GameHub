@@ -13,6 +13,7 @@
                     <th id="Nome">Nome</th>
                     <th id="Piattaforma">Piattaforma</th>
                     <th id="Prezzo">Prezzo</th>
+                    <th id="Rimuovi"></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,11 @@
                     <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["c"."$copyId"][0]["title"]; ?></td>
                     <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["c"."$copyId"][0]["platform"]; ?></td>
                     <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></form></td>
+                    <td headers="Rimuovi" data-label="Rimuovi">
+                        <form action="#" method="POST">
+                            <button type="submit" id="remove" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
                 </tr>
                 <?php endforeach;?>
             </tbody>
@@ -31,14 +37,14 @@
     </div>
     <div class="col-5 col-sm-4 col-md-3 col-lg-2 mt-5 mt-md-5 bg-dark offset-md-1 p-3 rounded mx-auto h-50">
         <?php
-            $sum = 0; 
+            $total = 0; 
             foreach($templateParams["copies"] as $copy):
                 $copyId = $copy["copyId"];
-                $sum += $templateParams["c"."$copyId"][0]["price"];
+                $total += $templateParams["c"."$copyId"][0]["price"];
         ?>
         <p class="cart-price"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></p>
         <?php endforeach; ?>
-        <p class="cart-total mr-0">Totale: <?php echo $sum?>€</p>
+        <p class="cart-total mr-0">Totale: <?php echo $total?>€</p>
     </div>
 </div>
 <div class="row mx-0 my-3 justify-content-center">
@@ -54,7 +60,7 @@
         ?>
                 <div class="form-check text-left">
                     <label class="form-check-label" for="<?php echo $creditCard["ccnumber"]; ?>">
-                    <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="credirtCard" value="<?php echo $creditCard["ccnumber"]; ?>"/>
+                    <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="creditCard" value="<?php echo $creditCard["ccnumber"]; ?>"/>
                     <?php echo $creditCard["accountHolder"]." - Termina con ".substr($creditCard["ccnumber"], 16, 4) ; ?>
                     </label>                    
                 </div>
@@ -67,7 +73,7 @@
                 ?>
                         <div class="form-check text-left">
                             <label class="form-check-label" for="<?php echo $address["city"]." - ".$address["street"]; ?>">
-                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="address" value="<?php echo $address["city"]." - ".$address["street"]; ?>"/>
+                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>"/>
                             <?php echo $address["city"]." - ".$address["street"]." - ".$address["postCode"]; ?>
                             </label>
                             
@@ -76,7 +82,8 @@
             </fieldset>
             <div class="row">
                 <div class="col-12 text-right">
-                    <input type="submit" class="btn btn-light" value="Ordina">
+                    <input type="hidden" id="total" name="total" value="<?php echo $total?>">
+                    <input type="submit" class="btn btn-light" value="Ordina" name="placeOrder">
                 </div>                
             </div>                
         </form>

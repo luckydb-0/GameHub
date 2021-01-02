@@ -6,11 +6,15 @@
     }
 
     function isUserLoggedIn(){
+        return isLoggedIn() && strpos($_SESSION['userId'],"c:")!==false;
+    }
+    function isLoggedIn(){
         return !empty($_SESSION['userId']);
     }
 
     function registerLoggedUser($user){
-        $_SESSION["userId"] = $user["userId"];
+        echo $user;
+        $_SESSION["userId"] = $user;
     }
 
     function disassemble_array($matrix) {

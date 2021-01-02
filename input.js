@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    $('[data-toggle="popover"]').popover();
+    
     //called when key is pressed in textbox
     $("#ccnumber, #cvv, #postCode").keypress(function (e) {
        //if the letter is not digit then display error and don't type anything
@@ -16,13 +19,5 @@ $(document).ready(function () {
             $("#addCard").addClass("hidden").slideUp();
         }
     })
-
-    $("#addShippingBtn").click(function() {
-
-        if($("#addShipping").hasClass("hidden")) {
-            $("#addShipping").removeClass("hidden").slideDown();
-        } else {
-            $("#addShipping").addClass("hidden").slideUp();
-        }
-    })
+    
 });

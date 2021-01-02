@@ -45,9 +45,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="<?php echo $link; ?>"><?php echo $button; ?><span class="sr-only">(current)</span></a>
             </li>
+            <?php if(isUserLoggedIn()):?>
             <li class="nav-item">
               <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
             </li>
+            <?php endif; ?>
           </ul>
           <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
             <input class="form-control mr-2 col-10" name="name" type="search" placeholder="Cerca..." aria-label="Search">
