@@ -80,7 +80,11 @@
                 </div>                
             </div>                
         </form>
-        <p> oppure </p>
+        <div class="row text-center">
+            <div class="col-12">
+                <h3> oppure </h3>
+            </div>
+        </div>
         <?php
             else: 
                 if(count($templateParams["creditCards"]) == 0){
@@ -93,8 +97,8 @@
         ?>
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-light m-3" id="addCardBtn"><p>Aggiungi un metodo di pagamento</p></button>
-                <div id="addCard" class="hidden mt-3" style="display: none;">
+            <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addCard"><p>Aggiungi un metodo di pagamento</p></button>
+                <div id="addCard" class="collapse mt-3">
                     <form action="#" method="POST">
                         <div class="form-group text-left">
                             <label for="accountHolder">Titolare della carta: </label>
@@ -125,8 +129,8 @@
         
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-light m-3" id="addShippingBtn"><p>Aggiungi un indirizzo di spedizione </p></button>
-                <div id="addShipping" class="hidden mt-3" style="display: none;">
+                <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addShipping"><p>Aggiungi un indirizzo di spedizione </p></button>
+                <div id="addShipping" class="collapse mt-3">
                     <form action="#" method="POST">
                         <div class="form-group text-left">
                             <label for="country"> Nazione: </label>

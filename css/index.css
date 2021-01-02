@@ -23,7 +23,7 @@ img {
     background-color: coral;
 }
 
-h1 {
+h1, h2, h3 {
     color: coral;
 }
 
@@ -49,10 +49,6 @@ a:hover {
 .btn.d-md-none {
     margin: 4%;
     height: 80%;
-}
-
-main h2 {
-    color: coral;
 }
 
 #navbar {
