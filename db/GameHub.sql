@@ -269,6 +269,6 @@ alter table notification add constraint FK_notify
      foreign key (userId)
      references customer (userId);
 
-     alter table _order add constraint FK_order_address
+alter table _order add constraint FK_order_address
      foreign key (addressId)
      references address (addressId);

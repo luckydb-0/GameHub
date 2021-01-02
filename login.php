@@ -19,7 +19,7 @@
     }
     
     if(isLoggedIn()){
-        require 'profile.php';
+        header("Location: profile.php");
     }
 
     require 'template/base.php';
