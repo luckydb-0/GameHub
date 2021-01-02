@@ -32,7 +32,7 @@ class DatabaseHelper{
     }
 
     public function getUserOrders($userId){
-        $stmt = $this->db->prepare("SELECT orderId FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
+        $stmt = $this->db->prepare("SELECT orderId, total FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?");
         $stmt->bind_param('i',$userId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -185,11 +185,11 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("INSERT INTO credit_card (userId, accountHolder, ccnumber, expiration, cvv) VALUES (?, ?, ?, ?, ?)");
         $expDate = $expiration."-01";
         $stmt->bind_param('isisi', $userId, $accountHolder, $ccnumber, $expDate, $cvv);
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public function getUserAddresses($userId) {
-        $stmt = $this->db->prepare("SELECT country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
+        $stmt = $this->db->prepare("SELECT A.addressId, country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
         WHERE S.userId = ?");
         $stmt->bind_param('i', $userId);
         $stmt->execute();
@@ -198,6 +198,62 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    public function addUserAddress($userId, $country, $city, $street, $postCode) {
+        $stmtAddr = $this->db->prepare("INSERT INTO address (country, city, street, postCode) VALUES (?, ?, ?, ?)");
+        $stmtAddr->bind_param("sssi", $country, $city, $street, $postCode);
+        $stmtAddr->execute();
+
+        $stmtAddressId = $this->db->prepare("SELECT MAX(addressId) as id FROM address");
+        $stmtAddressId->execute();
+        $addressId = $stmtAddressId->get_result();
+        $addressId = $addressId->fetch_all(MYSQLI_ASSOC);
+        $addressId = $addressId[0]["id"];
+
+        $stmtShip = $this->db->prepare("INSERT INTO shipping (userId, addressId) VALUES (?, ?)");
+        $stmtShip->bind_param("ii", $userId, $addressId);
+        $stmtShip->execute();
+    }
+
+    public function placeOrder($userId, $addressId, $total) {
+        $stmtGetCart = $this->db->prepare("SELECT copyId FROM copy_in_cart WHERE cartId = ?");
+        $stmtGetCart->bind_param("i", $userId);
+        $stmtGetCart->execute();
+        $copies = $stmtGetCart->get_result();
+        $copies = $copies->fetch_all(MYSQLI_ASSOC);
+
+        $stmtAddOrder = $this->db->prepare("INSERT INTO _order (addressId, orderDate, total, userId) VALUES (?, ?, ?, ?)");
+        $today = date("Y-m-d");
+        $stmtAddOrder->bind_param("isdi", $addressId, $today, $total, $userId);
+        $stmtAddOrder->execute();
+
+        $stmtOrderId = $this->db->prepare("SELECT MAX(orderId) as id FROM _order");
+        $stmtOrderId->execute();
+        $orderId = $stmtOrderId->get_result();
+        $orderId = $orderId->fetch_all(MYSQLI_ASSOC);
+        $orderId = $orderId[0]["id"];
+
+        foreach($copies as $copy) {
+            $copyId = $copy["copyId"];
+            $stmtAddCopy = $this->db->prepare("INSERT INTO copy_in_order (copyId, orderId) VALUES (?, ?)");
+            $stmtAddCopy->bind_param("ii", $copyId, $orderId);
+            $stmtAddCopy->execute();
+            $stmtCopySold->$this->db->prepare("UPDATE game_copy SET sold = 1 WHERE copyId = ?");
+            $stmtCopySold->bind_param("i", $copyId);
+            $stmtCopySold->execute();
+        }
+
+        $stmtClearCart = $this->db->prepare("DELETE FROM copy_in_cart WHERE cartId = ?");
+        $stmtClearCart->bind_param("i", $userId);
+        $stmtClearCart->execute();
+
+    }
+
+    public function removeFromCart($userId, $copyId) {
+        $stmt = $this->db->prepare("DELETE FROM copy_in_cart WHERE copyId = ? AND cartId = ?");
+        $stmt->bind_param('ii', $copyId, $userId);
+        $stmt->execute();
+    }
+
     /* DA IMPLEMENTARE */
     
     public function getGameByDeveloper($developer){
