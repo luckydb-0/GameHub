@@ -197,9 +197,7 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-    
-    /* DA IMPLEMENTARE */
-    
+
     public function getGameByDeveloper($developer){
         $stmt = $this->db->prepare("SELECT V.gameId FROM videogame V JOIN developer D ON
          D.developerId = V.developerId WHERE D.name = ?");
@@ -210,32 +208,73 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice) {
-        $categoryResults = array();
-        $consoleResults = array();
-
-        foreach($categoryNames as $category) {
-            $categoryResults = $this->getGameByCategory($category);
-        }
-
-        foreach($consoleNames as $console) {
-            $consoleResults = $this->getGameByConsole($console);
-        }
-
-        $developerResults = $this->getGameByDeveloper($developerName);
-        $result = array_unique(array_merge($categoryResults, $consoleResults, $developerResults), SORT_REGULAR);
-
-        return $result;
-    }
-
-    public function filterGamesByPrice($gamesId, $price){
-        $stmt = $this->db->prepare("");
-        //$stmt->bind_param('i', );
+    public function searchGamesByName($name) {
+        $stmt = $this->db->prepare("SELECT gameId from videogame WHERE title LIKE '%$name%'");
+        //$stmt->bind_param('s', $name);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice=1000, $name) {
+        $resultsArrays = array();
+        $categoryResults = array();
+        $consoleResults = array();
+        $developerResults = array();
+
+        $nameResults = disassemble_array($this->searchGamesByName($name)); // From functions.php
+        if(!empty($nameResults)) {
+            $resultsArrays[] = $nameResults;
+        }
+
+        foreach($categoryNames as $category) {
+            $res = $this->getGameByCategory($category);
+            foreach($res as $gameId) {
+                $categoryResults[] = $gameId["gameId"];
+            }
+        }
+        if(!empty($categoryResults)) {
+            $resultsArrays[] = $categoryResults;
+        }
+
+        foreach($consoleNames as $console) {
+            $res = $this->getGameByConsole($console);
+            foreach($res as $gameId) {
+                $consoleResults[] = $gameId["gameId"];
+            }
+        }
+        if(!empty($consoleResults)) {
+            $resultsArrays[] = $consoleResults;
+        }
+
+        $res = $this->getGameByDeveloper($developerName);
+        foreach($res as $gameId) {
+            $developerResults[] = $gameId["gameId"];
+        }
+        if(!empty($developerResults)) {
+            $resultsArrays[] = $developerResults;
+        }
+
+        $result = array_intersect(...$resultsArrays);
+        $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
+
+        return array_values($result);
+    }
+
+    public function filterGamesByPrice($gamesId, $price){
+        $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
+        $string = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in)";
+        $stmt = $this->db->prepare($string);
+        $types = 'i'.str_repeat('s', count($gamesId)); // To concatenate as many s needed
+        $stmt->bind_param($types, $price, ...$gamesId); // To bind all needed parameters
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    
 
     /* DA IMPLEMENTARE */
     
@@ -318,16 +357,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    // For "search" option
-    public function getGameByName($name){
-        $stmt = $this->db->prepare("");
-        // $stmt->bind_param('n',$name);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    
     public function addGameToCart($user_id, $game_id, $seller_id){
         $stmt = $this->db->prepare("");
         $stmt->execute();

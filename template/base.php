@@ -49,8 +49,8 @@
               <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="search.php">
-            <input class="form-control mr-2 col-10" type="search" placeholder="Cerca..." aria-label="Search">
+          <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
+            <input class="form-control mr-2 col-10" name="name" type="search" placeholder="Cerca..." aria-label="Search">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>

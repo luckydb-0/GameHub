@@ -7,6 +7,12 @@
             <div class="row">
                 <form class="p-3" action="search.php">
                     <div class="form-row">
+                        <label for="id-name" class="col-12 text-left mt-2">Titolo:</label>
+                        <label class="form-check-label">
+                            <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search">
+                        </label>
+                    </div>
+                    <div class="form-row">
                         <label for="platform" class="col-12 text-left mt-2">Console:</label>
                         <?php 
                             $platforms = $dbh->getPlatforms();
@@ -84,22 +90,20 @@
         </thead>
         <tbody>
             <?php 
-                //if(isset($templateParams["games"])):
-                    //var_dump($templateParams["games"]);
+                if(isset($templateParams["games"])):
                     foreach($templateParams["games"] as $gameId):
-                        $game = $dbh->getGameById($gameId["gameId"])[0];
-                        var_dump($game);
+                        $game = $dbh->getGameById($gameId)[0];
             ?>
             <tr>
                 <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail"></td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]?></td>
-                <td headers="Piattaforma" data-label="Piattaforma">test</td>
-                <td headers="Prezzo" data-label="Prezzo"><?php echo $game["price"]?></td>
+                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]?></td>
+                <td headers="Prezzo" data-label="Prezzo"><?php echo $game["suggestedPrice"] ?></td>
             </tr>
             
             <?php 
                     endforeach;
-                //endif;
+                endif;
             ?>
         </tbody>
     </table>
