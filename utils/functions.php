@@ -6,7 +6,7 @@
     }
 
     function isUserLoggedIn(){
-        return isLoggedIn() && strpos($_SESSION['loggedUser'],"c:")!==false;
+        return isLoggedIn() && strpos($_SESSION['userId'],"c:")!==false;
     }
     function isLoggedIn(){
         return !empty($_SESSION['userId']);
