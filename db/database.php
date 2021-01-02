@@ -482,5 +482,26 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password)
+    {
+       return $this->executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
+    }
+
+    public function insertNewSeller($name, $p_iva, $phone, $email, $password)
+    {
+        return $this->executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
+    }
+
+    private function executeInsert($query){
+        $this->db->query($query);
+        if($this->db->errno) {
+            $file=   fopen("error.log","a");
+            fwrite($file, time().$this->db->error);
+            fwrite($file,"\n");
+            fclose($file);
+        }
+        return $this->db->insert_id;
+    }
+
 }
 ?>

@@ -7,7 +7,6 @@
     if(isset($_POST["email"]) && isset($_POST["password"])){
         if($_POST["email"] != "" && $_POST["password"] != ""){
         $login_result = $dbh->checkLogin($_POST["email"], $_POST["password"]);
-        echo $login_result;
         if($login_result  == ""){
             echo "debug";
             $templateParams["errorelogin"] = "Errore! Controllare email o password!";
@@ -17,7 +16,7 @@
         }
     }
     }
-    
+
     if(isLoggedIn()){
         header("Location: profile.php");
     }
