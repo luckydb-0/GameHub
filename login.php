@@ -17,8 +17,11 @@
     }
     }
 
-    if(isLoggedIn()){
+    if(isUserLoggedIn()){
         header("Location: profile.php");
+    }
+    else if(isLoggedIn()){
+        header("Location: seller.php");
     }
 
     require 'template/base.php';

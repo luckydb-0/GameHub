@@ -2,11 +2,14 @@
   if(isUserLoggedIn()) {
     $button = "Profilo";
     $link = "profile.php";
-  } else {
-    $button = "Login";
-    $link = "login.php";
+  } else if(isLoggedIn()){
+      $button = "Profilo";
+      $link = "seller.php";
   }
-
+  else{
+      $button = "Login";
+      $link = "login.php";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="it">
