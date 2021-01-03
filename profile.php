@@ -11,36 +11,36 @@
         if(!isset($_GET["page"])) {
             $templateParams["page"] = "data";
             $templateParams["header"] = "Dati personali";
-            $templateParams["user"] = $dbh->getUserData("c:".$userId);
+            $templateParams["user"] = $dbr->getUserData("c:".$userId);
         } else {
             switch($_GET["page"]) {
                 case "orders":
                     $templateParams["page"] = "orders";
                     $templateParams["header"] = "I miei ordini";
-                    $templateParams["orders"] = $dbh->getUserOrders($userId);
+                    $templateParams["orders"] = $dbr->getUserOrders($userId);
                     foreach($templateParams["orders"] as $order) {
                         $orderId = $order["orderId"];
-                        $templateParams["o"."$orderId"] = $dbh->getCopiesInOrder($orderId);
+                        $templateParams["o"."$orderId"] = $dbr->getCopiesInOrder($orderId);
                         foreach($templateParams["o"."$orderId"] as $copy) {
                             $copyId = $copy["copyId"];
-                            $templateParams["c"."$copyId"] = $dbh->getGameFromCopy($copyId);
+                            $templateParams["c"."$copyId"] = $dbr->getGameFromCopy($copyId);
                         }
                     }
                     break;
                 case "wishlist":
                     $templateParams["page"] = "wishlist";
                     $templateParams["header"] = "La mia lista dei desideri";
-                    $templateParams["games"] = $dbh->getGamesInWishlist($userId);
+                    $templateParams["games"] = $dbr->getGamesInWishlist($userId);
 
                     foreach($templateParams["games"] as $game) {
                         $gameId = $game["gameId"];
-                        $templateParams["g"."$copyId"] = $dbh->getGameById($gameId);
+                        $templateParams["g"."$copyId"] = $dbr->getGameById($gameId);
                     }
                     break;
                 case "notifications":
                     $templateParams["page"] = "notifications";
                     $templateParams["header"] = "Le mie notifiche";
-                    $templateParams["notifications"] = $dbh->getUserNotifications($userId);
+                    $templateParams["notifications"] = $dbr->getUserNotifications($userId);
                     break;
             }
         }

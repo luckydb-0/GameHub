@@ -7,7 +7,7 @@
     if(!isset($_GET["page"])) {
         $templateParams["page"] = "seller-data";
         $templateParams["header"] = "Dati venditore";
-        $templateParams["seller"] = $dbh->getSellerData(1);
+        $templateParams["seller"] = $dbr->getSellerData(1);
     } else {
         switch($_GET["page"]) {
             case "catalogue":
@@ -17,7 +17,7 @@
             case "orders":
                 $templateParams["page"] = "orders";
                 $templateParams["header"] = "Ordini in sospeso";
-                $templateParams["seller-orders"] = $dbh->getSellerOrders(1);
+                $templateParams["seller-orders"] = $dbr->getSellerOrders(1);
                 break;
             case "notifications":
                 $templateParams["page"] = "notifications";

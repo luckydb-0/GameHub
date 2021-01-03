@@ -8,25 +8,25 @@
         $templateParams["title"] = "GameHub - Carrello";
         $templateParams["name"] = "template/template-cart.php";
         $templateParams["js"]["input"] = "input.js";
-        $templateParams["copies"] = $dbh->getCopiesInCart($userId);
-        $templateParams["creditCards"] = $dbh->getUserCreditCards($userId);
-        $templateParams["addresses"] = $dbh->getUserAddresses($userId);
+        $templateParams["copies"] = $dbr->getCopiesInCart($userId);
+        $templateParams["creditCards"] = $dbr->getUserCreditCards($userId);
+        $templateParams["addresses"] = $dbr->getUserAddresses($userId);
 
         if(count($_POST) > 0) {
             if(isset($_POST["remove"])) {
-                $dbh->removeFromCart($userId, $_POST["remove"]);
+                $dbd->removeFromCart($userId, $_POST["remove"]);
             }
 
             if(isset($_POST["saveMethod"])) {
-                $dbh->addCreditCard($userId, $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
+                $dbi->addCreditCard($userId, $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
             }
     
             if(isset($_POST["saveAddress"])) {
-                $dbh->addUserAddress($userId, $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
+                $dbi->addUserAddress($userId, $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
             }
     
             if(isset($_POST["creditCard"]) && isset($_POST["addressId"])) {
-                $dbh->placeOrder($userId, $_POST["addressId"], $_POST["total"]);
+                $dbi->placeOrder($userId, $_POST["addressId"], $_POST["total"]);
             }
             header("Location: cart.php");
         }
@@ -34,7 +34,7 @@
 
         foreach($templateParams["copies"] as $copy) {
             $copyId = $copy["copyId"];
-            $templateParams["c"."$copyId"] = $dbh->getGameFromCopy($copyId);
+            $templateParams["c"."$copyId"] = $dbr->getGameFromCopy($copyId);
         }
 
         require 'template/base.php';

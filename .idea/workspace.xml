@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Creater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Creater.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Deleter.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Deleter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Updater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Updater.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/subscribe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template-subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-subscribe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +35,18 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql.8&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/template" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\GameHub\template" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,6 +61,7 @@
       <workItem from="1609595463606" duration="1800000" />
       <workItem from="1609597296608" duration="1512000" />
       <workItem from="1609599045550" duration="18492000" />
+      <workItem from="1609659696547" duration="11089000" />
     </task>
     <servers />
   </component>

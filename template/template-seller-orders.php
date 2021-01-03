@@ -12,8 +12,8 @@
             <div class="row">
                 <ul class="list-group m-0">
                     <?php 
-                        $user = $dbh->getUserData($order["userId"])[0];
-                        $userAddress = $dbh->getUserAddress($order["userId"])[0];
+                        $user = $dbr->getUserData($order["userId"])[0];
+                        $userAddress = $dbr->getUserAddress($order["userId"])[0];
                     ?>
                     <li class="list-group-item bg-dark">Cliente: <?php echo $user["name"]." ".$user["surname"]; ?></li>
                     <li class="list-group-item bg-dark">Email: <?php echo $user["email"]; ?></li>
@@ -35,9 +35,9 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $gameCopies = $dbh->getCopiesInOrder($order["orderId"]);
+                        $gameCopies = $dbr->getCopiesInOrder($order["orderId"]);
                         foreach($gameCopies as $gameCopy):
-                            $game = $dbh->getGameFromCopy($gameCopy["copyId"])[0];
+                            $game = $dbr->getGameFromCopy($gameCopy["copyId"])[0];
                     ?>
                     <tr>
                         <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["name"]." - ".$game["platform"]; ?>" class="img-thumbnail"></td>

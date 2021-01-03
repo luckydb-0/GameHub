@@ -10,11 +10,11 @@ if(!empty($_POST['subscriptionType']) && isset($_POST['fields'])) {
     switch ($_POST['subscriptionType']) {
         case "customer":
             echo "debug";
-            echo $dbh->insertNewCustomer($_POST['name'], $_POST['surname'], $_POST['birthdate'], $_POST['phone-number'],
+            echo $dbi->insertNewCustomer($_POST['name'], $_POST['surname'], $_POST['birthdate'], $_POST['phone-number'],
                 $_POST['email'], $_POST['password']);
             break;
         case "seller":
-            echo $dbh->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
+            echo $dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
                 $_POST['email'], $_POST['password']);
             break;
     }

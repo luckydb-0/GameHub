@@ -7,7 +7,7 @@
 
     if(!empty($_GET)) {
         if(isset($_GET["name"]) && count($_GET) == 1) {
-            $templateParams["games"] = disassemble_array($dbh->searchGamesByName($_GET["name"]));
+            $templateParams["games"] = disassemble_array($dbr->searchGamesByName($_GET["name"]));
         } else {
             $platforms = array();
             $categories = array();
@@ -42,7 +42,7 @@
                 }
             }
             
-            $templateParams["games"] = $dbh->searchGames($platforms, $categories, $developer, $price, $name);
+            $templateParams["games"] = $dbr->searchGames($platforms, $categories, $developer, $price, $name);
         }
 
     }

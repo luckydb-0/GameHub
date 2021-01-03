@@ -15,7 +15,7 @@
                     <div class="form-row">
                         <label for="platform" class="col-12 text-left mt-2">Console:</label>
                         <?php 
-                            $platforms = $dbh->getPlatforms();
+                            $platforms = $dbr->getPlatforms();
                             foreach($platforms as $platform):
                         ?>
                         <div class="form-check mx-2">
@@ -29,7 +29,7 @@
                     <div class="form-row">
                         <label for="category" class="col-12 text-left mt-2">Categorie:</label>
                         <?php
-                            $categories = $dbh->getCategories();
+                            $categories = $dbr->getCategories();
                             foreach($categories as $category):
                         ?>
                         <div class="form-check mx-2">
@@ -43,7 +43,7 @@
                     <div class="form-row">
                         <label for="developer" class="col-12 text-left mt-2">Sviluppatore:</label>
                         <?php
-                            $developers = $dbh->getDevelopers();
+                            $developers = $dbr->getDevelopers();
                             foreach($developers as $developer):
                         ?>
                         <div class="form-check mx-2">
@@ -92,7 +92,7 @@
             <?php 
                 if(isset($templateParams["games"])):
                     foreach($templateParams["games"] as $gameId):
-                        $game = $dbh->getGameById($gameId)[0];
+                        $game = $dbr->getGameById($gameId)[0];
             ?>
             <tr>
                 <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail"></td>
