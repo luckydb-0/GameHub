@@ -14,33 +14,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php 
+                        $catalogueId = $dbr->getCatalogueId($templateParams["sellerId"]);
+                        $catalogueItems= $dbr->getSellerCatalogue($catalogueId);
+                        $_POST["catalogueId"] = $catalogueId;
+                        foreach($catalogueItems as $item):
+                    ?>
                     <tr>
-                        <td headers="Immagine" data-label="Immagine"><img src="img/GoW.jpg" alt="God of War - PS4" class="img-thumbnail"></td>
-                        <td headers="Cod.Articolo" data-label="Cod.Articolo">1</td>
-                        <td headers="Titolo" data-label="Titolo">God Of War</td>
-                        <td headers="Piattaforma" data-label="Piattaforma">PS4</td>
-                        <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="69.99"></form></td>
+                        <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$item["image"]; ?>" alt="<?php echo $item["title"]." - ".$item["name"]; ?>" class="img-thumbnail"></td>
+                        <td headers="Cod.Articolo" data-label="Cod.Articolo"><?php echo $item["copyId"]; ?></td>
+                        <td headers="Titolo" data-label="Titolo"><?php echo $item["title"]; ?></td>
+                        <td headers="Piattaforma" data-label="Piattaforma"><?php echo $item["name"]; ?></td>
+                        <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="<?php echo $item["price"]; ?>"></form></td>
                         <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="9"></form></td>
-                        <td headers="Copie-vendute" data-label="Copie-vendute">11</td>
+                        <td headers="Copie-vendute" data-label="Copie-vendute">0</td>
                     </tr>
-                    <tr>
-                        <td headers="Immagine" data-label="Immagine"><img src="img/GoW.jpg" alt="God of War - PS4" class="img-thumbnail"></td>
-                        <td headers="Cod.Articolo" data-label="Cod.Articolo">1</td>
-                        <td headers="Titolo" data-label="Titolo">God Of War</td>
-                        <td headers="Piattaforma" data-label="Piattaforma">PS4</td>
-                        <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="69.99"></form></td>
-                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="9"></form></td>
-                        <td headers="Copie-vendute" data-label="Copie-vendute">11</td>
-                    </tr>
-                    <tr>
-                        <td headers="Immagine" data-label="Immagine"><img src="img/GoW.jpg" alt="God of War - PS4" class="img-thumbnail"></td>
-                        <td headers="Cod.Articolo" data-label="Cod.Articolo">1</td>
-                        <td headers="Titolo" data-label="Titolo">God Of War</td>
-                        <td headers="Piattaforma" data-label="Piattaforma">PS4</td>
-                        <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="69.99"></form></td>
-                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="9"></form></td>
-                        <td headers="Copie-vendute" data-label="Copie-vendute">11</td>
-                    </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
@@ -66,64 +55,52 @@
                         
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <form>
+                            <form method="post" action="seller.php?page=catalogue">
+                                
                                 <div class="form-row">
-                                    <label for="img" class="col-11 text-left mt-2">Immagine:</label>
-                                    <input type="file" class="form-control-file col-11" id="name" placeholder="Inserisci immagine">
-                                </div>
-                                <div class="form-row">
-                                    <label for="title" class="col-11 text-left mt-2">Titolo:</label>
-                                    <input type="text" class="form-control col-11" id="name" placeholder="Inserisci titolo">
-                                </div>
-                                <div class="form-row">
-                                    <label for="platform" class="col-11 text-left mt-2">Piattaforma:</label>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">Xbox ONE
-                                        </label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">PS4
-                                        </label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">Nintendo Switch
-                                        </label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">PS5
-                                        </label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">Xbox Series X
-                                        </label>
-                                    </div>
-                                    <div class="form-check mx-2">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optradio">Xbox Series S
-                                        </label>
-                                    </div>
+                                    <label for="platform" class="col-11 text-left mt-2">Seleziona videogioco:</label>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr class="pl-0">
+                                                <th id="Selezione">Seleziona</th>
+                                                <th id="Codice">Codice</th>
+                                                <th id="Immagine">Immagine</th>
+                                                <th id="Nome">Nome</th>
+                                                <th id="Piattaforma">Piattaforma</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php 
+                                                $games = $dbr->getGames();
+                                                foreach($games as $game):
+                                            ?>
+                                            <tr>
+                                                <td><input type="radio" class="form-check-input" name="gameId" value="<?php echo $game["gameId"]; ?>"></td>
+                                                <td headers="Codice"><?php echo $game["gameId"]; ?></td>
+                                                <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]." - ".$game["name"]; ?>" class="img-thumbnail"></td>
+                                                <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]; ?></td>
+                                                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]; ?></td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="form-row">
                                     <label for="price" class="col-11 text-left mt-2">Prezzo:</label>
-                                    <input type="number" class="form-control col-11" id="price" placeholder="Inserisci prezzo">
+                                    <input type="number" class="form-control col-11" id="price" name="price" placeholder="Inserisci prezzo">
                                 </div>
                                 <div class="form-row">
                                     <label for="copies" class="col-11 text-left mt-2">Copie disponibili:</label>
-                                    <input type="number" class="form-control col-11" id="copies" placeholder="Inserisci copie disponibili">
+                                    <input type="number" class="form-control col-11" id="copies" name="copies" placeholder="Inserisci copie disponibili">
+                                </div>
+                                <div class="form-row">
+                                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                                    <button class="btn btn-primary" data-dismiss="modal">Annulla</button>
                                 </div>
                             </form>
                         </div>
                         
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Salva</button>
-                        </div>
-                        
+                      
                         </div>
                     </div>
                     </div>

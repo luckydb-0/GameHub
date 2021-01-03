@@ -88,13 +88,13 @@ return parent::executeRead($query,'i',[$userId]);
     public function getUserAddress($user_id) {
         $query = "SELECT A.country, A.city, A.street, A.postCode FROM address A JOIN
         shipping S ON A.addressId = S.addressId JOIN customer C ON C.userId = ?;";
-        return parent::executeRead($query,'i', $user_id);
+        return parent::executeRead($query,'i', [$user_id]);
     }
 
     public function getGamesInWishlist($userId){
         $query = "SELECT gameId FROM game_in_wishlist CW join wishlist W ON CW.wishlistId = W.wishlistId 
         WHERE W.userId = ?;";
-        return parent::executeRead($query,'i', $userId);
+        return parent::executeRead($query,'i', [$userId]);
     }
 
     public function getPlatforms() {
@@ -131,26 +131,26 @@ return parent::executeRead($query,'i',[$userId]);
 
     public function getUserCreditCards($userId) {
         $query = "SELECT accountHolder, ccnumber, expiration FROM credit_card WHERE userId = ?;";
-        return parent::executeRead($query,'i', $userId);
+        return parent::executeRead($query,'i', [$userId]);
     }
 
     public function getUserAddresses($userId) {
         $query = "SELECT A.addressId, country, city, street, postCode FROM address A join shipping S on A.addressId = S.addressId
         WHERE S.userId = ?;";
-        return parent::executeRead($query,'i', $userId);
+        return parent::executeRead($query,'i', [$userId]);
 
     }
 
     public function getGenresFromGameId($gameId) {
         $query = "SELECT categoryName FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?;";
-        return parent::executeRead($query,"i", $gameId);
+        return parent::executeRead($query,"i", [$gameId]);
     }
 
     public function getGameLowestPriceAndSeller($gameId) {
         $query = "SELECT MIN(GC.price) as lowestPrice, S.name as seller
                                     FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
                                     WHERE GC.gameId = ?;";
-        return parent::executeRead($query,'i', $gameId);
+        return parent::executeRead($query,'i', [$gameId]);
     }
 
     public function getGameByDeveloper($developer){
@@ -166,6 +166,7 @@ return parent::executeRead($query,'i',[$userId]);
 
     public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice=1000, $name): array
     {
+        $results = array();
         $resultsArrays = array();
         $categoryResults = array();
         $consoleResults = array();
@@ -204,8 +205,14 @@ return parent::executeRead($query,'i',[$userId]);
             $resultsArrays[] = $developerResults;
         }
 
-        $result = array_intersect(...$resultsArrays);
-        $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
+        if(count($resultsArrays) < 2) {
+            $result = $resultsArrays[0];
+        } else {
+            $result = array_intersect(...$resultsArrays);
+            if(count($result) > 0) {
+                $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
+            }
+        }
 
         return array_values($result);
     }
@@ -217,6 +224,24 @@ return parent::executeRead($query,'i',[$userId]);
         return parent::executeRead($query,$types,[$price,...$gamesId]);
     }
 
+    public function getCatalogueId($sellerId){
+        $query = "SELECT catalogueId FROM catalogue WHERE sellerId = ?";
+        return parent::executeRead($query,'i', [$sellerId]);
+    }
+
+    public function getSellerCatalogue($catalogueId){
+        $query = "SELECT V.title, V.image, P.name, GC.copyId, GC.price FROM videogame V
+                  JOIN game_copy GC ON V.gameId = GC.gameId JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId
+                  JOIN catalogue C ON C.catalogueId = CC.catalogueId JOIN platform P 
+                  ON V.platformId = P.platformId WHERE C.catalogueId = ?";
+        return parent::executeRead($query,'i', [$catalogueId]);
+    }
+
+    public function getGames() {
+        $query = "SELECT V.title, V.image, P.name, V.gameId FROM videogame V JOIN platform P 
+                  ON P.platformId = V.platformId ORDER BY V.gameId";
+        return parent::executeRead($query);
+    }
 
     /* DA IMPLEMENTARE */
 
