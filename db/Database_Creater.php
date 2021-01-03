@@ -6,12 +6,12 @@ class Database_Creater extends DatabaseHelper
     public function __construct(){
         parent::__construct("database.ozny.it", "prova", "prova", "gamehub", 3306);
     }
-    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password)
+    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
     {
         return parent::executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
     }
 
-    public function insertNewSeller($name, $p_iva, $phone, $email, $password)
+    public function insertNewSeller($name, $p_iva, $phone, $email, $password): int
     {
         return parent::executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
     }
@@ -54,11 +54,13 @@ class Database_Creater extends DatabaseHelper
         parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
     }
     //TODO
-    public function addGameToCart($user_id, $game_id, $seller_id){
+    public function addGameToCart($user_id, $game_id, $seller_id): int
+    {
         return parent::executeInsert("");
     }
     //TODO
-    public function insertNewSellerArticle($article_img, $article_name, $article_platform, $article_price, $article_copies){
+    public function insertNewSellerArticle($article_img, $article_name, $article_platform, $article_price, $article_copies): int
+    {
         return  parent::executeInsert("");
     }
 }
