@@ -17,7 +17,7 @@ class DatabaseHelper{
     private function executeQuery($query,$types='',$values=null){
         $stmt = $this->db->prepare($query);
         if($types != '' && $values !=null)
-            $stmt->bind_param($types,...$values);
+            $stmt->bind_param($types,$values);
         $stmt->execute();
         if($stmt->errno){
             $this->writeError($stmt->error);
@@ -50,7 +50,7 @@ class DatabaseHelper{
     }
     private function writeError($string){
         $file=   fopen("error.log","a");
-        fwrite($file,"[". date("Y-m-d")."] : ".$string);
+        fwrite($file,"[". date("Y-m-d - h:i:sa")."] : ".$string);
         fwrite($file,"\n");
         fclose($file);
     }
