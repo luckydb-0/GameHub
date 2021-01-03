@@ -12,3 +12,10 @@
 [2021-01-03 - 03:32:21pm] : i
 [2021-01-03 - 03:32:21pm] : 1
 [2021-01-03 - 03:32:21pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by
+[2021-01-03 - 03:35:07pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 03:35:07pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?;
+[2021-01-03 - 03:35:07pm] : i
+[2021-01-03 - 03:35:07pm] : 1
+[2021-01-03 - 03:35:07pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by

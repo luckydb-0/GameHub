@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="@database.ozny.it" uuid="2c41d6c8-aea9-4aec-a7eb-8833d011c54a">
+    <data-source source="LOCAL" name="MySQL - gamehub@database.ozny.it" uuid="0505ee0d-7170-4d0a-a601-f79a900427de">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://database.ozny.it:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://database.ozny.it:3306/gamehub</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
