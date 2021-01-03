@@ -1,7 +1,6 @@
 <?php
     require_once 'bootstrap.php';
 
-    $templateParams["title"] = "GameHub - Videogioco"; /* Sarà da settare dinamicamente */
     $templateParams["name"] = "template/template-article.php";
     $templateParams["js"]["input"] = "input.js";
 
@@ -16,6 +15,8 @@
     $templateParams["suggested"] = $dbr->getSuggestedGames($gameId);
     $templateParams["reviews"] = $dbr->getReviews($gameId);
 
+    $templateParams["title"] = "GameHub - ".$templateParams["game"]["title"]." - ".$templateParams["game"]["name"];
+
     if(count($_POST) > 0) {
         if(isset($_POST["addToCart"])) {
             $dbi->addToCart($userId, $templateParams["copy"][0]["copyId"]);
@@ -24,7 +25,7 @@
         if(isset($_POST["title"])) {
             $dbi->addReview($userId, $gameId, $_POST["title"], $_POST["rating"], $_POST["description"]);
         }
-        
+
         header("Location: article.php?game=$gameId");
     }
 
