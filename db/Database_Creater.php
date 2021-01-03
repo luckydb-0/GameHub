@@ -6,12 +6,12 @@ class Database_Creater extends DatabaseHelper
     public function __construct(){
         parent::__construct("database.ozny.it", "prova", "prova", "gamehub", 3306);
     }
-    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password)
+    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
     {
         return parent::executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
     }
 
-    public function insertNewSeller($name, $p_iva, $phone, $email, $password)
+    public function insertNewSeller($name, $p_iva, $phone, $email, $password): int
     {
         return parent::executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
     }
@@ -53,11 +53,17 @@ class Database_Creater extends DatabaseHelper
         $expDate = $expiration."-01";
         parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
     }
-    //TODO
-    public function addGameToCart($user_id, $game_id, $seller_id){
-        return parent::executeInsert("");
+    
+    public function addToCart($userId, $copyId) {
+        $query = "INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)";
+        return parent::executeInsert($query, "ii", [$userId, $copyId]);
     }
-    //TODO
+
+    public function addReview($userId, $gameId, $title, $rating, $description) {
+        $query = "INSERT INTO review (customerId, gameId, title, rating, description) VALUES (?, ?, ?, ?, ?);";
+        return parent::executeInsert($query, "iisss", [$userId, $gameId, $title, $rating, $description]);
+    }
+
     public function insertNewSellerArticle($gameId, $price, $copies, $catalogueId){
         // Devo creare nuova game copy, e conseguentemente copy in catalogue
         $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)"; // Manca numero copie

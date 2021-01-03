@@ -13,7 +13,6 @@ class DatabaseHelper{
             die("Connection failed: " .$this->db->connect_error);
         }        
     }
-
     private function executeQuery($query,$types='',$values=null){
         $stmt = $this->db->prepare($query);
         if($this->db->errno) {
@@ -37,7 +36,6 @@ class DatabaseHelper{
         }
         return $stmt;
     }
-
     public function executeInsert($query, $types='', $values=null): int
     {
         $stmt = $this->executeQuery($query,$types,$values);

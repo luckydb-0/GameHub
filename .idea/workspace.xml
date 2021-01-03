@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/populate_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/populate_db.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Creater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Creater.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/template" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -54,7 +58,7 @@
       <workItem from="1609597296608" duration="1512000" />
       <workItem from="1609599045550" duration="18492000" />
       <workItem from="1609659696547" duration="17537000" />
-      <workItem from="1609678959491" duration="3165000" />
+      <workItem from="1609678959491" duration="5243000" />
     </task>
     <servers />
   </component>
