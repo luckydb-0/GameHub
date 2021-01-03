@@ -70,7 +70,7 @@ class Database_Reader extends DatabaseHelper
         FROM videogame V JOIN platform P ON V.platformId = P.platformId
         WHERE V.gameId =?;";
 
-        return parent::executeRead($query,'i',[$gameId]);
+        return parent::executeRead($query,'s',[(string)$gameId]);
     }
 
     public function getSellerOrders($seller_id) {
@@ -82,19 +82,19 @@ class Database_Reader extends DatabaseHelper
     public function getCopiesInCart($userId){
         $query = "SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
         WHERE C.userId = ?;";
-return parent::executeRead($query,'i',[$userId]);
+        return parent::executeRead($query,'i',[$userId]);
     }
 
     public function getUserAddress($user_id) {
         $query = "SELECT A.country, A.city, A.street, A.postCode FROM address A JOIN
         shipping S ON A.addressId = S.addressId JOIN customer C ON C.userId = ?;";
-        return parent::executeRead($query,'i', [$user_id]);
+        return parent::executeRead($query,'i', $user_id);
     }
 
     public function getGamesInWishlist($userId){
         $query = "SELECT gameId FROM game_in_wishlist CW join wishlist W ON CW.wishlistId = W.wishlistId 
         WHERE W.userId = ?;";
-        return parent::executeRead($query,'i', [$userId]);
+        return parent::executeRead($query,'i', $userId);
     }
 
     public function getPlatforms() {
@@ -104,7 +104,7 @@ return parent::executeRead($query,'i',[$userId]);
 
     public function getUserNotifications($userId) {
         $query = "SELECT notificationId, timeReceived, description FROM notification WHERE userId = ?;";
-        return parent::executeRead($query,'i', [$userId]);
+        return parent::executeRead($query,'i', $userId);
     }
 
     public function getCategories() {
@@ -147,15 +147,15 @@ return parent::executeRead($query,'i',[$userId]);
     }
 
     public function getGameLowestPriceAndSeller($gameId) {
-        $query = "SELECT MIN(GC.price) as lowestPrice, S.name as seller
-                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
-                                    WHERE GC.gameId = ?;";
+        $query = "SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;";
         return parent::executeRead($query,'i', [$gameId]);
     }
 
-    public function getGameByDeveloper($developer){
+    public function getGameByDeveloper($developer) {
         $query = "SELECT V.gameId FROM videogame V JOIN developer D 
-                                    ON D.developerId = V.developerId WHERE D.name = ?;";
+                  ON D.developerId = V.developerId WHERE D.name = ?;";
         return parent::executeRead($query,'s', [$developer]);
     }
 
@@ -210,13 +210,29 @@ return parent::executeRead($query,'i',[$userId]);
         return array_values($result);
     }
 
-    public function filterGamesByPrice($gamesId, $price){
+    public function filterGamesByPrice($gamesId, $price) {
         $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
         $query = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in);";
         $types = 'i'.str_repeat('s', count($gamesId)); // To concatenate as many s needed
         return parent::executeRead($query,$types,[$price,...$gamesId]);
     }
 
+    public function getSuggestedGames($gameId) {
+        $query = "SELECT V.gameId, V.title, V.image 
+                  FROM videogame V JOIN game_category GC ON V.gameId = GC.gameId JOIN developer D ON D.developerId = V.developerId
+                  WHERE (GC.categoryId IN (SELECT GC.categoryId FROM videogame V JOIN game_category GC on V.gameId = GC.gameId WHERE V.gameId = ?)
+                  OR D.developerId IN (SELECT developerId FROM videogame WHERE gameId = ?))
+                  AND V.platformId IN (SELECT platformId FROM videogame WHERE gameId = ?)
+                  AND V.gameId != ?
+                  GROUP BY V.gameId";
+        return parent::executeRead($query, "iiii", [$gameId, $gameId, $gameId, $gameId]);
+
+    }
+
+    public function getReviews($gameId) {
+        $query = "SELECT R.title, R.description, R.rating, C.name, C.surname FROM review R JOIN customer C ON R.customerId = C.userId WHERE gameId = ?";
+        return parent::executeRead($query, "i", [$gameId]);
+    }
 
     /* DA IMPLEMENTARE */
 
@@ -230,10 +246,7 @@ return parent::executeRead($query,'i',[$userId]);
         return parent::executeRead("","",[$n]);
     }
     //TODO
-    public function getSuggestedGames($n){
-        return parent::executeRead("","",[$n]);
-
-    }
+    
     //TODO
     public function getNewestGames(){
         return parent::executeRead("","",[]);

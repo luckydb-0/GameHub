@@ -10,14 +10,5 @@ $(document).ready(function () {
         return false;
         };
     });
-
-    $("#addCardBtn").click(function() {
-
-        if($("#addCard").hasClass("hidden")) {
-            $("#addCard").removeClass("hidden").slideDown();
-        } else {
-            $("#addCard").addClass("hidden").slideUp();
-        }
-    })
     
 });

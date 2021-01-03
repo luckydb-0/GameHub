@@ -12,3 +12,66 @@
 [2021-01-03 - 03:32:21pm] : i
 [2021-01-03 - 03:32:21pm] : 1
 [2021-01-03 - 03:32:21pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by
+[2021-01-03 - 03:34:45pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 03:34:45pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?;
+[2021-01-03 - 03:34:45pm] : i
+[2021-01-03 - 03:34:45pm] : 1
+[2021-01-03 - 03:34:45pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by
+[2021-01-03 - 03:34:47pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 03:34:47pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?;
+[2021-01-03 - 03:34:47pm] : i
+[2021-01-03 - 03:34:47pm] : 1
+[2021-01-03 - 03:34:47pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by
+[2021-01-03 - 03:34:47pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 03:34:47pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?;
+[2021-01-03 - 03:34:47pm] : i
+[2021-01-03 - 03:34:47pm] : 1
+[2021-01-03 - 03:34:47pm] : In aggregated query without GROUP BY, expression #2 of SELECT list contains nonaggregated column 'gamehub.S.name'; this is incompatible with sql_mode=only_full_group_by
+[2021-01-03 - 03:45:13pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 03:45:13pm] : SELECT categoryName FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?;
+[2021-01-03 - 03:45:13pm] : i
+[2021-01-03 - 03:45:13pm] : 1
+[2021-01-03 - 03:45:13pm] : No data supplied for parameters in prepared statement
+[2021-01-03 - 03:45:13pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 03:45:13pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
+                                    FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                                    WHERE GC.gameId = ?;
+[2021-01-03 - 03:45:13pm] : i
+[2021-01-03 - 03:45:13pm] : 1
+[2021-01-03 - 03:45:13pm] : No data supplied for parameters in prepared statement
+[2021-01-03 - 05:45:28pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 05:45:28pm] : SELECT categoryId, categoryName FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?;
+[2021-01-03 - 05:45:28pm] : i
+[2021-01-03 - 05:45:28pm] : 1
+[2021-01-03 - 05:45:28pm] : Column 'categoryId' in field list is ambiguous
+[2021-01-03 - 05:50:37pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 05:50:37pm] : SELECT categoryId  FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?;
+[2021-01-03 - 05:50:37pm] : i
+[2021-01-03 - 05:50:37pm] : 1
+[2021-01-03 - 05:50:37pm] : Column 'categoryId' in field list is ambiguous
+[2021-01-03 - 05:50:47pm] : Execution Aborted while trying to prepare query
+[2021-01-03 - 05:50:47pm] : SELECT categoryId FROM category C JOIN game_category GC on C.categoryId = GC.categoryId WHERE GC.gameId = ?;
+[2021-01-03 - 05:50:47pm] : i
+[2021-01-03 - 05:50:47pm] : 1
+[2021-01-03 - 05:50:47pm] : Column 'categoryId' in field list is ambiguous
+[2021-01-03 - 06:21:42pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 06:21:42pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-03 - 06:21:42pm] : ii
+[2021-01-03 - 06:21:42pm] : 1
+[2021-01-03 - 06:21:42pm] : Column 'cartId' cannot be null
+[2021-01-03 - 06:23:19pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 06:23:19pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-03 - 06:23:19pm] : ii
+[2021-01-03 - 06:23:19pm] : 1
+[2021-01-03 - 06:23:19pm] : Column 'copyId' cannot be null
+[2021-01-03 - 06:26:06pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 06:26:06pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-03 - 06:26:06pm] : ii
+[2021-01-03 - 06:26:06pm] : 1
+[2021-01-03 - 06:26:06pm] : Duplicate entry '22-1' for key 'copy_in_cart.PRIMARY'

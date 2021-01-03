@@ -53,10 +53,15 @@ class Database_Creater extends DatabaseHelper
         $expDate = $expiration."-01";
         parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
     }
-    //TODO
-    public function addGameToCart($user_id, $game_id, $seller_id): int
-    {
-        return parent::executeInsert("");
+    
+    public function addToCart($userId, $copyId) {
+        $query = "INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)";
+        return parent::executeInsert($query, "ii", [$userId, $copyId]);
+    }
+
+    public function addReview($userId, $gameId, $title, $rating, $description) {
+        $query = "INSERT INTO review (customerId, gameId, title, rating, description) VALUES (?, ?, ?, ?, ?);";
+        return parent::executeInsert($query, "iisss", [$userId, $gameId, $title, $rating, $description]);
     }
     //TODO
     public function insertNewSellerArticle($article_img, $article_name, $article_platform, $article_price, $article_copies): int
