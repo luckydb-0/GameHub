@@ -5,10 +5,12 @@
         return str_replace("-", "/", $reversed); 
     }
 
-    function isUserLoggedIn(){
+    function isUserLoggedIn(): bool
+    {
         return isLoggedIn() && strpos($_SESSION['userId'],"c:")!==false;
     }
-    function isLoggedIn(){
+    function isLoggedIn(): bool
+    {
         return !empty($_SESSION['userId']);
     }
 
@@ -17,7 +19,8 @@
         $_SESSION["userId"] = $user;
     }
 
-    function disassemble_array($matrix) {
+    function disassemble_array($matrix): array
+    {
         $result = array();
         $i = 0;
 
@@ -31,7 +34,8 @@
         return $result;
     }
 
-    function notnull_array_intersect($array) {
+    function notnull_array_intersect($array): array
+    {
         $values = disassemble_array($array);
         $result = array_unique($values);
         var_dump($result);

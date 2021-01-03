@@ -68,8 +68,9 @@ class Database_Reader extends DatabaseHelper
     public function getGameById($gameId) {
         $query = "SELECT V.image, V.title, P.name, V.releaseDate, V.description, V.suggestedPrice
         FROM videogame V JOIN platform P ON V.platformId = P.platformId
-        WHERE V.gameId = ?;";
-        return parent::executeRead($query,'i',[$gameId]);
+        WHERE V.gameId =?;";
+
+        return parent::executeRead($query,'s',[(string)$gameId]);
     }
 
     public function getSellerOrders($seller_id) {
@@ -119,13 +120,13 @@ return parent::executeRead($query,'i',[$userId]);
     public function getGameByCategory($category){
         $query = "SELECT V.gameId FROM videogame V JOIN game_category GC ON 
         V.gameId = GC.gameId JOIN category C ON C.categoryId = GC.categoryId WHERE C.categoryName = ?;";
-        return parent::executeRead($query,'s', $category);
+        return parent::executeRead($query,'s', [$category]);
     }
 
     public function getGameByConsole($console){
         $query = "SELECT V.gameId FROM videogame V JOIN platform P ON
          P.platformId = V.platformId WHERE P.name = ?;";
-        return parent::executeRead($query,'s', $console);
+        return parent::executeRead($query,'s', [$console]);
     }
 
     public function getUserCreditCards($userId) {
@@ -155,15 +156,16 @@ return parent::executeRead($query,'i',[$userId]);
     public function getGameByDeveloper($developer){
         $query = "SELECT V.gameId FROM videogame V JOIN developer D 
                                     ON D.developerId = V.developerId WHERE D.name = ?;";
-        return parent::executeRead($query,'s', $developer);
+        return parent::executeRead($query,'s', [$developer]);
     }
 
     public function searchGamesByName($name) {
         $query = "SELECT gameId from videogame WHERE title LIKE '%$name%';";
-        return parent::executeRead($query,'s', $name);
+        return parent::executeRead($query);
     }
 
-    public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice=1000, $name) {
+    public function searchGames($consoleNames, $categoryNames, $developerName, $maxPrice=1000, $name): array
+    {
         $resultsArrays = array();
         $categoryResults = array();
         $consoleResults = array();
@@ -210,12 +212,10 @@ return parent::executeRead($query,'i',[$userId]);
 
     public function filterGamesByPrice($gamesId, $price){
         $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
-        $string = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in)";
-        $query = $string.";";
+        $query = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in);";
         $types = 'i'.str_repeat('s', count($gamesId)); // To concatenate as many s needed
-        return parent::executeRead($query,$types,...$gamesId);
+        return parent::executeRead($query,$types,[$price,...$gamesId]);
     }
-
 
 
     /* DA IMPLEMENTARE */

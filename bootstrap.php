@@ -7,7 +7,7 @@
     require_once("db/Database_Updater.php");
     require_once("db/Database_Reader.php");
 
-    $dbh = new DatabaseHelper("database.ozny.it", "prova", "prova", "gamehub", 3306);
+    //$dbh = new DatabaseHelper("database.ozny.it", "prova", "prova", "gamehub", 3306);
     $dbr = new Database_Reader();
     $dbi = new Database_Creater();
     $dbu = new Database_Updater();

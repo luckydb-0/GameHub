@@ -13,10 +13,10 @@
     </button>
     <div id="dashboard" class="collapse show col-md-3 mb-md-0 mb-3 my-md-4">
         <ul class="list-group pl-0 mt-0">
-            <li class="list-group-item bg-dark"><a href="profile.php">Dati personali</a></li>
-            <li class="list-group-item bg-dark"><a href="profile.php?page=orders">I miei ordini</a></li>
-            <li class="list-group-item bg-dark"><a href="profile.php?page=wishlist">La mia lista dei desideri</a></li>
-            <li class="list-group-item bg-dark justify-content-between d-flex align-items-center"><a href="profile.php?page=notifications">Notifiche</a> <span class="badge badge-light badge-pill">50</span></li>
+            <li class="list-group-item bg-dark"><a href="/profile.php">Dati personali</a></li>
+            <li class="list-group-item bg-dark"><a href="/profile.php?page=orders">I miei ordini</a></li>
+            <li class="list-group-item bg-dark"><a href="/profile.php?page=wishlist">La mia lista dei desideri</a></li>
+            <li class="list-group-item bg-dark justify-content-between d-flex align-items-center"><a href="/profile.php?page=notifications">Notifiche</a> <span class="badge badge-light badge-pill">50</span></li>
         </ul>
     </div>
     <?php
