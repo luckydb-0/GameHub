@@ -70,14 +70,14 @@ class Database_Creater extends DatabaseHelper
         return parent::executeInsert($query, "iisss", [$userId, $gameId, $title, $rating, $description]);
     }
 
-    public function insertNewSellerArticle($gameId, $price, $copies, $catalogueId): int
+    public function insertNewSellerArticle($gameId, $price, $catalogueId): int
     {
         // Devo creare nuova game copy, e conseguentemente copy in catalogue
         $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)"; // Manca numero copie
         parent::executeInsert($query, 'ii', [$gameId, $price]);
 
         $copyId = parent::executeRead("SELECT MAX(copyId) AS id FROM game_copy")[0]["id"];
-        $query = "INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)";
+        $query = "INSERT INTO copy_in_catalogue (copyId, sellerId) VALUES (?, ?)";
 
         return  parent::executeInsert($query, "ii", [$copyId, $catalogueId]);
     }

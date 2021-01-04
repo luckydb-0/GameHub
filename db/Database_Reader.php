@@ -234,10 +234,12 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getSellerCatalogue($catalogueId){
-        $query = "SELECT V.title, V.image, P.name, GC.copyId, GC.price FROM videogame V
-                  JOIN game_copy GC ON V.gameId = GC.gameId JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId
-                  JOIN seller S ON S.sellerId = CC.sellerId JOIN platform P 
-                  ON V.platformId = P.platformId WHERE S.sellerId = ?";
+        $query = "SELECT V.title, V.image, P.name,GC.copyId, GC.gameId, GC.price,COUNT(GC.gameId) as copies
+                    FROM videogame V JOIN game_copy GC ON V.gameId = GC.gameId 
+                    JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId 
+                    JOIN seller S ON S.sellerId = CC.sellerId 
+                    JOIN platform P ON V.platformId = P.platformId 
+                    WHERE S.sellerId = ? GROUP BY GC.gameId ;";
         return parent::executeRead($query,'i', [$catalogueId]);
     }
 

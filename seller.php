@@ -4,7 +4,6 @@
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
 
-    var_dump($_POST);
     if(isset($_POST['modifies']))
         if($_POST['modifies']=='perform')
         if($result = input_check_seller($_POST['name'], $_POST['password'],
@@ -21,8 +20,9 @@
             $gameId = $_POST["gameId"];
             $price = $_POST["price"];
             $copies = $_POST["copies"];
-            $catId = $dbr->getCatalogueId(substr($_SESSION["userId"], 2));
-            $dbi->insertNewSellerArticle($gameId, $price, $copies, $catId);
+            $catId = substr($_SESSION["userId"], 2);
+            foreach(range(1,intval($copies)) as $copy)
+                $dbi->insertNewSellerArticle($gameId, $price, $catId);
         }
     
 
