@@ -53,14 +53,25 @@ class Database_Creater extends DatabaseHelper
         $expDate = $expiration."-01";
         parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
     }
-    //TODO
-    public function addGameToCart($user_id, $game_id, $seller_id): int
-    {
-        return parent::executeInsert("");
+    
+    public function addToCart($userId, $copyId) {
+        $query = "INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)";
+        return parent::executeInsert($query, "ii", [$userId, $copyId]);
     }
-    //TODO
-    public function insertNewSellerArticle($article_img, $article_name, $article_platform, $article_price, $article_copies): int
-    {
-        return  parent::executeInsert("");
+
+    public function addReview($userId, $gameId, $title, $rating, $description) {
+        $query = "INSERT INTO review (customerId, gameId, title, rating, description) VALUES (?, ?, ?, ?, ?);";
+        return parent::executeInsert($query, "iisss", [$userId, $gameId, $title, $rating, $description]);
+    }
+
+    public function insertNewSellerArticle($gameId, $price, $copies, $catalogueId){
+        // Devo creare nuova game copy, e conseguentemente copy in catalogue
+        $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)"; // Manca numero copie
+        parent::executeInsert($query, 'ii', [$gameId, $price]);
+
+        $copyId = parent::executeRead("SELECT MAX(copyId) AS id FROM game_copy");
+        $query = "INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)";
+
+        return  parent::executeInsert($query, "ii", [$copyId, $catalogueId]);
     }
 }

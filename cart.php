@@ -27,6 +27,8 @@
     
             if(isset($_POST["creditCard"]) && isset($_POST["addressId"])) {
                 $dbi->placeOrder($userId, $_POST["addressId"], $_POST["total"]);
+            } elseif(isset($_POST["creditCard"]) || isset($_POST["addressId"])) {
+                $templateParams["error"] = "Selezionare una carta ed un indirizzo di spedizione";
             }
             header("Location: cart.php");
         }

@@ -56,11 +56,12 @@
             <h2> Seleziona metodo di pagamento: </h2>
             <fieldset id="creditCard">
         <?php
+            $isFirst = true;
             foreach($templateParams["creditCards"] as $creditCard):
         ?>
                 <div class="form-check text-left">
                     <label class="form-check-label" for="<?php echo $creditCard["ccnumber"]; ?>">
-                    <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="creditCard" value="<?php echo $creditCard["ccnumber"]; ?>"/>
+                    <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="creditCard" value="<?php echo $creditCard["ccnumber"]; ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
                     <?php echo $creditCard["accountHolder"]." - Termina con ".substr($creditCard["ccnumber"], 16, 4) ; ?>
                     </label>                    
                 </div>
@@ -69,21 +70,26 @@
             <fieldset id="address">
                 <h2> Seleziona indirizzo di spedizione: </h2>
                 <?php 
+                    $isFirst = true;
                     foreach($templateParams["addresses"] as $address):
                 ?>
                         <div class="form-check text-left">
                             <label class="form-check-label" for="<?php echo $address["city"]." - ".$address["street"]; ?>">
-                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>"/>
+                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
                             <?php echo $address["city"]." - ".$address["street"]." - ".$address["postCode"]; ?>
                             </label>
                             
                         </div>
-                <?php endforeach; ?>
+                <?php endforeach; 
+                    if(isset($templateParams["error"])) {
+                        echo $templateParams["error"];
+                    }
+                ?>
             </fieldset>
             <div class="row">
                 <div class="col-12 text-right">
-                    <input type="hidden" id="total" name="total" value="<?php echo $total?>">
-                    <input type="submit" class="btn btn-light" value="Ordina" name="placeOrder">
+                    <input type="hidden" id="total" name="total" value="<?php echo $total?>" />
+                    <input type="submit" class="btn btn-light" value="Ordina" name="placeOrder" />
                 </div>                
             </div>                
         </form>
@@ -123,9 +129,7 @@
                             <label for="cvv">CVV: </label>
                             <input type="text" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" required />
                         </div>
-                        <div class="checkbox text-left">
-                            <label><input type="checkbox" name="saveMethod"> Salva metodo di pagamento </label>
-                        </div>
+                            <input type="hidden" name="saveMethod">
                         <div class="text-right">
                             <input type="submit" class="btn btn-light" value="Salva modifiche"/>
                         </div>
@@ -155,9 +159,7 @@
                             <label for="postCode"> CAP: </label>
                             <input type="number" class="form-control w-25" id="cvv" name="postCode" required />
                         </div>
-                        <div class="checkbox text-left">
-                            <label><input type="checkbox" name="saveAddress"> Salva indirizzo di spedizione </label>
-                        </div>
+                        <input type="hidden" name="saveAddress">
                         <div class="text-right">
                             <input type="submit" class="btn btn-light" value="Salva modifiche"/>
                         </div>

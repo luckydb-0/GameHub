@@ -12,7 +12,7 @@
             <div class="row">
                 <ul class="list-group m-0">
                     <?php 
-                        $user = $dbr->getUserData($order["userId"])[0];
+                        $user = $dbr->getUserData("c:".$order["userId"])[0];
                         $userAddress = $dbr->getUserAddress($order["userId"])[0];
                     ?>
                     <li class="list-group-item bg-dark">Cliente: <?php echo $user["name"]." ".$user["surname"]; ?></li>
