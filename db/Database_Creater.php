@@ -92,4 +92,12 @@ class Database_Creater extends DatabaseHelper
 
         return parent::executeInsert("INSERT INTO cart(cartId, userId) VALUES (?,?)","ii",[$id,$id]);
     }
+
+    public function insertNotifyForCustomer($userId,$string): int
+    {
+        return parent::executeInsert("INSERT INTO notification(userId, description, timeReceived) VALUES (?,?,?)"
+        ,"iss",[$userId,$string,date("YY-m-d",time())]);
+    }
+    public function insertNotifyForSeller($sellerId,$string){
+    }
 }
