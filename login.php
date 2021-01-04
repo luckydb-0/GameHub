@@ -8,7 +8,6 @@
         if($_POST["email"] != "" && $_POST["password"] != ""){
         $login_result = $dbr->checkLogin($_POST["email"], $_POST["password"]);
             if($login_result  == ""){
-                echo "debug";
                 $templateParams["errorelogin"] = "Errore! Controllare email o password!";
             }
             else{

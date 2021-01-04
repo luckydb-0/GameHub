@@ -71,7 +71,7 @@
             </li>
             <?php endif; else:?>
             <li class="nav-item active mr-2">
-              <a class="nav-link" href="login.php">Login</a>
+              <a class="nav-link" href="login.php">Accedi</a>
             </li>
             <?php endif; ?>
             <?php if(isUserLoggedIn()):?>
@@ -80,8 +80,8 @@
             </li>
             <?php endif; ?>
           </ul>
-          <form class="form-inline my-2 my-lg-0 mr-md-5" action="search.php" method="GET">
-            <input class="form-control mr-1 col-9" name="name" type="search" placeholder="Cerca..." aria-label="Search">
+          <form class="form-inline my-2 my-lg-0 mr-md-3 mr-lg-5" action="search.php" method="GET">
+            <input class="form-control mr-1 col-11 col-md-9" name="name" type="search" placeholder="Cerca..." aria-label="Search">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>
