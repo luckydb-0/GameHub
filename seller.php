@@ -3,12 +3,14 @@
 
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
+
+    var_dump($_POST);
     if(isset($_POST['modifies']))
         if($_POST['modifies']=='perform')
         if($result = input_check_seller($_POST['name'], $_POST['password'],
-            $_POST['repeat-password'],$_POST['phone-number'],$_POST['email'],$_POST['p_iva'])) {
+            $_POST['repeat_password'],$_POST['phone_number'],$_POST['email'],$_POST['p_iva'])) {
             $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
-                $result['name'], $result['password'], $result['phone-number']);
+                $result['name'], $result['password'], $result['phone_number']);
             $_POST['modifies'] = 'updated';
         }
     if(!isLoggedIn()) {

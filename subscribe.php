@@ -6,7 +6,6 @@ $templateParams["title"] = "GameHub - Registration Form";
 $templateParams["name"] = "template/template-subscribe.php";
 $templateParams["js"]["input"] = "input.js";
 
-var_dump($_POST);
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($_POST['subscriptionType']) && isset($_POST['fields'])) {
         switch ($_POST['subscriptionType']) {

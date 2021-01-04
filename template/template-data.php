@@ -19,14 +19,14 @@
                     <input type="text" class="form-control col-11" disabled id="birthdate" aria-describedby="" value="<?php echo reverseDate($user["birthDate"]);?>">
                 </div>
                 <div class="form-group col-md-6 my-4">
-                    <label for="phone-number" class="col-11 text-left mt-2">Telefono:</label>
-                    <input type="tel" name="phone-number" class="form-control col-11" id="phone-number" aria-describedby="" value="<?php echo $user["phone"] ?>" required>
+                    <label for="phone_number" class="col-11 text-left mt-2">Telefono:</label>
+                    <input type="tel" name="phone_number" class="form-control col-11" id="phone_number" aria-describedby="" value="<?php echo $user["phone"] ?>" required>
                 </div>    
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="email" class="col-11 text-left mt-2">Email:</label>
-                    <input type="email" class="form-control col-11" id="email" aria-describedby="emailHelp" value="<?php echo $user["email"];?>" disabled>
+                    <input type="email" name="email" class="form-control col-11" id="email" aria-describedby="emailHelp" value="<?php echo $user["email"];?>" disabled>
                 </div>
             </div>
             <div class="form-row">
@@ -35,8 +35,8 @@
                     <input type="password" name="password" class="form-control col-11" id="password" placeholder="Modifica password" required>
                 </div>
                 <div class="form-group col-md-6 my-4">
-                    <label for="repeat-password" class="col-11 text-left mt-2">Ripeti password:</label>
-                    <input type="password" name="repeat-password" class="form-control col-11" id="repeat-password" aria-describedby="" placeholder="Modifica password"required>
+                    <label for="repeat_password" class="col-11 text-left mt-2">Ripeti password:</label>
+                    <input type="password" name="repeat_password" class="form-control col-11" id="repeat_password" aria-describedby="" placeholder="Modifica password"required>
                 </div>    
             </div>
             <div class="form-group text-right mt-3">
