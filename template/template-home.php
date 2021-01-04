@@ -7,37 +7,50 @@
     <div class="container bg-dark py-3">
         <!-- Fare altro carousel per schermi piccoli-->
         <div id="ultime-uscite" class="carousel slide" data-ride="carousel">
+            <?php 
+                $n = 6;
+                $values = $dbr->getNewestGames($n);
+            ?>    
 
             <!-- Indicators -->
             <ul class="carousel-indicators">
-            <li data-target="#ultime-uscite" data-slide-to="0" class="active"></li>
-            <li data-target="#ultime-uscite" data-slide-to="1"></li>
-            <li data-target="#ultime-uscite" data-slide-to="2"></li>
+                 <?php   
+                    for($current = 0; $current < 3; $current++): 
+                ?>
+                <li data-target="#ultime-uscite" data-slide-to="<?php echo $current; ?>" <?php if($current == 0) echo 'class="active"'; ?> ></li>
+                <?php endfor; ?>
             </ul>
         
             <!-- The slideshow -->
             <div class="carousel-inner my-3">
-                <div class="carousel-item active">
-
-                    <div class="row text-center">
-                        <div class="col-md-6">
+                <?php
+                    $isFirst = true;
+                    $couples = array_chunk($values, 2, true);
+                    for($counter = 0, $secondCounter = 0; $counter < $n; $counter++):
+                        $game = $couples[$secondCounter][$counter];
+                ?>
+                <div class="carousel-item <?php if($isFirst){ echo "active"; $isFirst = !$isFirst;}; ?>">
+                    <div class="row text-center justify-content-center">
+                        <div class="col-md-5">
                             <div>
-                                <a href="article.php?game=1">
-                                    <img src="img/GoW.jpg" alt="God of War PS4" class="img-thumbnail">
-                                    <p>God of War</p>
+                                <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
+                                    <p><?php echo $game["title"]; ?></p>
                                 </a>
-                            </div>        
+                            </div>
                         </div>
-                        <div class="col-md-6 clearfix">
+                        <?php $game = $couples[$secondCounter][++$counter]; $secondCounter++; ?>
+                        <div class="col-md-5">
                             <div>
-                                <a href="article.php?game=18">
-                                    <img src="img/DG.jpg" alt="Days Gone PS4" class="img-thumbnail">
-                                    <p>Days Gone</p>
+                                <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
+                                    <p><?php echo $game["title"]; ?></p>
                                 </a>
-                            </div>        
+                            </div>
                         </div>
                     </div>
                 </div>
+                <?php endfor; ?>
             </div>
         
             <!-- Left and right controls -->

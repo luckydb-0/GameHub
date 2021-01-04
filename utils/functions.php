@@ -9,7 +9,7 @@
     {
         return isLoggedIn() && strpos($_SESSION['userId'],"c:")!==false;
     }
-    
+
     function isLoggedIn(): bool
     {
         return !empty($_SESSION['userId']);
@@ -67,7 +67,7 @@ function input_check_customer($name,$surname,$password,$rep_password,$phone,$ema
     $result['password'] = check_input($password);
     $result['name'] = check_input($name);
     $result['surname'] = check_input($surname);
-    $result['phone-number'] = check_input($phone);
+    $result['phone_number'] = check_input($phone);
     $result['email'] = check_input($email);
     $result['result'] = strlen($phone) == 10 && strlen($name) <= 24 && strlen($email) <= 48 ;
     return $result;

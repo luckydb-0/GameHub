@@ -9,14 +9,15 @@ class Database_Creater extends DatabaseHelper
     public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
     {
         $password = hash_password($password);
-
-        return parent::executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
+        $query = "INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES (?, ?, ?, ?, ?, ?);";
+        return parent::executeInsert($query, "ssssss", [$name,$surname,$birthdate,$phone,$email,$password]);
     }
 
     public function insertNewSeller($name, $p_iva, $phone, $email, $password): int
     {
         $password = hash_password($password);
-        return parent::executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
+        $query = "INSERT INTO seller(name,p_iva,phone,email,password) VALUES (?, ?, ?, ?, ?);";
+        return parent::executeInsert($query, "sssss", [$name,$p_iva,$phone,$email,$password]);
     }
 
     public function placeOrder($userId, $addressId, $total) {
@@ -24,8 +25,8 @@ class Database_Creater extends DatabaseHelper
         $copies = parent::executeRead($query,'i',[$userId]);
 
         $today = date("Y-m-d");
-        $query="INSERT INTO _order (addressId, orderDate, total, userId) VALUES ($addressId, '$today', $total, $userId);";
-        parent::executeInsert($query);
+        $query="INSERT INTO _order (addressId, orderDate, total, userId) VALUES (?, ?, ?, ?);";
+        parent::executeInsert($query, "isii", [$addressId, $today, $total, $userId]);
 
         $orderId = parent::executeRead("SELECT MAX(orderId) as id FROM _order");
         $orderId = $orderId[0]["id"];
