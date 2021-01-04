@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 if($result = input_check_customer($_POST['name'], $_POST['surname'],
                     $_POST['password'],$_POST['repeat-password'],$_POST['phone-number'],$_POST['email'])) {
                     if($result['result'])
-                    if ($dbi->insertNewCustomer($result['name'], $result['surname'], $result['birthdate'], $result['phone-number'],
+                    if ($dbi->insertNewCustomer($result['name'], $result['surname'], $_POST['birthdate'], $result['phone-number'],
                         $result['email'], $result['password']))
                         header("location:profile.php");
                     }

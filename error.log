@@ -1,0 +1,10 @@
+[2021-01-04 - 05:59:58pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 05:59:58pm] : INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('test','customer','',1235648790,'test@customer.it','$2y$10$WpShW9j4pI/vsK44xuvhTuGdk2Jb6cuPbmrZN7K4L9NQcXKiGhGce');
+[2021-01-04 - 05:59:58pm] : 
+[2021-01-04 - 05:59:58pm] : 1
+[2021-01-04 - 05:59:58pm] : Incorrect date value: '' for column 'birthDate' at row 1
+[2021-01-04 - 06:02:39pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:02:39pm] : INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('test','customer','',2135648970,'test@customer.it','$2y$10$ktSt51W/3tl91FnpNgrbSeO6wFWB.3N2S06HZgu5rqyFD7KhG7/6e');
+[2021-01-04 - 06:02:39pm] : 
+[2021-01-04 - 06:02:39pm] : 1
+[2021-01-04 - 06:02:39pm] : Incorrect date value: '' for column 'birthDate' at row 1
