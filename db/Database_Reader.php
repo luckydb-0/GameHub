@@ -83,8 +83,8 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getCopiesInCart($userId){
-        $query = "SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
-        WHERE C.userId = ?;";
+        $query = "SELECT copyId FROM copy_in_cart 
+        WHERE userId = ?;";
         return parent::executeRead($query,'i',[$userId]);
     }
 
@@ -151,7 +151,7 @@ class Database_Reader extends DatabaseHelper
 
     public function getGameLowestPriceAndSeller($gameId) {
         $query = "SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
-                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.sellerId = S.sellerId
                   WHERE GC.gameId = ? AND sold = 0;";
         return parent::executeRead($query,'i', [$gameId]);
     }

@@ -15,7 +15,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     if($result['result'])
                     if ($id = $dbi->insertNewCustomer($result['name'], $result['surname'], $_POST['birthdate'], $result['phone-number'],
                         $result['email'], $result['password']))
-                        $dbi->insertNewCustomerCart($id);
                         header("location:profile.php");
                     }
                 else
@@ -29,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     if($result['result'])
                         if($id = $dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
                     $_POST['email'], $_POST['password'])) {
-                            $dbi->insertNewCatalogueSeller($id);
                             header("location:seller.php");
                         }
                         else

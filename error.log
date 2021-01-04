@@ -48,3 +48,17 @@
 [2021-01-04 - 06:28:57pm] : ii
 [2021-01-04 - 06:28:57pm] : 1
 [2021-01-04 - 06:28:57pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:58:31pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 06:58:31pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 06:58:31pm] : i
+[2021-01-04 - 06:58:31pm] : 1
+[2021-01-04 - 06:58:31pm] : Unknown column 'CC.catalogueId' in 'on clause'
+[2021-01-04 - 07:04:56pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 07:04:56pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 07:04:56pm] : i
+[2021-01-04 - 07:04:56pm] : 1
+[2021-01-04 - 07:04:56pm] : Unknown column 'CC.catalogueId' in 'on clause'

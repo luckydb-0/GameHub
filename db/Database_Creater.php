@@ -20,7 +20,7 @@ class Database_Creater extends DatabaseHelper
     }
 
     public function placeOrder($userId, $addressId, $total) {
-        $query = "SELECT copyId FROM copy_in_cart WHERE cartId = ?;";
+        $query = "SELECT copyId FROM copy_in_cart WHERE userId = ?;";
         $copies = parent::executeRead($query,'i',[$userId]);
 
         $today = date("Y-m-d");
@@ -36,7 +36,7 @@ class Database_Creater extends DatabaseHelper
             parent::executeUpdate("UPDATE game_copy SET sold = 1 WHERE copyId = $copyId");
         }
 
-        parent::executeDelete("DELETE FROM copy_in_cart WHERE cartId = $userId");
+        parent::executeDelete("DELETE FROM copy_in_cart WHERE userId = $userId");
     }
 
     public function addUserAddress($userId, $country, $city, $street, $postCode) {
@@ -59,7 +59,7 @@ class Database_Creater extends DatabaseHelper
     
     public function addToCart($userId, $copyId): int
     {
-        $query = "INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)";
+        $query = "INSERT INTO copy_in_cart (userId, copyId) VALUES (?, ?)";
         return parent::executeInsert($query, "ii", [$userId, $copyId]);
     }
 
