@@ -30,7 +30,7 @@
                 ?>
                 <div class="carousel-item <?php if($isFirst){ echo "active"; $isFirst = !$isFirst;}; ?>">
                     <div class="row text-center justify-content-center">
-                        <div class="col-md-5">
+                        <div class="col-md-5 my-auto">
                             <div>
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <?php $game = $values[++$counter]; ?>
-                        <div class="col-md-5">
+                        <div class="col-md-5 my-auto">
                             <div>
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">

@@ -54,29 +54,51 @@ insert into developer (name) values ('Electronic Arts'),
 
 ('Bungie'),
 
-('Rockstar');
+('Rockstar'),
+
+('Altri');
 
 /* VIDEOGAMES */
 
 insert into videogame (title, soldCopies, releaseDate, developerId,platformId, image, suggestedPrice,description) values
 ('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6.jpg', 69.90,''),
+('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6-PS5.jpg', 69.90,''),
+('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6-XBoxX.jpg', 69.90,''),
+('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6-PC.jpg', 69.90,''),
 ('Animal Crossing', 200, '2020/03/20', 2, 5, 'AnimalCrossing-Switch.jpg', 69.90,''),
-('XIII', 4, '2020/11/10', 2, 5, 'XIII.jpg', 69.90,''),
-('Grand Theft Auto V', 500, '2013/09/17', 9, 1, 'GTA5-PS4.jpg', 69.90,''),
-('Grand Theft Auto V', 500, '2013/09/17', 9, 2, 'GTA5-PS4.jpg', 69.90,''),
+('XIII', 42, '2020/11/10', 2, 5, 'XIII-Switch.jpg', 69.90,''),
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg', 69.90,''),
-('Grand Theft Auto V', 500, '2013/09/17', 9, 4, 'GTA5-PS4.jpg', 69.90,''),
-('Grand Theft Auto V', 500, '2013/09/17', 9, 6, 'GTA5-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 1, 'FIFA20-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 2, 'FIFA20-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 3, 'FIFA20-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 4, 'FIFA20-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 5, 'FIFA20-PS4.jpg', 69.90,''),
-('FIFA 20', 300, '2019/09/25', 1, 6, 'FIFA20-PS4.jpg', 69.90,''),
-('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,'');
+('Grand Theft Auto V', 310, '2013/09/17', 9, 4, 'GTA5-XBoxOne.jpg', 69.90,''),
+('Grand Theft Auto V', 402, '2013/09/17', 9, 6, 'GTA5-PC.jpg', 69.90,''),
+('FIFA 21', 310, '2019/09/25', 1, 1, 'FIFA21-PS5.jpg', 79.90,''),
+('FIFA 21', 190, '2019/09/25', 1, 2, 'FIFA21-XBoxX.jpg', 79.90,''),
+('FIFA 20', 433, '2019/09/25', 1, 3, 'FIFA20-PS4.jpg', 59.90,''),
+('FIFA 20', 340, '2019/09/25', 1, 4, 'FIFA20-XBoxOne.jpg', 59.90,''),
+('FIFA 20', 120, '2019/09/25', 1, 5, 'FIFA20-Switch.jpg', 49.90,''),
+('FIFA 20', 192, '2019/09/25', 1, 6, 'FIFA20-PC.jpg', 49.90,''),
+('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,''),
+('The Legend of Zelda - Breath of the Wild', 624, '2017/03/03', 2, 5, 'TLoZBofW-Switch.jpg', 50.99, ''),
+('Spiderman - Miles Morales', 310, '2020/11/12', 4, 1, 'SMMilesMorales-PS5.jpg', 79.90,''),
+('Spiderman - Miles Morales', 401, '2020/11/12', 4, 3, 'SMMilesMorales-PS4.jpg', 69.90,''),
+('Final Fantasy VII Remake', 511, '2020/03/02', 7, 3, 'FF7Remake-PS4.jpg', 64.90,''),
+('Assassins Creed Valhalla', 220, '2020/11/10', 3, 1, 'ACValhalla-PS5.jpg', 69.90,''),
+('Call of Duty - Advanced Warfare', 590, '2014/11/04', 5, 4, 'CoDAdvancedWarfare-XBoxOne.jpg', 24.99,''),
+('Destiny', 112, '2019/04/26', 8, 4, 'Destiny-XBoxOne.jpg', 20.90,''),
+('Destiny', 409, '2019/04/26', 8, 3, 'Destiny-PS4.jpg', 20.90,''),
+('Titanfall 2', 80, '2016/10/28', 10, 4, 'Titanfall2-XBoxOne.jpg', 69.90,''),
+('Uncharted 4', 273, '2016/05/10', 10, 3, 'Uncharted4-PS4.jpg', 69.90,''),
+('Days Gone', 80, '2014/09/09', 8, 4, '.jpg', 69.90,''),
+('Demons Souls', 208, '2020/11/19', 4, 1, 'DemonsSouls-PS5.jpg', 20.90,''),
+('Fuser', 208, '2020/11/10', 2, 5, 'Fuser-Switch.jpg', 59.90,''),
+('Cyberpunk 2077', 580, '2020/12/10', 10, 1, 'Cyber-PS5.jpg', 79.90,''),
+('Cyberpunk 2077', 580, '2020/12/10', 10, 2, 'Cyber-XBoxOne.jpg', 79.90,''),
+('Hitman 3', 0, '2021/01/20', 10, 1, 'Hitman3.jpg', 79.90,''),
+('Nier Replicant', 0, '2021/04/21', 7, 6, 'Nier-PC.jpg', 69.90,'');
+
+
+
+
+
 
 /* CUSTOMERS */
 
