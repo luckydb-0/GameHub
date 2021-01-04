@@ -16,7 +16,7 @@
             <div class="form-group text-right">
                 <input type="submit" name="Invia" value="Invia" class="btn btn-light" />
             </div>
-            <a href="subscribe.php">Subscribe</a>
+            <p> Non sei iscritto? <a href="subscribe.php">Registrati</a></p>           
         </form>
     </div>
 </div>

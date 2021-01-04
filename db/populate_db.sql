@@ -117,23 +117,13 @@ insert into game_copy (gameId, price) values
 (11, 14.99),
 (13, 70.99);
 
-/* CARTS */
-
-insert into cart (userId) values (1);
-
-insert into cart (userId) values (2);
-
-insert into cart (userId) values (3);
-
-insert into cart (userId) values (4);
-
 /* COPIES IN CART */
 
-insert into copy_in_cart (cartId, copyId) values (1, 1);
+insert into copy_in_cart (userId, copyId) values (1, 1);
 
-insert into copy_in_cart (cartId, copyId) values (1, 2);
+insert into copy_in_cart (userId, copyId) values (1, 2);
 
-insert into copy_in_cart (cartId, copyId) values (1, 3);
+insert into copy_in_cart (userId, copyId) values (1, 3);
 
 /* SELLERS */
 
@@ -219,14 +209,9 @@ insert into game_category (gameId, categoryId) values (1, 1),
 insert into seller_address (sellerId, addressId) values (1, 5),
 (2, 6);
 
-/* CATALOGUE */
-
-insert into catalogue (sellerId) values (1),
-(2);
-
 /* COPY IN CATALOGUE */
 
-insert into copy_in_catalogue (catalogueId, copyId) values (1, 1),
+insert into copy_in_catalogue (sellerId, copyId) values (1, 1),
 (1, 2),
 (1, 3),
 (1, 4),

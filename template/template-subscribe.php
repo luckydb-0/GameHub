@@ -1,26 +1,25 @@
-
-<?php if(empty($_POST['subscriptionType'])):?>
+<?php ?>
 <div class="row justify-content-center mx-0">
     <div class="col-12 col-md-8 my-4">
         <form class="bg-dark mt-4 mb-4 px-5 py-4 rounded" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
-        <h2>Seleziona tipologia</h2>
-        <button name="subscriptionType" value="customer" type="submit" class="btn btn-outline-white">
-            <i class="fa fa-address-card fa-5x" aria-hidden="true"></i>
-        <label>Customer</label>
-        </button>
+        <h2>Registrati come: </h2>
         <button name="subscriptionType" value="seller" type="submit" class="btn btn-outline-white">
+            <i class="fa fa-address-card fa-5x" aria-hidden="true"></i>
+        <label>Venditore</label>
+        </button>
+        <button name="subscriptionType" value="customer" type="submit" class="btn btn-outline-white ml-5">
             <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
-            <label>Seller</label>
+            <label>Cliente</label>
         </button>
         </form>
     </div>
 </div>
 
-<?php elseif($_POST['subscriptionType'] == "customer"):?>
+<?php if(!empty($_POST['subscriptionType'])): if($_POST['subscriptionType'] == "customer"):?>
 <div class="row justify-content-center mx-0">
     <div class="col-12 col-md-8 my-4">
         <form class="bg-dark mt-4 mb-4 px-5 py-4 rounded" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
-            <h2>Registrati</h2>
+            <h2>Registrati - Cliente</h2>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="name" class="col-11 text-left mt-2">Nome:</label>
@@ -79,7 +78,7 @@ Form for Seller!
 <div class="row justify-content-center mx-0">
     <div class="col-12 col-md-8 my-4">
         <form class="bg-dark mt-4 mb-4 px-5 py-4 rounded" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
-            <h2>Registrati - Seller</h2>
+            <h2>Registrati - Venditore</h2>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="name" class="col-11 text-left mt-2">Nome:</label>
@@ -125,4 +124,4 @@ Form for Seller!
         </form>
     </div>
 </div>
-<?php endif;?>
+<?php endif; endif;?>

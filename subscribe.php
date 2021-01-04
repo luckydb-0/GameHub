@@ -5,7 +5,6 @@ require_once 'bootstrap.php';
 $templateParams["title"] = "GameHub - Registration Form";
 $templateParams["name"] = "template/template-subscribe.php";
 
-
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     if (!empty($_POST['subscriptionType']) && isset($_POST['fields'])) {
         echo $_POST['subscriptionType'];
