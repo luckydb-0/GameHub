@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $catalogueId = $dbr->getCatalogueId($templateParams["sellerId"]);
+                        $catalogueId = $templateParams["sellerId"];
                         $catalogueItems= $dbr->getSellerCatalogue($catalogueId);
                         $_POST["catalogueId"] = $catalogueId;
                         foreach($catalogueItems as $item):
@@ -26,7 +26,7 @@
                         <td headers="Titolo" data-label="Titolo"><?php echo $item["title"]; ?></td>
                         <td headers="Piattaforma" data-label="Piattaforma"><?php echo $item["name"]; ?></td>
                         <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="<?php echo $item["price"]; ?>"></form></td>
-                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="9"></form></td>
+                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="<?php echo $item["copies"];  ?>"></form></td>
                         <td headers="Copie-vendute" data-label="Copie-vendute">0</td>
                     </tr>
                     <?php endforeach; ?>

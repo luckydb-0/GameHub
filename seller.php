@@ -3,12 +3,13 @@
 
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
+
     if(isset($_POST['modifies']))
         if($_POST['modifies']=='perform')
         if($result = input_check_seller($_POST['name'], $_POST['password'],
-            $_POST['repeat-password'],$_POST['phone-number'],$_POST['email'],$_POST['p_iva'])) {
+            $_POST['repeat_password'],$_POST['phone_number'],$_POST['email'],$_POST['p_iva'])) {
             $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
-                $result['name'], $result['password'], $result['phone-number']);
+                $result['name'], $result['password'], $result['phone_number']);
             $_POST['modifies'] = 'updated';
         }
     if(!isLoggedIn()) {
@@ -19,8 +20,9 @@
             $gameId = $_POST["gameId"];
             $price = $_POST["price"];
             $copies = $_POST["copies"];
-            $catId = $dbr->getCatalogueId(substr($_SESSION["userId"], 2));
-            $dbi->insertNewSellerArticle($gameId, $price, $copies, $catId);
+            $catId = substr($_SESSION["userId"], 2);
+            foreach(range(1,intval($copies)) as $copy)
+                $dbi->insertNewSellerArticle($gameId, $price, $catId);
         }
     
 

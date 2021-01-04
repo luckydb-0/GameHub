@@ -7,9 +7,9 @@
     if(isset($_POST['modifies']))
         if($_POST['modifies'] == 'perform')
             if($result = input_check_customer($_POST['name'],$_POST['surname'],
-                $_POST['password'],$_POST['repeat-password'],$_POST['phone-number'],"")) {
+                $_POST['password'],$_POST['repeat_password'],$_POST['phone_number'],"")) {
                 $dbu->updateCustomerInfo(substr($_SESSION['userId'], 2),
-                    $result['name'], $result['surname'], $result['phone-number'], $result['password']);
+                    $result['name'], $result['surname'], $result['phone_number'], $result['password']);
                 $_POST['modifies'] = 'updated';
             }
 

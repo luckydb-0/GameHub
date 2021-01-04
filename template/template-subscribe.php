@@ -114,7 +114,7 @@ Form for Seller!
                 <div class="form-group col-md-6 my-4">
                     <label for="repeat_password" class="col-11 text-left mt-2">Ripeti password:</label>
                     <input type="password" class="form-control col-11" id="repeat_password" name="repeat_password" aria-describedby="" placeholder="Inserisci password" required>
-                    <label for="repeat-password"  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['password-error']))echo$_POST['password-error'];?></label>
+                    <label for="repeat_password"  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['password-error']))echo$_POST['password-error'];?></label>
                 </div>
             </div>
             <div class="form-group text-right mt-3">

@@ -62,7 +62,7 @@ class DatabaseHelper{
         return !is_null($stmt);
     }
     public function writeError($string){
-        $file=   fopen("error.log","a");
+        $file=   fopen("./logs/error.log","a");
         fwrite($file,"[". date("Y-m-d - h:i:sa")."] : ".$string);
         fwrite($file,"\n");
         fclose($file);
