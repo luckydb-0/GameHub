@@ -104,7 +104,7 @@ class Database_Reader extends DatabaseHelper
 
     public function getUserNotifications($userId) {
         $query = "SELECT notificationId, timeReceived, description FROM notification WHERE userId = ?;";
-        return parent::executeRead($query,'i', $userId);
+        return parent::executeRead($query,'i', [$userId]);
     }
 
     public function getCategories() {
