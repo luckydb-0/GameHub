@@ -9,6 +9,7 @@
     {
         return isLoggedIn() && strpos($_SESSION['userId'],"c:")!==false;
     }
+    
     function isLoggedIn(): bool
     {
         return !empty($_SESSION['userId']);

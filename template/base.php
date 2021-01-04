@@ -45,17 +45,43 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto my-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="<?php echo $link; ?>"><?php echo $button; ?><span class="sr-only">(current)</span></a>
+            <?php if(isLoggedIn()): ?>
+            <li class="nav-item dropdown active mr-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Profilo
+              </a>
+              <?php if(isUserLoggedIn()): ?>
+              <div class="dropdown-menu bg-dark py-0">
+                <a class="dropdown-item text-light" href="profile.php">Dati personali</a>
+                <a class="dropdown-item text-light" href="profile.php?page=orders">I miei ordini</a>
+                <a class="dropdown-item text-light" href="profile.php?page=wishlist">La mia lista dei desideri</a>
+                <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="profile.php?page=notifications">Notifiche<span class="badge badge-dark badge-pill">50</span></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
+              </div>
+              <?php else: ?>
+                <div class="dropdown-menu bg-dark py-0">
+                <a class="dropdown-item text-light" href="seller.php">Dati venditore</a>
+                <a class="dropdown-item text-light" href="seller.php?page=catalogue">Catalogo</a>
+                <a class="dropdown-item text-light" href="seller.php?page=orders">Ordini in sospeso</a>
+                <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="seller.php?page=notifications">Notifiche<span class="badge badge-pill">50</span></a>
+                <div class="dropdown-divider m-0"></div>
+                <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
+              </div>
             </li>
+            <?php endif; else:?>
+            <li class="nav-item active mr-2">
+              <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <?php endif; ?>
             <?php if(isUserLoggedIn()):?>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
             </li>
             <?php endif; ?>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="search.php" method="GET">
-            <input class="form-control mr-2 col-10" name="name" type="search" placeholder="Cerca..." aria-label="Search">
+          <form class="form-inline my-2 my-lg-0 mr-md-5" action="search.php" method="GET">
+            <input class="form-control mr-1 col-9" name="name" type="search" placeholder="Cerca..." aria-label="Search">
             <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
           </form>
         </div>

@@ -216,6 +216,23 @@ button#remove {
     font-weight: bold;
 }
 
+.dropdown-item:hover {
+    background-color: coral !important;
+}
+
+a.text-light:hover {
+    color: black !important;
+}
+
+.badge {
+    background-color: coral;
+}
+
+.dropdown-item:hover .badge{
+    background-color: #343a40 !important;
+    color: #f8f9fa;
+}
+
 @media screen and (min-width: 768px)
 {
     #dashboard
@@ -292,4 +309,3 @@ button#remove {
   }
 
   /* --------------------------- */
-  
