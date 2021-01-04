@@ -8,3 +8,38 @@
 [2021-01-04 - 06:02:39pm] : 
 [2021-01-04 - 06:02:39pm] : 1
 [2021-01-04 - 06:02:39pm] : Incorrect date value: '' for column 'birthDate' at row 1
+[2021-01-04 - 06:12:09pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:09pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:09pm] : ii
+[2021-01-04 - 06:12:09pm] : 1
+[2021-01-04 - 06:12:09pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:12:15pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:15pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:15pm] : ii
+[2021-01-04 - 06:12:15pm] : 1
+[2021-01-04 - 06:12:15pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:12:27pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:27pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:27pm] : ii
+[2021-01-04 - 06:12:27pm] : 1
+[2021-01-04 - 06:12:27pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:14:20pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:14:20pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:14:20pm] : ii
+[2021-01-04 - 06:14:20pm] : 1
+[2021-01-04 - 06:14:20pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:16:27pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:16:27pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:16:27pm] : ii
+[2021-01-04 - 06:16:27pm] : 1
+[2021-01-04 - 06:16:27pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:16:48pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:16:48pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:16:48pm] : ii
+[2021-01-04 - 06:16:48pm] : 1
+[2021-01-04 - 06:16:48pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:17:02pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:17:02pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:17:02pm] : ii
+[2021-01-04 - 06:17:02pm] : 1
+[2021-01-04 - 06:17:02pm] : Cannot add or update a child row: a foreign key constraint fails
