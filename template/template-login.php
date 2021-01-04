@@ -1,6 +1,6 @@
 <div class="row justify-content-center mx-0">
     <div class="col-12 col-md-8">
-        <form action="#" method="POST" class="bg-dark mt-4 mb-4 px-5 py-4 rounded">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="bg-dark mt-4 mb-4 px-5 py-4 rounded">
             <h2>Login</h2>
             <?php if(isset($templateParams["errorelogin"])): ?>
             <p><?php echo $templateParams["errorelogin"]; ?></p>
@@ -16,7 +16,7 @@
             <div class="form-group text-right">
                 <input type="submit" name="Invia" value="Invia" class="btn btn-light" />
             </div>
-            <a href="subscribe.php">Subscribe</a>
+            <p> Non sei iscritto? <a href="subscribe.php">Registrati</a></p>           
         </form>
     </div>
 </div>

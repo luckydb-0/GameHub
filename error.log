@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2021-01-03 - 03:29:31pm] : Execution Aborted while trying to prepare query
 [2021-01-03 - 03:29:31pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller
                                     FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
@@ -160,3 +161,69 @@
 [2021-01-04 - 07:25:16pm] : i
 [2021-01-04 - 07:25:16pm] : 1
 [2021-01-04 - 07:25:16pm] : Table 'gamehub.cart' doesn't exist
+=======
+[2021-01-04 - 05:59:58pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 05:59:58pm] : INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('test','customer','',1235648790,'test@customer.it','$2y$10$WpShW9j4pI/vsK44xuvhTuGdk2Jb6cuPbmrZN7K4L9NQcXKiGhGce');
+[2021-01-04 - 05:59:58pm] : 
+[2021-01-04 - 05:59:58pm] : 1
+[2021-01-04 - 05:59:58pm] : Incorrect date value: '' for column 'birthDate' at row 1
+[2021-01-04 - 06:02:39pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:02:39pm] : INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('test','customer','',2135648970,'test@customer.it','$2y$10$ktSt51W/3tl91FnpNgrbSeO6wFWB.3N2S06HZgu5rqyFD7KhG7/6e');
+[2021-01-04 - 06:02:39pm] : 
+[2021-01-04 - 06:02:39pm] : 1
+[2021-01-04 - 06:02:39pm] : Incorrect date value: '' for column 'birthDate' at row 1
+[2021-01-04 - 06:12:09pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:09pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:09pm] : ii
+[2021-01-04 - 06:12:09pm] : 1
+[2021-01-04 - 06:12:09pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:12:15pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:15pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:15pm] : ii
+[2021-01-04 - 06:12:15pm] : 1
+[2021-01-04 - 06:12:15pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:12:27pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:12:27pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:12:27pm] : ii
+[2021-01-04 - 06:12:27pm] : 1
+[2021-01-04 - 06:12:27pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:14:20pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:14:20pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:14:20pm] : ii
+[2021-01-04 - 06:14:20pm] : 1
+[2021-01-04 - 06:14:20pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:16:27pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:16:27pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:16:27pm] : ii
+[2021-01-04 - 06:16:27pm] : 1
+[2021-01-04 - 06:16:27pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:16:48pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:16:48pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:16:48pm] : ii
+[2021-01-04 - 06:16:48pm] : 1
+[2021-01-04 - 06:16:48pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:17:02pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:17:02pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:17:02pm] : ii
+[2021-01-04 - 06:17:02pm] : 1
+[2021-01-04 - 06:17:02pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:28:57pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:28:57pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:28:57pm] : ii
+[2021-01-04 - 06:28:57pm] : 1
+[2021-01-04 - 06:28:57pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:58:31pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 06:58:31pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 06:58:31pm] : i
+[2021-01-04 - 06:58:31pm] : 1
+[2021-01-04 - 06:58:31pm] : Unknown column 'CC.catalogueId' in 'on clause'
+[2021-01-04 - 07:04:56pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 07:04:56pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 07:04:56pm] : i
+[2021-01-04 - 07:04:56pm] : 1
+[2021-01-04 - 07:04:56pm] : Unknown column 'CC.catalogueId' in 'on clause'
+>>>>>>> 0c8f5401dd1f42cbe442b3a10d46fc2ba1bb14d4

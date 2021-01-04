@@ -8,12 +8,15 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function checkLogin($email, $password){
-        $value = "";
-        if($tmp = $this->getCustomerLogin($email, $password))
-            $value = "c:".$tmp[0]['userId'];
-        if($tmp = $this->getSellerLogin($email,$password))
-            $value = "s:".$tmp[0]['sellerId'];
-        return $value;
+        if($hashed_password = $this->getCustomerPassword($email))
+            if(password_check($password,$hashed_password))
+                if ($tmp = $this->getCustomerLogin($email, $hashed_password))
+                    return  "c:" . $tmp[0]['userId'];
+        if($hashed_password = $this->getSellerPassword($email))
+            if(password_check($password,$hashed_password))
+                if ($tmp = $this->getSellerLogin($email, $hashed_password))
+                    return "s:" . $tmp[0]['sellerId'];
+        return "";
     }
 
     public function getCustomerLogin($email, $password)
@@ -80,8 +83,8 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getCopiesInCart($userId){
-        $query = "SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
-        WHERE C.userId = ?;";
+        $query = "SELECT copyId FROM copy_in_cart 
+        WHERE userId = ?;";
         return parent::executeRead($query,'i',[$userId]);
     }
 
@@ -148,7 +151,7 @@ class Database_Reader extends DatabaseHelper
 
     public function getGameLowestPriceAndSeller($gameId) {
         $query = "SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
-                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.sellerId = S.sellerId
                   WHERE GC.gameId = ? AND sold = 0;";
         return parent::executeRead($query,'i', [$gameId]);
     }
@@ -306,5 +309,19 @@ class Database_Reader extends DatabaseHelper
     //TODO
     public function getCategoryById($idcategory){
         return parent::executeRead("","",[$idcategory]);
+    }
+
+    private function getCustomerPassword($email)
+    {
+        if($result = parent::executeRead("SELECT password FROM customer WHERE email='$email';"))
+            return $result[0]['password'];
+        else
+            return null;
+
+    }
+    private function getSellerPassword($email){
+        if($result = parent::executeRead("SELECT password FROM seller WHERE email='$email';"))
+            return $result[0]['password'];
+        else return null;
     }
 }
