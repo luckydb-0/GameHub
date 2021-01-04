@@ -217,6 +217,7 @@ class Database_Reader extends DatabaseHelper
         return array_values($result);
     }
 
+
     public function filterGamesByPrice($gamesId, $price) {
         $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
         $query = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in);";

@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/add_new_article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/article.php" beforeDir="false" afterPath="$PROJECT_DIR$/article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/Database_Creater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Creater.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/populate_db.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/populate_db.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/AnimalCrossing.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/AnimalCrossing-Switch.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/XIII.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/img/XIII-Switch.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input.js" beforeDir="false" afterPath="$PROJECT_DIR$/input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/seller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-article.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-catalogue.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-catalogue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-seller-data.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-seller-data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-seller-orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-seller-orders.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +45,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql.8&#10;mysql" />
+    <property name="DatabaseDriversLRU" value="mysql&#10;mysql.8" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -58,7 +73,8 @@
       <workItem from="1609597296608" duration="1512000" />
       <workItem from="1609599045550" duration="18492000" />
       <workItem from="1609659696547" duration="17537000" />
-      <workItem from="1609678959491" duration="5243000" />
+      <workItem from="1609678959491" duration="9388000" />
+      <workItem from="1609749469810" duration="207000" />
     </task>
     <servers />
   </component>
