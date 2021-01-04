@@ -9,6 +9,7 @@ class Database_Creater extends DatabaseHelper
     public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
     {
         $password = hash_password($password);
+
         return parent::executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
     }
 
@@ -56,17 +57,20 @@ class Database_Creater extends DatabaseHelper
         parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
     }
     
-    public function addToCart($userId, $copyId) {
+    public function addToCart($userId, $copyId): int
+    {
         $query = "INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)";
         return parent::executeInsert($query, "ii", [$userId, $copyId]);
     }
 
-    public function addReview($userId, $gameId, $title, $rating, $description) {
+    public function addReview($userId, $gameId, $title, $rating, $description): int
+    {
         $query = "INSERT INTO review (customerId, gameId, title, rating, description) VALUES (?, ?, ?, ?, ?);";
         return parent::executeInsert($query, "iisss", [$userId, $gameId, $title, $rating, $description]);
     }
 
-    public function insertNewSellerArticle($gameId, $price, $copies, $catalogueId){
+    public function insertNewSellerArticle($gameId, $price, $copies, $catalogueId): int
+    {
         // Devo creare nuova game copy, e conseguentemente copy in catalogue
         $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)"; // Manca numero copie
         parent::executeInsert($query, 'ii', [$gameId, $price]);
@@ -75,5 +79,17 @@ class Database_Creater extends DatabaseHelper
         $query = "INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)";
 
         return  parent::executeInsert($query, "ii", [$copyId, $catalogueId]);
+    }
+
+    public function insertNewCatalogueSeller($sellerId): int
+    {
+        return parent::executeInsert("INSERT INTO catalogue(catalogueId, sellerId) VALUES (?,?)","ii",[$sellerId,$sellerId]);
+
+    }
+
+    public function insertNewCustomerCart(int $id): int
+    {
+
+        return parent::executeInsert("INSERT INTO cart(cartId, userId) VALUES (?,?)","ii",[$id,$id]);
     }
 }

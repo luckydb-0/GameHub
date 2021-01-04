@@ -14,8 +14,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 if($result = input_check_customer($_POST['name'], $_POST['surname'],
                     $_POST['password'],$_POST['repeat-password'],$_POST['phone-number'],$_POST['email'])) {
                     if($result['result'])
-                    if ($dbi->insertNewCustomer($result['name'], $result['surname'], $_POST['birthdate'], $result['phone-number'],
+                    if ($id = $dbi->insertNewCustomer($result['name'], $result['surname'], $_POST['birthdate'], $result['phone-number'],
                         $result['email'], $result['password']))
+                        $dbi->insertNewCustomerCart($id);
                         header("location:profile.php");
                     }
                 else
@@ -27,9 +28,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 if($result = input_check_seller($_POST['name'],$_POST['password'],$_POST['repeat-password'],
                     $_POST['phone-number'],$_POST['email'],$_POST['p_iva']))
                     if($result['result'])
-                        if($dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
-                    $_POST['email'], $_POST['password']))
-                        header("location:seller.php");
+                        if($id = $dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
+                    $_POST['email'], $_POST['password'])) {
+                            $dbi->insertNewCatalogueSeller($id);
+                            header("location:seller.php");
+                        }
                         else
                             foreach(key($result) as $key){
                                 $_POST[$key] = $result[$key];
