@@ -261,6 +261,11 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query, "i", [$gameId]);
     }
 
+    public function getNewestGames($n){
+        $query = "SELECT V.gameId, V.title, V.image, V.releaseDate FROM (SELECT * FROM videogame ORDER BY RAND()) as V WHERE V.releaseDate <= CURDATE() GROUP BY V.title ORDER BY V.releaseDate DESC LIMIT ?";
+        return parent::executeRead($query,"i",[$n]);
+    }
+
     /* DA IMPLEMENTARE */
 
     // n = number of random games
@@ -275,10 +280,7 @@ class Database_Reader extends DatabaseHelper
     //TODO
     
     //TODO
-    public function getNewestGames(){
-        return parent::executeRead("","",[]);
-
-    }
+    
     //TODO
     public function getGamesToPreorder(){
         return parent::executeRead("","",[]);

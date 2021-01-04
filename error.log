@@ -125,3 +125,38 @@
 [2021-01-04 - 04:03:20pm] : ii
 [2021-01-04 - 04:03:20pm] : 1
 [2021-01-04 - 04:03:20pm] : Column 'copyId' cannot be null
+[2021-01-04 - 06:20:17pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:20:17pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:20:17pm] : ii
+[2021-01-04 - 06:20:17pm] : 1
+[2021-01-04 - 06:20:17pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:20:36pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:20:36pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:20:36pm] : ii
+[2021-01-04 - 06:20:36pm] : 1
+[2021-01-04 - 06:20:36pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 06:21:29pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 06:21:29pm] : INSERT INTO copy_in_cart (cartId, copyId) VALUES (?, ?)
+[2021-01-04 - 06:21:29pm] : ii
+[2021-01-04 - 06:21:29pm] : 1
+[2021-01-04 - 06:21:29pm] : Cannot add or update a child row: a foreign key constraint fails
+[2021-01-04 - 07:01:13pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 07:01:13pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 07:01:13pm] : i
+[2021-01-04 - 07:01:13pm] : 1
+[2021-01-04 - 07:01:13pm] : Unknown column 'CC.catalogueId' in 'on clause'
+[2021-01-04 - 07:24:22pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 07:24:22pm] : SELECT MIN(GC.price) as lowestPrice, S.name as seller, GC.copyId
+                  FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId JOIN seller S ON CC.catalogueId = S.sellerId
+                  WHERE GC.gameId = ? AND sold = 0;
+[2021-01-04 - 07:24:22pm] : i
+[2021-01-04 - 07:24:22pm] : 1
+[2021-01-04 - 07:24:22pm] : Unknown column 'CC.catalogueId' in 'on clause'
+[2021-01-04 - 07:25:16pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 07:25:16pm] : SELECT copyId FROM copy_in_cart CC join cart C ON CC.cartId = C.cartId 
+        WHERE C.userId = ?;
+[2021-01-04 - 07:25:16pm] : i
+[2021-01-04 - 07:25:16pm] : 1
+[2021-01-04 - 07:25:16pm] : Table 'gamehub.cart' doesn't exist
