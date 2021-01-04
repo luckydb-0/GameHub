@@ -236,8 +236,8 @@ class Database_Reader extends DatabaseHelper
     public function getSellerCatalogue($catalogueId){
         $query = "SELECT V.title, V.image, P.name, GC.copyId, GC.price FROM videogame V
                   JOIN game_copy GC ON V.gameId = GC.gameId JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId
-                  JOIN catalogue C ON C.catalogueId = CC.catalogueId JOIN platform P 
-                  ON V.platformId = P.platformId WHERE C.catalogueId = ?";
+                  JOIN seller S ON S.sellerId = CC.sellerId JOIN platform P 
+                  ON V.platformId = P.platformId WHERE S.sellerId = ?";
         return parent::executeRead($query,'i', [$catalogueId]);
     }
 

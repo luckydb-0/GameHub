@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $catalogueId = $dbr->getCatalogueId($templateParams["sellerId"]);
+                        $catalogueId = $templateParams["sellerId"];
                         $catalogueItems= $dbr->getSellerCatalogue($catalogueId);
                         $_POST["catalogueId"] = $catalogueId;
                         foreach($catalogueItems as $item):
