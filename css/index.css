@@ -124,7 +124,8 @@ section a {
     padding: 0;
 }
 
-button[type=submit] {
+
+button {
     background-color: coral;
     color: white;
     padding: 0.5em;
