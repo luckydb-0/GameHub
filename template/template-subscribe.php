@@ -89,21 +89,21 @@ Form for Seller!
                 <div class="form-group col-md-6 my-4">
                     <label for="surname" class="col-11 text-left mt-2">P.IVA:</label>
                     <input type="text" class="form-control col-11" name="p_iva" aria-describedby="" min="11" max="11" placeholder="00000000000" required>
-                    <label for=""  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['p_iva-error']))echo$_POST['p_iva-error'];?></label>
+                    <label for="surname"  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['p_iva-error']))echo$_POST['p_iva-error'];?></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="phone-number" class="col-11 text-left mt-2">Telefono:</label>
                     <input type="tel" class="form-control col-11" name="phone-number" min="10" max="10" aria-describedby="" placeholder="Inserisci numero di telefono" required>
-                    <label for=""  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['phone-error']))echo$_POST['phone-error'];?></label>
+                    <label for="phone-number"  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['phone-error']))echo$_POST['phone-error'];?></label>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="email" class="col-11 text-left mt-2">Email:</label>
                     <input type="email" class="form-control col-11" name="email" aria-describedby="emailHelp" placeholder="Inserisci email" required>
-                    <label for=""  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['email-error']))echo$_POST['email-error'];?></label>
+                    <label for="email"  class="col-11 text-left mt-2 error-label"><?php if(isset($_POST['email-error']))echo$_POST['email-error'];?></label>
                 </div>
             </div>
             <div class="form-row">

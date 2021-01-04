@@ -29,22 +29,29 @@ require 'template/base.php';
 
 
 function input_check_customer():bool{
-        $_POST['name'] = check_input($_POST['name']);
-        $_POST['surname'] = check_input($_POST['surname']);
-        $_POST['phone-number'] = check_input($_POST['phone-number']);
-        $_POST['email'] = check_input($_POST['email']);
-    return strlen($_POST['phone-number']) == 10 && strlen($_POST['name']) <= 24 &&
-            strlen($_POST['surname']) <= 24 &&  strlen($_POST['email']) <= 48 &&
-        $_POST['password'] === $_POST['repeat-password'];
+        if( $_POST['password'] != $_POST['repeat-password']) {
+            $_POST['password-error'] = "Password doesn't match";
+            return false;
+        }
+            $_POST['password'] = check_input($_POST['password']);
+            $_POST['name'] = check_input($_POST['name']);
+            $_POST['surname'] = check_input($_POST['surname']);
+            $_POST['phone-number'] = check_input($_POST['phone-number']);
+            $_POST['email'] = check_input($_POST['email']);
+            return strlen($_POST['phone-number']) == 10 && strlen($_POST['name']) <= 24 &&
+                strlen($_POST['surname']) <= 24 && strlen($_POST['email']) <= 48;
 }
 
 function input_check_seller():bool{
+    if( $_POST['password'] != $_POST['repeat-password']) {
+        $_POST['password-error'] = "Password doesn't match";
+        return false;
+    }
     $_POST['name'] = check_input($_POST['name']);
     $_POST['phone-number'] = check_input($_POST['phone-number']);
     $_POST['p_iva'] = check_input($_POST['p_iva']);
     return strlen($_POST['phone-number']) == 10 && strlen($_POST['name']) <= 24 &&
-        strlen($_POST['p_iva']) === 11 && strlen($_POST['email']) <= 48 &&
-        $_POST['password'] === $_POST['repeat-password'];
+        strlen($_POST['p_iva']) === 11 && strlen($_POST['email']) <= 48 ;
 }
 function check_input($data): string
 {

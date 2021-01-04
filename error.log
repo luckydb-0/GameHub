@@ -3,3 +3,18 @@
 [2021-01-04 - 11:06:35am] : 
 [2021-01-04 - 11:06:35am] : 1
 [2021-01-04 - 11:06:35am] : Data too long for column 'phone' at row 1
+[2021-01-04 - 03:56:21pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 03:56:21pm] : SELECT password FROM customer WHERE email=test@hash.it;
+[2021-01-04 - 03:56:21pm] : 
+[2021-01-04 - 03:56:21pm] : 1
+[2021-01-04 - 03:56:21pm] : You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '@hash.it' at line 1
+[2021-01-04 - 03:58:01pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 03:58:01pm] : SELECT password FROM customer WHERE email=`test@hash.it`;
+[2021-01-04 - 03:58:01pm] : 
+[2021-01-04 - 03:58:01pm] : 1
+[2021-01-04 - 03:58:01pm] : Unknown column 'test@hash.it' in 'where clause'
+[2021-01-04 - 03:59:29pm] : Execution Aborted while trying to prepare query
+[2021-01-04 - 03:59:29pm] : SELECT password FROM customer WHERE email=`.test@hash.it.`;
+[2021-01-04 - 03:59:29pm] : 
+[2021-01-04 - 03:59:29pm] : 1
+[2021-01-04 - 03:59:29pm] : Unknown column '.test@hash.it.' in 'where clause'
