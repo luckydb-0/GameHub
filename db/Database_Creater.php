@@ -8,11 +8,13 @@ class Database_Creater extends DatabaseHelper
     }
     public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
     {
+        $password = hash_password($password);
         return parent::executeInsert("INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES ('$name','$surname','$birthdate',$phone,'$email','$password');");
     }
 
     public function insertNewSeller($name, $p_iva, $phone, $email, $password): int
     {
+        $password = hash_password($password);
         return parent::executeInsert("INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('$name',$p_iva,$phone,'$email','$password');");
     }
 

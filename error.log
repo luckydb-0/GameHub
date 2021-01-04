@@ -1,0 +1,5 @@
+[2021-01-04 - 11:06:35am] : Execution Aborted while trying to execute query
+[2021-01-04 - 11:06:35am] : INSERT INTO seller(name,p_iva,phone,email,password) VALUES ('asdrubale',12345678901,054152678935,'asd@lol.it','qwerty');
+[2021-01-04 - 11:06:35am] : 
+[2021-01-04 - 11:06:35am] : 1
+[2021-01-04 - 11:06:35am] : Data too long for column 'phone' at row 1

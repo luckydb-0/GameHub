@@ -43,5 +43,11 @@
         return $result;
 
     }
-
+    function hash_password($password){
+        return password_hash($password, PASSWORD_BCRYPT, ["cost"=>10]);
+    }
+    function password_check($password,$hash): bool
+    {
+        return password_verify($password,$hash);
+    }
 ?>

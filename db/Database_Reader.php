@@ -9,10 +9,13 @@ class Database_Reader extends DatabaseHelper
 
     public function checkLogin($email, $password){
         $value = "";
-        if($tmp = $this->getCustomerLogin($email, $password))
-            $value = "c:".$tmp[0]['userId'];
-        if($tmp = $this->getSellerLogin($email,$password))
-            $value = "s:".$tmp[0]['sellerId'];
+        $hashed_password = hash_password($password);
+        if(password_check($password,$hashed_password)) {
+            if ($tmp = $this->getCustomerLogin($email, $hashed_password))
+                $value = "c:" . $tmp[0]['userId'];
+            if ($tmp = $this->getSellerLogin($email, $hashed_password))
+                $value = "s:" . $tmp[0]['sellerId'];
+        }
         return $value;
     }
 
