@@ -23,12 +23,6 @@ create table game_in_wishlist (
      gameId int not null,
      constraint IDgame_in_wishlist primary key (wishlistId, gameId));
 
-create table cart (
-     cartId int not null AUTO_INCREMENT,
-     userId int not null,
-     constraint IDCARRELLO_ID primary key (cartId),
-     constraint FKR_ID unique (userId));
-
 create table credit_card (
      ccnumber char(20) not null,
      accountHolder varchar(128) not null,
@@ -41,12 +35,6 @@ create table developer (
      developerId int not null AUTO_INCREMENT,
      name varchar(128) not null,
      constraint IDdeveloper_id primary key (developerId));
-
-create table catalogue (
-     catalogueId int not null AUTO_INCREMENT,
-     sellerId int not null,
-     constraint IDCATALOGO primary key (catalogueId),
-     constraint FKR_1_ID unique (sellerId));
 
 create table category (
      categoryId int not null AUTO_INCREMENT,
@@ -62,7 +50,7 @@ create table game_copy (
 
 create table copy_in_catalogue (
      copyId int not null,
-     catalogueId int not null,
+     sellerId int not null,
      constraint FKcop_COP_ID primary key (copyId));
 
 create table review (
@@ -76,8 +64,8 @@ create table review (
 
 create table copy_in_cart (
      copyId int not null,
-     cartId int not null,
-     constraint IDcopy_in_cart primary key (copyId, cartId));
+     userId int not null,
+     constraint IDcopy_in_cart primary key (copyId, userId));
 
 create table game_category (
      gameId int not null,
@@ -170,17 +158,9 @@ alter table game_in_wishlist add constraint FKcon_WIS
      foreign key (wishlistId)
      references wishlist (wishlistId);
 
-alter table cart add constraint FKR_FK
-     foreign key (userId)
-     references customer (userId);
-
 alter table credit_card add constraint FKhas_card
      foreign key (userId)
      references customer (userId);
-
-alter table catalogue add constraint FKR_1_FK
-     foreign key (sellerId)
-     references seller (sellerId);
 
 alter table game_copy add constraint FKcopy
      foreign key (gameId)
@@ -191,8 +171,8 @@ alter table copy_in_catalogue add constraint FKcop_COP_FK
      references game_copy (copyId);
 
 alter table copy_in_catalogue add constraint FKR
-     foreign key (catalogueId)
-     references catalogue (catalogueId);
+     foreign key (sellerId)
+     references seller (sellerId);
 
 alter table review add constraint FKhas_review
      foreign key (gameId)
@@ -203,8 +183,8 @@ alter table review add constraint FKpost
      references customer (userId);
 
 alter table copy_in_cart add constraint FKR_CAR
-     foreign key (cartId)
-     references cart (cartId);
+     foreign key (userId)
+     references customer (userId);
 
 alter table copy_in_cart add constraint FKR_COP
      foreign key (copyId)
