@@ -62,7 +62,7 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr class="pl-0">
-                                                <th id="Selezione">Seleziona</th>
+                                                <th id="Selezione" class="px-4"></th>
                                                 <th id="Codice">Codice</th>
                                                 <th id="Immagine">Immagine</th>
                                                 <th id="Nome">Nome</th>
@@ -75,7 +75,7 @@
                                                 foreach($games as $game):
                                             ?>
                                             <tr>
-                                                <td><input type="radio" class="form-check-input" name="gameId" value="<?php echo $game["gameId"]; ?>"></td>
+                                                <td class="px-4"><input type="radio" class="form-check-input" name="gameId" value="<?php echo $game["gameId"]; ?>"></td>
                                                 <td headers="Codice"><?php echo $game["gameId"]; ?></td>
                                                 <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]." - ".$game["name"]; ?>" class="img-thumbnail"></td>
                                                 <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]; ?></td>
@@ -94,8 +94,10 @@
                                     <input type="number" class="form-control col-11" id="copies" name="copies" placeholder="Inserisci copie disponibili">
                                 </div>
                                 <div class="form-row">
-                                    <button type="submit" class="btn btn-primary">Aggiungi</button>
-                                    <button class="btn btn-primary" data-dismiss="modal">Annulla</button>
+                                    <div class="col">
+                                        <button type="submit" class="btn btn-primary">Aggiungi</button>
+                                        <button class="btn btn-primary" data-dismiss="modal">Annulla</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
