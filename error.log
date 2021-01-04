@@ -75,3 +75,53 @@
 [2021-01-03 - 06:26:06pm] : ii
 [2021-01-03 - 06:26:06pm] : 1
 [2021-01-03 - 06:26:06pm] : Duplicate entry '22-1' for key 'copy_in_cart.PRIMARY'
+[2021-01-03 - 11:44:54pm] : Execution Aborted while trying to execute query
+[2021-01-03 - 11:44:54pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-03 - 11:44:54pm] : ii
+[2021-01-03 - 11:44:54pm] : 1
+[2021-01-03 - 11:44:54pm] : Duplicate entry '1' for key 'copy_in_catalogue.PRIMARY'
+[2021-01-04 - 03:50:37pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 03:50:37pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 03:50:37pm] : ii
+[2021-01-04 - 03:50:37pm] : 1
+[2021-01-04 - 03:50:37pm] : Duplicate entry '1' for key 'copy_in_catalogue.PRIMARY'
+[2021-01-04 - 03:54:29pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 03:54:29pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 03:54:29pm] : ii
+[2021-01-04 - 03:54:29pm] : 1
+[2021-01-04 - 03:54:29pm] : Duplicate entry '1' for key 'copy_in_catalogue.PRIMARY'
+[2021-01-04 - 03:56:29pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 03:56:29pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 03:56:29pm] : ii
+[2021-01-04 - 03:56:29pm] : 1
+[2021-01-04 - 03:56:29pm] : Duplicate entry '1' for key 'copy_in_catalogue.PRIMARY'
+[2021-01-04 - 03:57:07pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 03:57:07pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 03:57:07pm] : ii
+[2021-01-04 - 03:57:07pm] : 1
+[2021-01-04 - 03:57:07pm] : Duplicate entry '1' for key 'copy_in_catalogue.PRIMARY'
+[2021-01-04 - 03:57:49pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 03:57:49pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 03:57:49pm] : ii
+[2021-01-04 - 03:57:49pm] : 1
+[2021-01-04 - 03:57:49pm] : Column 'copyId' cannot be null
+[2021-01-04 - 04:01:07pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 04:01:07pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 04:01:07pm] : ii
+[2021-01-04 - 04:01:07pm] : 1
+[2021-01-04 - 04:01:07pm] : Column 'copyId' cannot be null
+[2021-01-04 - 04:02:12pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 04:02:12pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 04:02:12pm] : ii
+[2021-01-04 - 04:02:12pm] : 1
+[2021-01-04 - 04:02:12pm] : Column 'copyId' cannot be null
+[2021-01-04 - 04:02:54pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 04:02:54pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 04:02:54pm] : ii
+[2021-01-04 - 04:02:54pm] : 1
+[2021-01-04 - 04:02:54pm] : Column 'copyId' cannot be null
+[2021-01-04 - 04:03:20pm] : Execution Aborted while trying to execute query
+[2021-01-04 - 04:03:20pm] : INSERT INTO copy_in_catalogue (copyId, catalogueId) VALUES (?, ?)
+[2021-01-04 - 04:03:20pm] : ii
+[2021-01-04 - 04:03:20pm] : 1
+[2021-01-04 - 04:03:20pm] : Column 'copyId' cannot be null
