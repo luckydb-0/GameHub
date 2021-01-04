@@ -40,7 +40,7 @@
                 </div>    
             </div>
             <div class="form-group text-right mt-3">
-                <button type="submit" name="modifies"class="btn btn-light">Salva modifiche</button>
+                <button type="submit" value="perform" name="modifies"class="btn btn-light">Salva modifiche</button>
             </div>
         </form>
     </div>

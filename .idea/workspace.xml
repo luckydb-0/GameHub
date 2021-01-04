@@ -6,10 +6,10 @@
       <change beforePath="$PROJECT_DIR$/db/Database_Updater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Updater.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/error.log" beforeDir="false" afterPath="$PROJECT_DIR$/error.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/seller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/subscribe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/template/template-data.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template-profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/utils/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-seller-data.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-seller-data.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +62,7 @@
       <workItem from="1609599045550" duration="18492000" />
       <workItem from="1609659696547" duration="17537000" />
       <workItem from="1609678959491" duration="9388000" />
-      <workItem from="1609749469810" duration="14191000" />
+      <workItem from="1609749469810" duration="16171000" />
     </task>
     <servers />
   </component>

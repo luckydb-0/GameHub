@@ -16,7 +16,14 @@ class Database_Updater extends DatabaseHelper
         $hashed_password = hash_password($password);
         return parent::executeUpdate("UPDATE customer 
             SET name=?, surname=?, phone=?, password=?
-            WHERE userId=?;","ssssi",[$name,$surname,$phone,$password,$id]);
+            WHERE userId=?;","ssssi",[$name,$surname,$phone,$hashed_password,$id]);
+    }
+    public function updateSellerInfo($id, $name, $password, $phone): bool
+    {
+        $hashed_password = hash_password($password);
+        return parent::executeUpdate("UPDATE seller 
+            SET name=?, phone=?, password=?
+            WHERE sellerId=?;","sssi",[$name,$phone,$hashed_password,$id]);
     }
     //TODO
     public function changeArticlePrice($seller_id, $article_id): bool
@@ -28,5 +35,7 @@ class Database_Updater extends DatabaseHelper
     {
         return parent::executeUpdate("");
     }
+
+
 
 }

@@ -25,7 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 break;
             case "seller":
                 if($result = input_check_seller($_POST['name'],$_POST['password'],$_POST['repeat-password'],
-                    $_POST['phone'],$_POST['email'],$_POST['p_iva']))
+                    $_POST['phone-number'],$_POST['email'],$_POST['p_iva']))
                     if($result['result'])
                         if($dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone-number'],
                     $_POST['email'], $_POST['password']))

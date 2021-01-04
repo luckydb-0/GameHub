@@ -5,10 +5,13 @@
     $templateParams["name"] = "template/template-profile.php";
 
     if(isset($_POST['modifies']))
-        if($result = input_check_customer($_POST['name'],$_POST['surname'],
-            $_POST['password'],$_POST['repeat-password'],$_POST['phone-number'],""))
-             $dbu->updateCustomerInfo(substr($_SESSION['userId'],2),
-                $result['name'],$result['surname'],$result['phone-number'],$result['password']);
+        if($_POST['modfies'] == 'perform')
+            if($result = input_check_customer($_POST['name'],$_POST['surname'],
+                $_POST['password'],$_POST['repeat-password'],$_POST['phone-number'],"")) {
+                $dbu->updateCustomerInfo(substr($_SESSION['userId'], 2),
+                    $result['name'], $result['surname'], $result['phone-number'], $result['password']);
+                $_POST['modifies'] = 'updated';
+            }
 
     if(!isUserLoggedIn()) {
         header("Location: login.php");
