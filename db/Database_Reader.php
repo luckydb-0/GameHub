@@ -211,6 +211,7 @@ return parent::executeRead($query,'i',[$userId]);
     }
 
     public function filterGamesByPrice($gamesId, $price){
+        var_dump($gamesId);
         $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
         $query = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in);";
         $types = 'i'.str_repeat('s', count($gamesId)); // To concatenate as many s needed
