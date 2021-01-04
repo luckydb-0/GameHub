@@ -265,7 +265,19 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getNewestGames($n){
-        $query = "SELECT V.gameId, V.title, V.image, V.releaseDate FROM (SELECT * FROM videogame ORDER BY RAND()) as V WHERE V.releaseDate <= CURDATE() GROUP BY V.title ORDER BY V.releaseDate DESC LIMIT ?";
+        $query = "SELECT V.gameId, V.title, V.image, V.releaseDate FROM (SELECT * FROM videogame ORDER BY RAND()) as V
+                  WHERE V.releaseDate <= CURDATE() GROUP BY V.title ORDER BY V.releaseDate DESC LIMIT ?";
+        return parent::executeRead($query,"i",[$n]);
+    }
+
+    public function getGamesToPreorder($n){
+        $query = "SELECT V.gameId, V.title, V.image, V.releaseDate FROM (SELECT * FROM videogame ORDER BY RAND()) as V
+                  WHERE V.releaseDate > CURDATE() ORDER BY V.releaseDate ASC LIMIT ?";
+        return parent::executeRead($query,"i",[$n]);
+    }
+  
+    public function getMostSoldGames($n){
+        $query = "SELECT soldCopies, gameId, title, image FROM videogame ORDER BY soldCopies DESC LIMIT ?";
         return parent::executeRead($query,"i",[$n]);
     }
 
@@ -279,20 +291,6 @@ class Database_Reader extends DatabaseHelper
     //TODO
     public function getRandomGames($n){
         return parent::executeRead("","",[$n]);
-    }
-    //TODO
-    
-    //TODO
-    
-    //TODO
-    public function getGamesToPreorder(){
-        return parent::executeRead("","",[]);
-
-    }
-    //TODO
-    public function getMostSoldGames(){
-        return parent::executeRead("","",[]);
-
     }
     //TODO
     public function getImageNameById($id){

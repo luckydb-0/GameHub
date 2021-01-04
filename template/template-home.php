@@ -25,9 +25,8 @@
             <div class="carousel-inner my-3">
                 <?php
                     $isFirst = true;
-                    $couples = array_chunk($values, 2, true);
-                    for($counter = 0, $secondCounter = 0; $counter < $n; $counter++):
-                        $game = $couples[$secondCounter][$counter];
+                    for($counter = 0; $counter < $n; $counter++):
+                        $game = $values[$counter];
                 ?>
                 <div class="carousel-item <?php if($isFirst){ echo "active"; $isFirst = !$isFirst;}; ?>">
                     <div class="row text-center justify-content-center">
@@ -39,7 +38,7 @@
                                 </a>
                             </div>
                         </div>
-                        <?php $game = $couples[$secondCounter][++$counter]; $secondCounter++; ?>
+                        <?php $game = $values[++$counter]; ?>
                         <div class="col-md-5">
                             <div>
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
@@ -70,11 +69,14 @@
             </div>
         </div>
         <div class="row bg-dark mx-0">
-            <?php foreach($templateParams["preorder"] as $game): ?>
-            <div class="col-m*-12 my-auto">
-                <a href=#>
-                    <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
-                    <figcaption><?php echo $game["name"]." - ".$game["price"]."€"; ?></figcaption>
+            <?php 
+                $preorders = $dbr->getGamesToPreorder(6);
+                foreach($preorders as $game):
+            ?>
+            <div class="col-6 col-md-3 col-lg-2 my-auto p-2">
+                <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
+                    <figcaption><?php echo $game["title"]; ?></figcaption>
                 </a>
             </div>
             <?php endforeach; ?>
@@ -85,10 +87,14 @@
             </div>
         </div>
         <div class="row bg-dark mx-0">
-            <?php foreach($templateParams["mostSold"] as $game): ?>
-            <div class="col-m*-12 my-auto">
-                <a href=#>
-                    <img src="<?php echo IMG_DIR.$game["imageName"]; ?>" alt="<?php echo $game["alt"]; ?>" class="img-thumbnail m-3"/>
+            <?php
+                $mostSold = $dbr->getMostSoldGames(6); 
+                foreach($mostSold as $game):
+            ?>
+            <div class="col-6 col-md-3 col-lg-2 my-auto p-2">
+                <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
+                    <figcaption><?php echo $game["title"]; ?></figcaption>
                 </a>
             </div>
             <?php endforeach; ?>
