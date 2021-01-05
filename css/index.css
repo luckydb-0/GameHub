@@ -60,11 +60,6 @@ footer {
     margin-bottom: 0;
 }
 
-#lastReleased img {
-    width: 60%;
-    height: 60%;
-}
-
 .testo { 
     float: right; 
     width: 25%;
@@ -225,8 +220,13 @@ a.text-light:hover {
 
 @media screen and (max-width: 575px) {
 
+    #lastReleased img {
+        width: 60%;
+        height: 60%;
+    }
+
     #lastReleased {
-        height: 1100px;
+        height: 850px;
     }
 
     #lastReleased .carousel-indicators {
@@ -234,11 +234,16 @@ a.text-light:hover {
     }
 
     #lastReleased .carousel-item .row {
-        height: 1100px;
+        height: 850px;
     }
 }
 
 @media screen and (min-width: 576px) {
+
+    #lastReleased img {
+        width: 60%;
+        height: 60%;
+    }
 
     #lastReleased {
         height: 1100px;
@@ -255,6 +260,11 @@ a.text-light:hover {
 
 @media screen and (min-width: 768px) {
 
+    #lastReleased img {
+        width: 70%;
+        height: 70%;
+    }
+
     #lastReleased {
         height: 400px;
     }
@@ -269,6 +279,11 @@ a.text-light:hover {
 }
 
 @media screen and (min-width: 992px) {
+
+    #lastReleased img {
+        width: 60%;
+        height: 60%;
+    }
 
     #lastReleased {
         height: 480px;

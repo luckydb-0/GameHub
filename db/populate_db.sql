@@ -63,10 +63,20 @@ insert into developer (name) values ('Electronic Arts'),
 /* VIDEOGAMES */
 
 insert into videogame (title, soldCopies, releaseDate, developerId,platformId, image, suggestedPrice,description) values
-('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6-PS5.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6-XBoxX.jpg', 69.90,''),
-('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6-PC.jpg', 69.90,''),
+('God of War', 100, '2018/04/20', 4, 3, 'GoW.jpg', 69.90,"Lasciatosi alle spalle la sua sete di vendetta verso gli dèi dell'Olimpo, Kratos ora vive nella terra delle divinità e dei mostri norreni.
+
+È in questo mondo ostile e spietato che dovrà combattere per la sopravvivenza e insegnare a suo figlio non solo a fare lo stesso, ma anche a evitare di ripetere gli stessi errori fatali del Fantasma di Sparta...
+
+Questa sorprendente rielaborazione di God of War contiene tutti gli elementi caratteristici dell'iconica serie (combattimenti brutali, scontri epici con i boss e dimensioni mozzafiato) uniti a una narrazione intensa e commovente che getta una nuova luce sul mondo di Kratos.
+
+Una nuova intensa narrazione
+Nella sua nuova veste di mentore e protettore di un figlio intenzionato a conquistare la stima del padre, Kratos ha davanti a sé l'inaspettata opportunità di imparare a gestire la rabbia che lo ha sempre caratterizzato. Interrogandosi sull'eredità oscura trasmessa al figlio, spera di poter rimediare alle mancanze e agli orrori del proprio passato.
+
+Un mondo ancora più oscuro
+Immerso in foreste, montagne e regni incontaminati tipici del folklore nordico, dovrai districarti in una nuova e pericolosa terra corredata da un pantheon di creature, mostri e dèi."),
+('Far Cry 6', 0, '2021/12/31', 3, 1, 'FarCry6-PS5.jpg', 69.90,"Ti diamo il benvenuto a Yara, un paradiso tropicale congelato nel tempo. Antón Castillo, dittatore di Yara, vuole riportare la sua nazione alla gloria di un tempo. Per farlo è pronto a tutto, insieme al figlio Diego, che segue le sue orme insanguinate. La loro oppressione spietata ha acceso la miccia della rivoluzione."),
+('Far Cry 6', 0, '2021/12/31', 3, 2, 'FarCry6-XBoxX.jpg', 69.90,"Ti diamo il benvenuto a Yara, un paradiso tropicale congelato nel tempo. Antón Castillo, dittatore di Yara, vuole riportare la sua nazione alla gloria di un tempo. Per farlo è pronto a tutto, insieme al figlio Diego, che segue le sue orme insanguinate. La loro oppressione spietata ha acceso la miccia della rivoluzione."),
+('Far Cry 6', 0, '2021/12/31', 3, 6, 'FarCry6-PC.jpg', 69.90,"Ti diamo il benvenuto a Yara, un paradiso tropicale congelato nel tempo. Antón Castillo, dittatore di Yara, vuole riportare la sua nazione alla gloria di un tempo. Per farlo è pronto a tutto, insieme al figlio Diego, che segue le sue orme insanguinate. La loro oppressione spietata ha acceso la miccia della rivoluzione."),
 ('Animal Crossing', 200, '2020/03/20', 2, 5, 'AnimalCrossing-Switch.jpg', 69.90,''),
 ('XIII', 42, '2020/11/10', 2, 5, 'XIII-Switch.jpg', 69.90,''),
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg', 69.90,''),
@@ -78,11 +88,34 @@ insert into videogame (title, soldCopies, releaseDate, developerId,platformId, i
 ('FIFA 20', 340, '2019/09/25', 1, 4, 'FIFA20-XBoxOne.jpg', 59.90,''),
 ('FIFA 20', 120, '2019/09/25', 1, 5, 'FIFA20-Switch.jpg', 49.90,''),
 ('FIFA 20', 192, '2019/09/25', 1, 6, 'FIFA20-PC.jpg', 49.90,''),
-('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,''),
-('The Legend of Zelda - Breath of the Wild', 624, '2017/03/03', 2, 5, 'TLoZBofW-Switch.jpg', 50.99, ''),
-('Spiderman - Miles Morales', 310, '2020/11/12', 4, 1, 'SMMilesMorales-PS5.jpg', 79.90,''),
-('Spiderman - Miles Morales', 401, '2020/11/12', 4, 3, 'SMMilesMorales-PS4.jpg', 69.90,''),
-('Final Fantasy VII Remake', 511, '2020/03/02', 7, 3, 'FF7Remake-PS4.jpg', 64.90,''),
+('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,"Vesti i panni dell'ex motociclista fuorilegge Deacon St. John: vagabondo, cacciatore di taglie, avanzo di umanità errante. In un mondo devastato da una pandemia globale St. John rifiuta i "sicuri" accampamenti allestiti in aree selvagge dagli ultimi superstiti umani e sfida la sorte sulle strade accidentate.
+
+Ambientato in un martoriato scenario vulcanico nel Pacifico nord-occidentale, Days Gone ti invita a esplorare un mondo sconvolto da mostri umani degenerati noti come Freaker. Esplora questo mondo devastato alla ricerca di provviste, risorse ma soprattutto di una ragione per cui continuare a vivere.
+
+Un Open World, vivo come non mai, che ti terrà sempre sul chi vive
+Ambienti e meteo dinamici che rendono il gameplay sempre vario ed immersivo
+Una trama cruda e realistica capace di catturare ed emozionare il giocatore
+Dinamiche di gioco uniche grazie all’interazione tra Deacon e la sua moto
+Un’esperienza longeva grazie alle numerose sfide e missioni secondarie"),
+('The Legend of Zelda - Breath of the Wild', 624, '2017/03/03', 2, 5, 'TLoZBofW-Switch.jpg', 50.99, "Entra in un mondo di avventure
+Dimentica tutto quello che sai sui giochi di The Legend of Zelda e immergiti in un mondo di scoperte, esplorazione e avventura in The Legend of Zelda: Breath of the Wild, il nuovo capitolo di questa amatissima serie. Attraversa campi, foreste e montagne mentre cerchi di capire cosa è successo al regno di Hyrule in questa enorme, straordinaria avventura.
+
+Esplora Hyrule in totale libertà
+Scala torri e montagne in cerca di nuove destinazioni, poi scegli un percorso per raggiungerle e parti all'avventura. Lungo la strada affronterai nemici giganteschi, caccerai animali selvatici e raccoglierai il cibo e le pozioni che ti servono per sopravvivere.
+
+Più di 100 sacrari da scoprire ed esplorare
+Il mondo cela tanti sacrari, che potrai esplorare nell'ordine che preferisci. Al loro interno troverai enigmi di vario tipo. Supera le trappole e le sorprese che ti aspettano al varco per ottenere oggetti speciali e altre ricompense che ti aiuteranno nei tuoi viaggi.
+
+Sii pronto a tutto
+Con un intero mondo da esplorare, avrai certamente bisogno di varie tenute e dell'equipaggiamento adatto. Potresti dover indossare degli abiti caldi per proteggerti dal freddo o dei vestiti più leggeri quando sei nel deserto. Alcuni abiti hanno anche effetti speciali che possono renderti, per esempio, più veloce e furtivo.
+
+Metti a punto le tue strategie
+Incontrerai nemici di tutti i tipi e le dimensioni. Ognuno avrà attacchi e armi diverse, quindi devi pensare rapidamente e sviluppare le tattiche giuste per sconfiggerli."),
+('Spiderman - Miles Morales', 310, '2020/11/12', 4, 1, 'SMMilesMorales-PS5.jpg', 79.90,"Nell'ultima avventura dell'universo di Marvel's Spider-Man, l'adolescente Miles Morales affronta il trasloco nella sua nuova casa mentre segue le orme del suo mentore, Peter Parker, per diventare il nuovo Spider-Man. Quando una feroce forza minaccia di distruggere la sua nuova casa, l'aspirante eroe comprende che da grandi poteri, derivano grandi responsabilità. Per salvare la New York della Marvel, Miles deve indossare il costume di Spider-Man e guadagnarselo."),
+('Spiderman - Miles Morales', 401, '2020/11/12', 4, 3, 'SMMilesMorales-PS4.jpg', 69.90,"Nell'ultima avventura dell'universo di Marvel's Spider-Man, l'adolescente Miles Morales affronta il trasloco nella sua nuova casa mentre segue le orme del suo mentore, Peter Parker, per diventare il nuovo Spider-Man. Quando una feroce forza minaccia di distruggere la sua nuova casa, l'aspirante eroe comprende che da grandi poteri, derivano grandi responsabilità. Per salvare la New York della Marvel, Miles deve indossare il costume di Spider-Man e guadagnarselo."),
+('Final Fantasy VII Remake', 511, '2020/03/02', 7, 3, 'FF7Remake-PS4.jpg', 64.90,"Il mondo è in mano alla compagnia elettrica Shinra, che sfrutta la linfa vitale del pianeta come energia. Nella vibrante città di Midgar, il gruppo Avalanche le oppone una strenua resistenza e chiede aiuto al mercenario Cloud Strife, un ex membro dei SOLDIER al servizio della Shinra. Cloud accetta, imbarcandosi così in un'avventura epica.
+
+Il primo gioco di questo progetto, ovvero la spettacolare reinterpretazione contemporanea di uno dei giochi di ruolo più rivoluzionari della storia, sarà ambientato nella città eclettica di Midgar e sarà un’esperienza di gioco completa a sé stante."),
 ('Assassins Creed Valhalla', 220, '2020/11/10', 3, 1, 'ACValhalla-PS5.jpg', 69.90,''),
 ('Call of Duty - Advanced Warfare', 590, '2014/11/04', 5, 4, 'CoDAdvancedWarfare-XBoxOne.jpg', 24.99,''),
 ('Destiny', 112, '2019/04/26', 8, 4, 'Destiny-XBoxOne.jpg', 20.90,''),
