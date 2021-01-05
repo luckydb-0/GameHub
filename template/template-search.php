@@ -3,7 +3,7 @@
         <button class="btn mb-0 btn-block" type="button" data-toggle="collapse" data-target="#advanced-search">
             Ricerca avanzata
         </button>
-        <div id="advanced-search" class="collapse show col bg-dark">
+        <div id="advanced-search" class="collapse col bg-dark">
             <div class="row">
                 <form class="p-3" action="search.php">
                     <div class="form-row">
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col text-right">
-                            <input class="ml-3" type="submit" value="Cerca">
+                            <input type="submit" class="btn btn-light ml-3" value="Cerca">
                         </div>
                     </div>
                 </form>
@@ -79,36 +79,44 @@
 </div>
 
 <div class="mx-3">
-    <table class="table table-dark table-striped">
-        <thead>
-            <tr>
-                <th id="Immagine">Immagine</th>
-                <th id="Titolo">Titolo</th>
-                <th id="Piattaforma">Piattaforma</th>
-                <th id="Prezzo">Prezzo Consigliato (Euro €)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-                if(isset($templateParams["games"])):
-                    foreach($templateParams["games"] as $gameId):
-                        $game = $dbr->getGameById($gameId)[0];
-            ?>
-            <tr>
-                <td headers="Immagine" data-label="Immagine">
-                    <a href="<?php echo "article.php?game=$gameId";?>">
-                        <img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail">
-                    </a>
-                </td>
-                <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]?></td>
-                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]?></td>
-                <td headers="Prezzo" data-label="Prezzo"><?php echo $game["suggestedPrice"] ?></td>
-            </tr>
-            
-            <?php 
-                    endforeach;
-                endif;
-            ?>
-        </tbody>
-    </table>
+    <?php if(count($templateParams["games"]) > 0): ?>
+        <table class="table table-dark table-striped mt-3">
+            <thead>
+                <tr>
+                    <th id="Immagine">Immagine</th>
+                    <th id="Titolo">Titolo</th>
+                    <th id="Piattaforma">Piattaforma</th>
+                    <th id="Prezzo">Prezzo Consigliato (Euro €)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                    if(isset($templateParams["games"])):
+                        foreach($templateParams["games"] as $gameId):
+                            $game = $dbr->getGameById($gameId)[0];
+                ?>
+                <tr>
+                    <td headers="Immagine" data-label="Immagine">
+                        <a href="<?php echo "article.php?game=$gameId";?>">
+                            <img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail">
+                        </a>
+                    </td>
+                    <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]?></td>
+                    <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]?></td>
+                    <td headers="Prezzo" data-label="Prezzo"><?php echo $game["suggestedPrice"] ?></td>
+                </tr>
+                
+                <?php 
+                        endforeach;
+                    endif;
+                ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+    <div class="row m-3 bg-dark rounded justify-content-center">
+        <div class="col-6 text-center">
+            <h2 class="p-5">Non ci sono risultati</h2>        
+        </div>
+    </div>
+    <?php endif; ?>
 </div>
