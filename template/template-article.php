@@ -46,7 +46,7 @@
                             <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
                         </form>
                         <?php endif; ?>
-                    <?php elseif(!isLoggedIn()): ?>
+                    <?php else: ?>
                         <p class="my-5"> Non sono presenti copie del gioco disponibili </p>
                     <?php endif; ?>
                     <?php if(isUserLoggedIn()): ?>
