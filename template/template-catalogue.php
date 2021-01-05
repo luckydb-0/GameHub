@@ -22,13 +22,17 @@
                     ?>
                     <tr>
                         <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$item["image"]; ?>" alt="<?php echo $item["title"]." - ".$item["name"]; ?>" class="img-thumbnail"></td>
-                        <td headers="Cod.Articolo" data-label="Cod.Articolo"><?php echo $item["copyId"]; ?></td>
+                        <td headers="Cod.Articolo" data-label="Cod.Articolo"><?php echo $item["gameId"]; ?></td>
                         <td headers="Titolo" data-label="Titolo"><?php echo $item["title"]; ?></td>
                         <td headers="Piattaforma" data-label="Piattaforma"><?php echo $item["name"]; ?></td>
                         <td headers="Prezzo" data-label="Prezzo"><?php echo $item["price"]; ?></td>
                         <td headers="Copie-disponibili" data-label="Copie-disponibili"><?php echo $item["copies"]; ?></td>
                         <td headers="Copie-vendute" data-label="Copie-vendute"><?php echo $item["sold"]; ?></td>
-                        <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modifyArticle"><i class="fa fa-edit"></i></button></td>
+                        <td>
+                            <button class="btn btn-primary" data-price="<?php echo $item['price'] ?>" data-copies="<?php echo $item['copies'];  ?>"data-id="<?php echo $item['gameId'];?>" data-image="<?php echo IMG_DIR.$item['image'] ?>" type="button" data-toggle="modal" data-target="#modifyArticle">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -46,7 +50,8 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="seller.php?page=catalogue">
+                <img id="id-image">
+                <form action="seller.php?page=catalogue" method="POST">
                     <div class="modal-body ml-3">
                             <div class="row">
                                 Prezzo:
@@ -60,9 +65,10 @@
                             <div class="row">
                                 <input type="number" name="copies" id="id-copies">
                             </div>
+                        <input type="hidden" name="gameId" id="id-id">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salva modifiche</button>
+                        <button type="submit" name="modifies" class="btn btn-primary">Salva modifiche</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
                     </div>
                 </form>

@@ -1,6 +1,5 @@
 <?php
     require_once 'bootstrap.php';
-
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
 
@@ -41,6 +40,7 @@
         } else {
             switch($_GET["page"]) {
                 case "catalogue":
+                    $templateParams['js']['article'] = "modify-article.js";
                     $templateParams["page"] = "catalogue";
                     $templateParams["header"] = "Catalogo";
                     break;
