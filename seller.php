@@ -21,10 +21,13 @@
             $price = $_POST["price"];
             $copies = $_POST["copies"];
             $catId = substr($_SESSION["userId"], 2);
-            foreach(range(1,intval($copies)) as $copy)
+            foreach(range(1,intval($copies)) as $copy) {
                 $dbi->insertNewSellerArticle($gameId, $price, $catId);
+                //TODO if a customer has in whishlist a game that has no copy and game gets available again
+            }
         }
-    
+
+        //TODO missing process selected order
 
         if(!isset($_GET["page"])) {
             $templateParams["page"] = "seller-data";
@@ -52,4 +55,7 @@
     }
 
     require 'template/base.php';
-?>
+
+    function notifyCustomerProductAvailable($gameId){
+    }
+    ?>
