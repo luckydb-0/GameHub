@@ -49,7 +49,9 @@
                 <a class="dropdown-item text-light" href="profile.php?page=orders">I miei ordini</a>
                 <a class="dropdown-item text-light" href="profile.php?page=wishlist">La mia lista dei desideri</a>
                 <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="profile.php?page=notifications">Notifiche
+                    <?php if($newNotifies): ?>
                     <span class="badge badge-pill"><?php echo $dbr->getUnreadNotifies(substr($_SESSION['userId'],2));?></span></a>
+                    <?php endif;?>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
               </div>
@@ -59,7 +61,9 @@
                 <a class="dropdown-item text-light" href="seller.php?page=catalogue">Catalogo</a>
                 <a class="dropdown-item text-light" href="seller.php?page=orders">Ordini in sospeso</a>
                 <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="seller.php?page=notifications">Notifiche
+                    <?php if($newNotifies): ?>
                     <span class="badge badge-pill"><?php echo $dbr->getUnreadNotifiesSeller(substr($_SESSION['userId'],2));?></span></a>
+                    <?php endif;?>
                 <div class="dropdown-divider m-0"></div>
                 <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
               </div>
