@@ -16,6 +16,8 @@
         header("Location: login.php");
     } else {
         $templateParams["sellerId"] = substr($_SESSION["userId"], 2);
+        $sellerId = $templateParams["sellerId"] ;
+
         if(isset($_POST["gameId"]) && isset($_POST["price"]) && isset($_POST["copies"])) {
             $gameId = $_POST["gameId"];
             $price = $_POST["price"];
@@ -51,6 +53,7 @@
                 case "notifications":
                     $templateParams["page"] = "notifications";
                     $templateParams["header"] = "Le mie notifiche";
+                    $templateParams["notifications"] = $dbr->getSellerNotification($sellerId);
             }
         }
     }

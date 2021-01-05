@@ -338,4 +338,10 @@ class Database_Reader extends DatabaseHelper
         $query = "SELECT count(*) as n FROM `notification_seller` WHERE sellerId=? and isRead=0;";
         return parent::executeRead($query,"i",[$sellerId])[0]['n'];
     }
+
+    public function getSellerNotification($userId)
+    {
+        $query = "SELECT notificationId, timeReceived, description FROM notification_seller WHERE sellerId = ? order by timeReceived desc;";
+        return parent::executeRead($query,'i', [$userId]);
+    }
 }
