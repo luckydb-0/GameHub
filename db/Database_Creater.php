@@ -77,11 +77,11 @@ class Database_Creater extends DatabaseHelper
     public function insertNotifyForCustomer($userId,$string): int
     {
         return parent::executeInsert("INSERT INTO notification_user(userId, description, timeReceived) VALUES (?,?,?)"
-        ,"iss",[$userId,$string,date("Y-m-d",time())]);
+        ,"iss",[$userId,$string,date("Y-m-d:h:i")]);
     }
     public function insertNotifyForSeller($sellerId,$string): int
     {
         return parent::executeInsert("INSERT INTO notification_seller(sellerId, description, timeReceived) VALUES (?,?,?)"
-            ,"iss",[$sellerId,$string,date("Y-m-d",time())]);
+            ,"iss",[$sellerId,$string,date("Y-m-d:h:i")]);
     }
 }

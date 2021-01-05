@@ -115,7 +115,7 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getUserNotifications($userId) {
-        $query = "SELECT notificationId, timeReceived, description FROM notification WHERE userId = ?;";
+        $query = "SELECT notificationId, timeReceived, description FROM notification_user WHERE userId = ? order by timeReceived desc;";
         return parent::executeRead($query,'i', [$userId]);
     }
 
@@ -327,5 +327,15 @@ class Database_Reader extends DatabaseHelper
     {
         $query="SELECT sellerId from copy_in_catalogue WHERE copyId=?";
         return parent::executeRead($query,"i",[$copyId])[0]['sellerId'];
+    }
+
+    public function getUnreadNotifies($userId):int
+    {
+        $query = "SELECT count(*) as n FROM `notification_user` WHERE userId=? and isRead=0;";
+        return parent::executeRead($query,"i",[$userId])[0]['n'];
+    }
+    public function getUnreadNotifiesSeller($sellerId):int{
+        $query = "SELECT count(*) as n FROM `notification_seller` WHERE sellerId=? and isRead=0;";
+        return parent::executeRead($query,"i",[$sellerId])[0]['n'];
     }
 }
