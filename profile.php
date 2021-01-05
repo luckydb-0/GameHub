@@ -43,7 +43,12 @@
 
                     foreach($templateParams["games"] as $game) {
                         $gameId = $game["gameId"];
-                        $templateParams["g"."$copyId"] = $dbr->getGameById($gameId);
+                        $templateParams["g"."$gameId"] = $dbr->getGameById($gameId);
+                    }
+
+                    if(isset($_POST["remove"])) {
+                        $dbd->removeFromWishlist($userId, $_POST["remove"]);
+                        header("Location: profile.php?page=wishlist");
                     }
                     break;
                 case "notifications":

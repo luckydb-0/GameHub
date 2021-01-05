@@ -8,18 +8,24 @@
                 <th id="Immagine">Immagine</th>
                 <th id="Nome">Nome</th>
                 <th id="Piattaforma">Piattaforma</th>
-                <th id="Prezzo consigliato">Prezzo</th>
+                <th id="Prezzo consigliato">Prezzo consigliato</th>
+                <th id="Rimuovi"></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($templateParams["games"] as $game): 
-                $gameId = $copy["gameId"];
+                $gameId = $game["gameId"];
             ?>
             <tr> 
                 <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["g"."$gameId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["g"."$gameId"][0]["title"]; ?></td>
-                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["g"."$gameId"][0]["platform"]; ?></td>
-                <td headers="Prezzo consigliato" data-label="Prezzo"><?php echo $templateParams["g"."$gameId"][0]["price"]."€"; ?></form></td>
+                <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["g"."$gameId"][0]["name"]; ?></td>
+                <td headers="Prezzo consigliato" data-label="Prezzo"><?php echo $templateParams["g"."$gameId"][0]["suggestedPrice"]."€"; ?></form></td>
+                <td headers="Rimuovi" data-label="Rimuovi">
+                    <form action="#" method="POST">
+                        <button type="submit" id="remove" name="remove" value="<?php echo $gameId?>" class="mt-0 pt-0"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>
             </tr>
             <?php endforeach;?>
         </tbody>

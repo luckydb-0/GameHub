@@ -96,8 +96,7 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getGamesInWishlist($userId){
-        $query = "SELECT gameId FROM game_in_wishlist CW join wishlist W ON CW.wishlistId = W.wishlistId 
-        WHERE W.userId = ?;";
+        $query = "SELECT gameId FROM game_in_wishlist WHERE userId = ?;";
         return parent::executeRead($query,'i', [$userId]);
     }
 
