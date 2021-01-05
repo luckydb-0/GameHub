@@ -25,25 +25,60 @@
                         <td headers="Cod.Articolo" data-label="Cod.Articolo"><?php echo $item["copyId"]; ?></td>
                         <td headers="Titolo" data-label="Titolo"><?php echo $item["title"]; ?></td>
                         <td headers="Piattaforma" data-label="Piattaforma"><?php echo $item["name"]; ?></td>
-                        <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="<?php echo $item["price"]; ?>"></form></td>
-                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="<?php echo $item["copies"];  ?>"></form></td>
+                        <td headers="Prezzo" data-label="Prezzo"><?php echo $item["price"]; ?></td>
+                        <td headers="Copie-disponibili" data-label="Copie-disponibili"><?php echo $item["copies"]; ?></td>
                         <td headers="Copie-vendute" data-label="Copie-vendute"><?php echo $item["sold"]; ?></td>
+                        <td><button class="btn btn-primary" type="button" data-toggle="modal" data-target="#modifyArticle"><i class="fa fa-edit"></i></button></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
     </div>
+
+
+    <div class="modal fade text-dark" id="modifyArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content mx-3">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modifica articolo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="seller.php?page=catalogue">
+                    <div class="modal-body ml-3">
+                            <div class="row">
+                                Prezzo:
+                            </div>
+                            <div class="row">
+                                <input type="number" name="price" step="0.01" id="id-price">
+                            </div>
+                            <div class="row">
+                                Copie Disponibili:
+                            </div>
+                            <div class="row">
+                                <input type="number" name="copies" id="id-copies">
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Salva modifiche</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     
     <div class="row">
         <div class="col-12 offset-md-1">
             <div class="form-group text-right mt-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#newArticle">
                     Aggiungi articolo
-                    </button>
+                </button>
                 
                     <!-- The Modal -->
-                    <div class="modal fade text-dark" id="myModal">
+                    <div class="modal fade text-dark" id="newArticle">
                     <div class="modal-dialog">
                         <div class="modal-content">
                         
@@ -87,7 +122,7 @@
                                 </div>
                                 <div class="form-row">
                                     <label for="price" class="col-11 text-left mt-2">Prezzo:</label>
-                                    <input type="number" class="form-control col-11" id="price" name="price" placeholder="Inserisci prezzo">
+                                    <input type="number" step="0.01" min="0" class="form-control col-11" id="price" name="price" placeholder="Inserisci prezzo">
                                 </div>
                                 <div class="form-row">
                                     <label for="copies" class="col-11 text-left mt-2">Copie disponibili:</label>
@@ -101,13 +136,8 @@
                                 </div>
                             </form>
                         </div>
-                        
-                      
-                        </div>
                     </div>
-                    </div>
-
-                <button type="submit" class="btn btn-light">Salva modifiche</button>
+                </div>
             </div>
         </div>
     </div>
