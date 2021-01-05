@@ -140,12 +140,19 @@ create table wishlist (
      constraint IDWISHLIST primary key (wishlistId),
      constraint FKdesideres_id unique (userId));
 
-create table notification (
+create table notification_customer (
      notificationId int not null AUTO_INCREMENT,
      userId int not null,
      description char(128) not null,
      timeReceived timestamp not null,
-     constraint IDNOTIFICATION primary key (notificationId));
+     constraint IDNOTIFICATION_CUSTOMER primary key (notificationId));
+
+create table notification_seller (
+     notificationId int not null AUTO_INCREMENT,
+     sellerId int not null,
+     description char(128) not null,
+     timeReceived timestamp not null,
+     constraint IDNOTIFICATION_SELLER primary key (notificationId));
 
 -- Constraints Section
 -- ___________________ 
@@ -246,9 +253,13 @@ alter table wishlist add constraint FKdesires_FK
      foreign key (userId)
      references customer (userId);
 
-alter table notification add constraint FK_notify
+alter table notification_customer add constraint FK_notify_customer
      foreign key (userId)
      references customer (userId);
+
+alter table notification_seller add constraint FK_notify_seller
+     foreign key (sellerId)
+     references seller (sellerId);
 
 alter table _order add constraint FK_order_address
      foreign key (addressId)
