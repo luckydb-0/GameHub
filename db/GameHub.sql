@@ -19,9 +19,9 @@ create table customer (
      constraint IDcustomer_id primary key (userId));
 
 create table game_in_wishlist (
-     wishlistId int not null,
+     userId int not null,
      gameId int not null,
-     constraint IDgame_in_wishlist primary key (wishlistId, gameId));
+     constraint IDgame_in_wishlist primary key (userId, gameId));
 
 create table credit_card (
      ccnumber char(20) not null,
@@ -134,12 +134,6 @@ create table videogame (
      description varchar(256) not null,
      constraint IDvideogame_id primary key (gameId));
 
-create table wishlist (
-     wishlistId int not null AUTO_INCREMENT,
-     userId int not null,
-     constraint IDWISHLIST primary key (wishlistId),
-     constraint FKdesideres_id unique (userId));
-
 create table notification_user (
      notificationId int not null AUTO_INCREMENT,
      userId int not null,
@@ -162,8 +156,8 @@ alter table game_in_wishlist add constraint FKcon_VID
      references videogame (gameId);
 
 alter table game_in_wishlist add constraint FKcon_WIS
-     foreign key (wishlistId)
-     references wishlist (wishlistId);
+     foreign key (userId)
+     references customer (userId);
 
 alter table credit_card add constraint FKhas_card
      foreign key (userId)
@@ -248,10 +242,6 @@ alter table videogame add constraint FKR_vid
 alter table videogame add constraint FKis_in_platform
      foreign key (platformId)
      references platform (platformId);
-
-alter table wishlist add constraint FKdesires_FK
-     foreign key (userId)
-     references customer (userId);
 
 alter table notification_customer add constraint FK_notify_customer
      foreign key (userId)
