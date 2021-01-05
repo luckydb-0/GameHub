@@ -178,6 +178,15 @@
                     </div>
                     <div class="form-group text-left">
                         <label for="title">Valutazione (da 0 a 5): </label>
+                        <!-- //TODO
+                        <div class="ratings row ">
+                            <span class="fa fa-star fa-2x"></span>
+                            <span class="fa fa-star fa-2x"></span>
+                            <span class="fa fa-star fa-2x"></span>
+                            <span class="fa fa-star fa-2x"></span>
+                            <span class="fa fa-star fa-2x"></span>
+                        </div>
+                        -->
                         <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" style="width: 5%" required/>
                     </div>
                     <div class="form-group text-left">
