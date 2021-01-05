@@ -72,7 +72,6 @@
 </div>
 <!---
 Form for Seller!
-//TODO
 --->
 <?php elseif($_POST['subscriptionType'] == "seller"):?>
 <div class="row justify-content-center mx-0">
