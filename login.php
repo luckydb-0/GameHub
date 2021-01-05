@@ -15,6 +15,7 @@
             }
         }
     }
+    
     if(isset($_GET["logout"])) {
         unset($_SESSION["userId"]);
         header("Location: index.php");
@@ -23,6 +24,7 @@
     if(isUserLoggedIn()){
         header("Location: profile.php");
     }
+
     else if(isLoggedIn()){
         header("Location: seller.php");
     }

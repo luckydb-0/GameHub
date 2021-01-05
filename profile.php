@@ -4,14 +4,16 @@
     $templateParams["title"] = "GameHub - Profilo";
     $templateParams["name"] = "template/template-profile.php";
 
-    if(isset($_POST['modifies']))
-        if($_POST['modifies'] == 'perform')
+    if(isset($_POST['modifies'])) {
+        if($_POST['modifies'] == 'perform') {
             if($result = input_check_customer($_POST['name'],$_POST['surname'],
                 $_POST['password'],$_POST['repeat_password'],$_POST['phone_number'],"")) {
                 $dbu->updateCustomerInfo(substr($_SESSION['userId'], 2),
-                    $result['name'], $result['surname'], $result['phone_number'], $result['password']);
+                $result['name'], $result['surname'], $result['phone_number'], $result['password']);
                 $_POST['modifies'] = 'updated';
             }
+        }
+    }
 
     if(!isUserLoggedIn()) {
         header("Location: login.php");

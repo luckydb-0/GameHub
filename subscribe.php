@@ -15,7 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     if($result['result']) {
                         if ($dbi->insertNewCustomer($result['name'], $result['surname'], $_POST['birthdate'], $result['phone_number'],
                             $result['email'], $result['password'])) {
-                                header("location:profile.php");
+                            $login_result = $dbr->checkLogin($_POST["email"], $_POST["password"]);
+                            registerLoggedUser($login_result);
+                            header("Location: profile.php");
                         }
                     }
                 } else {
@@ -31,7 +33,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                     if($result['result']) {
                         if($dbi->insertNewSeller($_POST['name'], $_POST['p_iva'], $_POST['phone_number'],
                             $_POST['email'], $_POST['password'])) {
-                            header("location:seller.php");
+                            $login_result = $dbr->checkLogin($_POST["email"], $_POST["password"]);
+                            registerLoggedUser($login_result);
+                            header("Location: profile.php");
                         }
                         else {
                             foreach(key($result) as $key) {
