@@ -70,16 +70,18 @@ class Database_Creater extends DatabaseHelper
         return parent::executeInsert($query, "isii", [$addressId, $today, $total, $userId]);
 
     }
-    public function insertNewCopyOrder($copyId,$orderId){
+    public function insertNewCopyOrder($copyId,$orderId): int{
         $query = "INSERT INTO copy_in_order (copyId, orderId) VALUES (?,?);";
-        parent::executeInsert($query,"ii",[$copyId,$orderId]);
-
+        return parent::executeInsert($query,"ii",[$copyId,$orderId]);
     }
     public function insertNotifyForCustomer($userId,$string): int
     {
-        return parent::executeInsert("INSERT INTO notification(userId, description, timeReceived) VALUES (?,?,?)"
-        ,"iss",[$userId,$string,date("YY-m-d",time())]);
+        return parent::executeInsert("INSERT INTO notification_user(userId, description, timeReceived) VALUES (?,?,?)"
+        ,"iss",[$userId,$string,date("Y-m-d",time())]);
     }
-    public function insertNotifyForSeller($sellerId,$string){
+    public function insertNotifyForSeller($sellerId,$string): int
+    {
+        return parent::executeInsert("INSERT INTO notification_seller(sellerId, description, timeReceived) VALUES (?,?,?)"
+            ,"iss",[$sellerId,$string,date("Y-m-d",time())]);
     }
 }

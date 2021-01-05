@@ -89,7 +89,7 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query,'i',[$userId]);
     }
     public function getSellerCatalogue($catalogueId){
-        $query = "SELECT V.title, V.image, P.name,GC.copyId, GC.gameId, GC.price,COUNT(GC.gameId) as copies
+        $query = "SELECT V.title, V.image, P.name,GC.copyId, GC.gameId, GC.price,COUNT(GC.gameId) - SUM(GC.sold) as copies, SUM(GC.sold) as sold
                     FROM videogame V JOIN game_copy GC ON V.gameId = GC.gameId 
                     JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId 
                     JOIN seller S ON S.sellerId = CC.sellerId 
@@ -319,12 +319,13 @@ class Database_Reader extends DatabaseHelper
         else return null;
     }
     public function getTotalPriceCart($userId): float{
-
+        $query="SELECT SUM(gc.price)as total FROM `copy_in_cart` cc join game_copy gc on cc.copyId = gc.copyId where cc.userId= ? ";
+        return doubleval(parent::executeRead($query,"i",[$userId])[0]['total']);
     }
 
     public function getSellerIdFromCopy($copyId):int
     {
         $query="SELECT sellerId from copy_in_catalogue WHERE copyId=?";
-        return parent::executeRead($query,"i",[$copyId]);
+        return parent::executeRead($query,"i",[$copyId])[0]['sellerId'];
     }
 }

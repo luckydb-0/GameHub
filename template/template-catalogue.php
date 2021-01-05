@@ -27,7 +27,7 @@
                         <td headers="Piattaforma" data-label="Piattaforma"><?php echo $item["name"]; ?></td>
                         <td headers="Prezzo" data-label="Prezzo"><form><input type="number" id="price" value="<?php echo $item["price"]; ?>"></form></td>
                         <td headers="Copie-disponibili" data-label="Copie-disponibili"><form><input type="number" id="copies" value="<?php echo $item["copies"];  ?>"></form></td>
-                        <td headers="Copie-vendute" data-label="Copie-vendute">0</td>
+                        <td headers="Copie-vendute" data-label="Copie-vendute"><?php echo $item["sold"]; ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -106,6 +106,7 @@
                         </div>
                     </div>
                     </div>
+
                 <button type="submit" class="btn btn-light">Salva modifiche</button>
             </div>
         </div>

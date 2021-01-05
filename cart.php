@@ -32,16 +32,15 @@
                 $_POST['postCode'] = check_input($_POST['postCode']);
                 $dbi->addUserAddress($userId, $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
             }
-    
             if(isset($_POST["creditCard"]) && isset($_POST["addressId"])) {
-                if(doubleval($_POST['total']) > $dbr->getTotalPriceCart($userId)){
+                if(doubleval($_POST['total']) >= $dbr->getTotalPriceCart($userId)){
                     $orderId = $dbi->insertNewOrder($_POST["addressId"],$_POST['total'],$userId);
                     if($copies = $dbr->getCopiesIncart($userId)) {
                         foreach ($copies as $copy) {
-                            $dbi->insertNewCopyOrder($copy, $orderId);
-                            $dbu->updateGameCopyAsSold($copy);
-                            $dbd->removeFromCart($userId, $copy);
-                            $dbi->insertNotifyForSeller($dbr->getSellerIdFromCopy($copy),
+                            $dbi->insertNewCopyOrder($copy['copyId'], $orderId);
+                            $dbu->updateGameCopyAsSold($copy['copyId']);
+                            $dbd->removeFromCart($userId, $copy['copyId']);
+                            $dbi->insertNotifyForSeller($dbr->getSellerIdFromCopy($copy['copyId']),
                             "Your copy has been sold! Check your orders to confirm!");
                         }
                     }
@@ -51,7 +50,7 @@
             } elseif(isset($_POST["creditCard"]) || isset($_POST["addressId"])) {
                 $templateParams["error"] = "Selezionare una carta ed un indirizzo di spedizione";
             }
-            header("Location: cart.php");
+           header("Location: cart.php");
         }
         
 

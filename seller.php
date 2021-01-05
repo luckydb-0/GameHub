@@ -26,7 +26,7 @@
                 //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
         }
-
+        //TODO missing process modifies catalogue
         //TODO missing process selected order
 
         if(!isset($_GET["page"])) {
@@ -46,6 +46,7 @@
                     $templateParams["page"] = "orders";
                     $templateParams["header"] = "Ordini in sospeso";
                     $templateParams["seller-orders"] = $dbr->getSellerOrders($templateParams["sellerId"]);
+
                     break;
                 case "notifications":
                     $templateParams["page"] = "notifications";

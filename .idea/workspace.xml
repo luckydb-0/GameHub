@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4b4b6746-7e9a-4652-b80c-7fdcaace1ce4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4b4b6746-7e9a-4652-b80c-7fdcaace1ce4/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Creater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Creater.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Updater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Updater.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/seller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-catalogue.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-catalogue.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +71,7 @@
       <workItem from="1609659696547" duration="17537000" />
       <workItem from="1609678959491" duration="9388000" />
       <workItem from="1609749469810" duration="20225000" />
-      <workItem from="1609838645607" duration="11382000" />
+      <workItem from="1609838645607" duration="15802000" />
     </task>
     <servers />
   </component>
@@ -93,20 +102,5 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/db/Database_Creater.php</url>
-          <line>82</line>
-          <properties>
-            <option name="className" value="\Database_Creater" />
-            <option name="methodName" value="insertNotifyForSeller" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
