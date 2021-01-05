@@ -140,7 +140,7 @@ create table wishlist (
      constraint IDWISHLIST primary key (wishlistId),
      constraint FKdesideres_id unique (userId));
 
-create table notification_customer (
+create table notification_user (
      notificationId int not null AUTO_INCREMENT,
      userId int not null,
      description char(128) not null,
