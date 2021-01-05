@@ -6,15 +6,13 @@
         <li class="list-group-item bg-dark">
             <?php foreach($templateParams['notifications'] as $notification): ?>
             <div class="row">
-                <div class="col-9 col-sm-8 col-md-7">
+                <div class="col-11">
                     <p><?php echo $notification["timeReceived"]." - ".$notification["description"]; ?></p>
                 </div>
-                <div class="col-3 col-sm-4 col-md-5 col-lg-4 text-right offset-lg-1">
-                    <div class="row d-flex justify-content-end">
-                        <button type="button" class="close mr-1" aria-label="Close">
-                            <div aria-hidden="true">&times;</div>
-                        </button>
-                    </div>
+                <div class="col-1 text-right">
+                    <button type="button" class="close mt-auto" aria-label="Close">
+                        <div aria-hidden="true">&times;</div>
+                    </button>
                 </div>
             </div>
             <?php endforeach; ?>
