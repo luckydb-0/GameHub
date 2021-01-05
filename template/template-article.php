@@ -38,19 +38,19 @@
                 </div>
                 <div class="row my-4">
                     <div class="col">
-                        <?php if(!isUserLoggedIn()): ?>
+                        <?php if(!isUserLoggedIn() && !isLoggedIn()): ?>
                             <p id="logCheck"> Devi effettuare l'accesso per poter aggiungere al carrello </p>
                         <?php else: ?>
-                        <form action="#" method="POST" class ="my-5">
+                        <form action="#" method="POST" class ="mt-5">
                             <input type="hidden" id="addToCart" name="addToCart" value="<?php echo $_GET["game"]; ?>">
                             <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
                         </form>
                         <?php endif; ?>
-                    <?php else: ?>
+                    <?php elseif(!isLoggedIn()): ?>
                         <p class="my-5"> Non sono presenti copie del gioco disponibili </p>
                     <?php endif; ?>
                     <?php if(isUserLoggedIn()): ?>
-                    <form action="#" method="POST">
+                    <form action="#" method="POST" class="my-5">
                         <input type="hidden" id="addToCart" name="addToWishlist" value="<?php echo $_GET["game"]; ?>">
                         <input type="submit" class="btn btn-light" value="Aggiungi alla lista dei desideri"/>
                     </form>
@@ -159,6 +159,8 @@
         <?php endif; ?>
     </div>
 </div>
+
+<?php if(!isLoggedIn()): ?>
 <div class="row mx-0 my-5 justify-content-center">
     <div class="col-11 bg-dark p-4 rounded">
         <?php if(!isUserLoggedIn()): ?>
@@ -202,3 +204,4 @@
         <?php endif; ?>
     </div>
 </div>
+<?php endif; ?>

@@ -23,7 +23,7 @@
                 <td headers="Prezzo consigliato" data-label="Prezzo"><?php echo $templateParams["g"."$gameId"][0]["suggestedPrice"]."€"; ?></form></td>
                 <td headers="Rimuovi" data-label="Rimuovi">
                     <form action="#" method="POST">
-                        <button type="submit" id="remove" name="remove" value="<?php echo $gameId?>" class="mt-0 pt-0"><i class="fa fa-trash"></i></button>
+                        <button type="submit" name="remove" value="<?php echo $gameId?>" class="mt-0 pt-0 remove"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>

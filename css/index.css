@@ -124,17 +124,6 @@ section a {
     padding: 0;
 }
 
-
-button {
-    background-color: coral;
-    color: white;
-    padding: 0.5em;
-    border-radius: 20px;
-    margin: 5px 0;
-    outline: none;
-    justify-content: right;
-}
-
 ul {
     list-style-position: inside;
     margin-top: 2%;
@@ -202,13 +191,14 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-button#remove {
+button.remove {
     background-color: transparent;
     background-repeat: no-repeat;
     border: none;
     cursor:pointer;
     overflow: hidden;
     outline: none;
+    color:white;
 }
 
 #logCheck {

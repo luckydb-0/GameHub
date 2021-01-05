@@ -4,13 +4,13 @@
         if(count($templateParams["notifications"]) > 0):
     ?>        
     <ul class="list-group mx-0 my-4">
+        <?php foreach($templateParams['notifications'] as $notification): ?>
         <li class="list-group-item bg-dark">
-            <?php foreach($templateParams['notifications'] as $notification): ?>
             <div class="row">
-                <div class="col-9 col-sm-8 col-md-7">
+                <div class="col-10">
                     <p><?php echo $notification["timeReceived"]." - ".$notification["description"]; ?></p>
                 </div>
-                <div class="col-3 col-sm-4 col-md-5 col-lg-4 text-right offset-lg-1">
+                <div class="col-2 text-right ">
                     <div class="row d-flex justify-content-end">
                             <?php if(!$notification['isRead'])
                                     echo '<button class="remove" name="read" value="'.$notification['notificationId'].'"><i class="fa fa-envelope" aria-hidden="true"></i></button>';
@@ -21,8 +21,8 @@
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
         </li>
+        <?php endforeach; ?>
     </ul>
     <?php else: ?>
         <div class="bg-dark my-5 py-5 px-3 rounded text-center">
