@@ -62,7 +62,7 @@
                 <div class="form-check text-left">
                     <label class="form-check-label" for="<?php echo $creditCard["ccnumber"]; ?>">
                     <input type="radio" class="form-check-input" id="<?php echo $creditCard["ccnumber"]; ?>" name="creditCard" value="<?php echo $creditCard["ccnumber"]; ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
-                    <?php echo $creditCard["accountHolder"]." - Termina con ".substr($creditCard["ccnumber"], 16, 4) ; ?>
+                    <?php echo $creditCard["accountHolder"]." - Termina con ".substr($creditCard["ccnumber"], 12, 4) ; ?>
                     </label>                    
                 </div>
         <?php endforeach; ?>
@@ -177,7 +177,7 @@
                         </div>
                         <div class="form-group text-left">
                             <label for="postCode"> CAP: </label>
-                            <input type="number" class="form-control w-25" id="cvv" name="postCode" required />
+                            <input type="text" class="form-control w-25" id="postCode" minlength="5" maxlength="5" name="postCode" required />
                         </div>
                         <input type="hidden" name="saveAddress">
                         <div class="text-right">

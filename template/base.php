@@ -40,7 +40,7 @@
               }  
             ?>
             <li class="nav-item dropdown active mr-2">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              <a class="nav-link dropdown-toggle" href="profile.php" id="navbardrop" data-toggle="dropdown">
                 Profilo <?php if($newNotifies) echo '<span class="badge badge-pill"><i class="fa fa-bell"></i></span>'; ?>
               </a>
               <?php if(isUserLoggedIn()): ?>

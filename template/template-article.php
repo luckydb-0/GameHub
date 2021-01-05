@@ -40,7 +40,7 @@
                     <div class="col">
                         <?php if(!isUserLoggedIn() && !isLoggedIn()): ?>
                             <p id="logCheck"> Devi effettuare l'accesso per poter aggiungere al carrello </p>
-                        <?php else: ?>
+                        <?php elseif(isUserLoggedIn()): ?>
                         <form action="#" method="POST" class ="mt-5">
                             <input type="hidden" id="addToCart" name="addToCart" value="<?php echo $_GET["game"]; ?>">
                             <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
