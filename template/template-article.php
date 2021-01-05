@@ -19,7 +19,7 @@
                         <ul class="genres">
                             <?php foreach($templateParams["genres"] as $genre) {
                                 $name = $genre["categoryName"];
-                                echo "<li>$name</li>";
+                                echo "<li><a href=\"search.php?name=&cat-$name=$name\">$name</a></li>";
                             }
                             ?>
                         </ul>
@@ -46,7 +46,7 @@
                             <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
                         </form>
                         <?php endif; ?>
-                    <?php elseif(!isLoggedIn()): ?>
+                    <?php else: ?>
                         <p class="my-5"> Non sono presenti copie del gioco disponibili </p>
                     <?php endif; ?>
                     <?php if(isUserLoggedIn()): ?>
