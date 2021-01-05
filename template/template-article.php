@@ -19,7 +19,7 @@
                         <ul class="genres">
                             <?php foreach($templateParams["genres"] as $genre) {
                                 $name = $genre["categoryName"];
-                                echo "<li>$name</li>";
+                                echo "<li><a href=\"search.php?name=&cat-$name=$name\">$name</a></li>";
                             }
                             ?>
                         </ul>

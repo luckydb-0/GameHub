@@ -34,7 +34,9 @@ insert into category (categoryName) values ('Avventura'),
 
 ('Sport'),
 
-('Strategia');
+('Strategia'),
+
+('Platform');
 
 /* DEVELOPERS */
 
@@ -93,12 +95,7 @@ insert into videogame (title, soldCopies, releaseDate, developerId,platformId, i
 ('Cyberpunk 2077', 580, '2020/12/10', 10, 1, 'Cyber-PS5.jpg', 79.90,''),
 ('Cyberpunk 2077', 580, '2020/12/10', 10, 2, 'Cyber-XBoxOne.jpg', 79.90,''),
 ('Hitman 3', 0, '2021/01/20', 10, 1, 'Hitman3.jpg', 79.90,''),
-('Nier Replicant', 0, '2021/04/21', 7, 6, 'Nier-PC.jpg', 69.90,'');
-
-
-
-
-
+('Nier Replicant', 0, '2021/04/21', 7, 3, 'Nier-PS4.jpg', 69.90,'');
 
 /* CUSTOMERS */
 
@@ -232,15 +229,15 @@ insert into game_category (gameId, categoryId) values (1, 1),
 (20, 4),
 (21, 2),
 (21, 4),
-(22, 8),
+(22, 9),
 (23, 1),
-(23, 8),
+(23, 9),
 (24, 1),
-(24, 8),
-(25, 8),
+(24, 9),
+(25, 9),
 (26, 1),
 (26, 2),
-(26, 8),
+(26, 9),
 (26, 12),
 (27, 12),
 (27, 1),
@@ -254,7 +251,7 @@ insert into game_category (gameId, categoryId) values (1, 1),
 (31, 4),
 (32, 2),
 (33, 4),
-(33, 2),
+(33, 2);
 
 /* SELLER ADDRESS */
 
