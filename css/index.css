@@ -60,7 +60,7 @@ footer {
     margin-bottom: 0;
 }
 
-#ultime-uscite img {
+#lastReleased img {
     width: 60%;
     height: 60%;
 }
@@ -221,6 +221,81 @@ a.text-light:hover {
 .dropdown-item:hover .badge{
     background-color: #343a40 !important;
     color: #f8f9fa;
+}
+
+@media screen and (max-width: 575px) {
+
+    #lastReleased {
+        height: 1100px;
+    }
+
+    #lastReleased .carousel-indicators {
+        height: 3%;
+    }
+
+    #lastReleased .carousel-item .row {
+        height: 1100px;
+    }
+}
+
+@media screen and (min-width: 576px) {
+
+    #lastReleased {
+        height: 1100px;
+    }
+
+    #lastReleased .carousel-indicators {
+        height: 3%;
+    }
+
+    #lastReleased .carousel-item .row {
+        height: 1100px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #lastReleased {
+        height: 400px;
+    }
+
+    #lastReleased .carousel-indicators {
+        height: 5%;
+    }
+
+    #lastReleased .carousel-item .row {
+        height: 380px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    #lastReleased {
+        height: 480px;
+    }
+
+    #lastReleased .carousel-indicators {
+        height: 5%;
+    }
+
+    #lastReleased .carousel-item .row {
+        height: 480px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    #lastReleased {
+        height: 550px;
+    }
+
+    #lastReleased .carousel-indicators {
+        height: 5%;
+    }
+
+    #lastReleased .carousel-item .row {
+        height: 473px;
+    }
 }
 
 @media screen and (min-width: 768px)
