@@ -17,7 +17,7 @@
                 $gameId = $game["gameId"];
             ?>
             <tr> 
-                <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["g"."$gameId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
+                <td headers="Immagine" data-label="Immagine"><a href="article.php?game=<?php echo $gameId; ?>"><img src="img/<?php echo $templateParams["g"."$gameId"][0]["image"]; ?>" alt="" class="img-thumbnail"></a></td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["g"."$gameId"][0]["title"]; ?></td>
                 <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["g"."$gameId"][0]["name"]; ?></td>
                 <td headers="Prezzo consigliato" data-label="Prezzo"><?php echo $templateParams["g"."$gameId"][0]["suggestedPrice"]."€"; ?></form></td>
