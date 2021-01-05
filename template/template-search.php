@@ -95,7 +95,11 @@
                         $game = $dbr->getGameById($gameId)[0];
             ?>
             <tr>
-                <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail"></td>
+                <td headers="Immagine" data-label="Immagine">
+                    <a href="<?php echo "article.php?game=$gameId";?>">
+                        <img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail">
+                    </a>
+                </td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]?></td>
                 <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]?></td>
                 <td headers="Prezzo" data-label="Prezzo"><?php echo $game["suggestedPrice"] ?></td>
