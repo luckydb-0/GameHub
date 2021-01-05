@@ -114,7 +114,7 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getUserNotifications($userId) {
-        $query = "SELECT notificationId, timeReceived, description FROM notification_user WHERE userId = ? order by timeReceived desc;";
+        $query = "SELECT notificationId, timeReceived, description,isRead FROM notification_user WHERE userId = ? order by timeReceived desc;";
         return parent::executeRead($query,'i', [$userId]);
     }
 
@@ -340,7 +340,7 @@ class Database_Reader extends DatabaseHelper
 
     public function getSellerNotification($userId)
     {
-        $query = "SELECT notificationId, timeReceived, description FROM notification_seller WHERE sellerId = ? order by timeReceived desc;";
+        $query = "SELECT notificationId, timeReceived, description,isRead FROM notification_seller WHERE sellerId = ? order by timeReceived desc;";
         return parent::executeRead($query,'i', [$userId]);
     }
 }
