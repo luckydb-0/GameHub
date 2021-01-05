@@ -4,9 +4,10 @@
     ?>        
     <ul class="list-group mx-0 my-4">
         <li class="list-group-item bg-dark">
+            <?php foreach($templateParams['notifications'] as $notification): ?>
             <div class="row">
                 <div class="col-9 col-sm-8 col-md-7">
-                    <p><?php echo $templateParams["timeReceived"]." - ".$templateParams[0]["description"]; ?></p>
+                    <p><?php echo $notification["timeReceived"]." - ".$notification["description"]; ?></p>
                 </div>
                 <div class="col-3 col-sm-4 col-md-5 col-lg-4 text-right offset-lg-1">
                     <div class="row d-flex justify-content-end">
@@ -15,7 +16,8 @@
                         </button>
                     </div>
                 </div>
-            </div>  
+            </div>
+            <?php endforeach; ?>
         </li>
     </ul>
     <?php else: ?>
