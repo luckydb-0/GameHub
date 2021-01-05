@@ -160,7 +160,7 @@
     </div>
 </div>
 
-<?php if(!isLoggedIn()): ?>
+<?php if(!isLoggedIn() || isUserLoggedIn()): ?>
 <div class="row mx-0 my-5 justify-content-center">
     <div class="col-11 bg-dark p-4 rounded">
         <?php if(!isUserLoggedIn()): ?>
