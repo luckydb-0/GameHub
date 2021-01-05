@@ -30,20 +30,20 @@
                 ?>
                 <div class="carousel-item <?php if($isFirst){ echo "active"; $isFirst = !$isFirst;}; ?>">
                     <div class="row text-center justify-content-center">
-                        <div class="col-md-5 my-auto">
+                        <div class="col-md-5 my-auto text-center">
                             <div>
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
-                                    <p><?php echo $game["title"]; ?></p>
+                                    <figcaption><?php echo $game["title"]; ?></figcaption>
                                 </a>
                             </div>
                         </div>
                         <?php $game = $values[++$counter]; ?>
-                        <div class="col-md-5 my-auto">
+                        <div class="col-md-5 my-auto text-center">
                             <div>
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
-                                    <p><?php echo $game["title"]; ?></p>
+                                    <figcaption><?php echo $game["title"]; ?></figcaption>
                                 </a>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
     </div>
 </div>
         <div class="row mx-0">
-            <div class="col-*-12">
+            <div class="col-*-12 m-3">
                 <h2>Preordina</h2>
             </div>
         </div>
@@ -73,7 +73,7 @@
                 $preorders = $dbr->getGamesToPreorder(6);
                 foreach($preorders as $game):
             ?>
-            <div class="col-6 col-md-3 col-lg-2 my-auto p-2">
+            <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
                     <figcaption><?php echo $game["title"]; ?></figcaption>
@@ -82,7 +82,7 @@
             <?php endforeach; ?>
         </div>
         <div class="row mx-0">
-            <div class="col-*-12">
+            <div class="col-*-12 m-3">
                 <h2>I più venduti</h2>
             </div>
         </div>
@@ -91,7 +91,7 @@
                 $mostSold = $dbr->getMostSoldGames(6); 
                 foreach($mostSold as $game):
             ?>
-            <div class="col-6 col-md-3 col-lg-2 my-auto p-2">
+            <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
                     <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
                     <figcaption><?php echo $game["title"]; ?></figcaption>

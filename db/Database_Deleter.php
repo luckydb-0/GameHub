@@ -14,4 +14,10 @@ class Database_Deleter extends DatabaseHelper
         return parent::executeDelete($query,'ii', [$copyId, $userId]);
     }
 
+    public function removeFromWishlist($userId, $gameId): bool
+    {
+        $query="DELETE FROM game_in_wishlist WHERE gameId = ? AND userId = ?";
+        return parent::executeDelete($query,'ii', [$gameId, $userId]);
+    }
+
 }
