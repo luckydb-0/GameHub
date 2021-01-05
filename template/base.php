@@ -1,16 +1,3 @@
-<?php 
-  if(isUserLoggedIn()) {
-    $button = "Profilo";
-    $link = "profile.php";
-  } else if(isLoggedIn()){
-      $button = "Profilo";
-      $link = "seller.php";
-  }
-  else{
-      $button = "Login";
-      $link = "login.php";
-  }
-?>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -45,10 +32,16 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto my-auto">
-            <?php if(isLoggedIn()): ?>
+            <?php if(isLoggedIn()): 
+              if(isUserLoggedIn()) {
+                $newNotifies = $dbr->getUnreadNotifies(substr($_SESSION['userId'],2)) > 0;
+              } else {
+                $newNotifies = $dbr->getUnreadNotifiesSeller(substr($_SESSION['userId'],2)) > 0;
+              }  
+            ?>
             <li class="nav-item dropdown active mr-2">
               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Profilo
+                Profilo <?php if($newNotifies) echo '<span class="badge badge-pill"><i class="fa fa-bell"></i></span>'; ?>
               </a>
               <?php if(isUserLoggedIn()): ?>
               <div class="dropdown-menu bg-dark py-0">
@@ -56,7 +49,7 @@
                 <a class="dropdown-item text-light" href="profile.php?page=orders">I miei ordini</a>
                 <a class="dropdown-item text-light" href="profile.php?page=wishlist">La mia lista dei desideri</a>
                 <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="profile.php?page=notifications">Notifiche
-                    <span class="badge badge-dark badge-pill"><?php echo $dbr->getUnreadNotifies(substr($_SESSION['userId'],2));?></span></a>
+                    <span class="badge badge-pill"><?php echo $dbr->getUnreadNotifies(substr($_SESSION['userId'],2));?></span></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
               </div>
