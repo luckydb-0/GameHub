@@ -56,6 +56,12 @@
                 case "notifications":
                     $templateParams["page"] = "notifications";
                     $templateParams["header"] = "Le mie notifiche";
+                    if(isset($_GET['read']))
+                        $dbu->updateNotifyCustomerState($_GET['read'],1);
+                    if(isset($_GET['unread']))
+                        $dbu->updateNotifyCustomerState($_GET['unread'],0);
+                    if(isset($_GET['delete']))
+                        $dbd->deleteNotifyCustomer($_GET['delete']);
                     $templateParams["notifications"] = $dbr->getUserNotifications($userId);
                     break;
             }

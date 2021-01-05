@@ -43,6 +43,16 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate("");
     }
 
+    public function updateNotifyCustomerState($notifyId, $state): bool
+    {
+        $query= "UPDATE notification_user SET isRead=? WHERE notificationId=?";
+        return parent::executeUpdate($query,"ii",[$state,$notifyId]);
+    }
+    public function updateNotifySellerState($notifyId, $state): bool
+    {
+        $query= "UPDATE notification_seller SET isRead=? WHERE notificationId=?";
+        return parent::executeUpdate($query,"ii",[$state,$notifyId]);
+    }
 
 
 }

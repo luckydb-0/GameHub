@@ -20,4 +20,15 @@ class Database_Deleter extends DatabaseHelper
         return parent::executeDelete($query,'ii', [$gameId, $userId]);
     }
 
+    public function deleteNotifyCustomer($notifyId): bool
+    {
+        $query="DELETE FROM notification_user WHERE notificationId = ?";
+        return parent::executeDelete($query,'i', [$notifyId]);
+    }
+    public function deleteNotifySeller($notifyId): bool
+    {
+        $query="DELETE FROM notification_seller WHERE notificationId = ?";
+        return parent::executeDelete($query,'i', [$notifyId]);
+    }
+
 }
