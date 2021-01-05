@@ -11,6 +11,7 @@
                 $result['name'], $result['password'], $result['phone_number']);
             $_POST['modifies'] = 'updated';
         }
+    
     if(!isLoggedIn()) {
         header("Location: login.php");
     } else {
@@ -27,6 +28,13 @@
                 //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
         }
+
+        if(isset($_POST["mod-id"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
+            $gameId = $_POST["mod-gameId"];
+            $price = $_POST["mod-price"];
+            $copies = $_POST["mod-copies"];
+        }
+
         //TODO missing process modifies catalogue
         //TODO missing process selected order
 

@@ -51,21 +51,21 @@
                     </button>
                 </div>
                 <img id="id-image">
-                <form action="seller.php?page=catalogue" method="POST">
+                <form action="#" method="POST">
                     <div class="modal-body ml-3">
                             <div class="row">
                                 Prezzo:
                             </div>
                             <div class="row">
-                                <input type="number" name="price" step="0.01" id="id-price">
+                                <input type="number" name="mod-price" step="0.01" id="id-price">
                             </div>
                             <div class="row">
                                 Copie Disponibili:
                             </div>
                             <div class="row">
-                                <input type="number" name="copies" id="id-copies">
+                                <input type="number" name="mod-copies" id="id-copies">
                             </div>
-                        <input type="hidden" name="gameId" id="id-id">
+                        <input type="hidden" name="mod-gameId" id="id-id">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" name="modifies" class="btn btn-primary">Salva modifiche</button>

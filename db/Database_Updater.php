@@ -31,6 +31,30 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query,"i",[$copyId]);
     }
 
+    public function updateCopies($sellerId, $gameId, $newPrice, $newCopies): bool {
+        $actualCopiesQuery = "SELECT R.gameId, COUNT(R.gameId) as num FROM (SELECT GC.gameId FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId WHERE CC.sellerId = ? AND GC.gameId = ?) as R";
+        $actualCopies = parent::executeRead($actualCopiesQuery, "ii", [$sellerId, $gameId]);
+
+        $queryCopies = "SELECT * FROM game_copy GC JOIN copy_in_catalogue CC ON GC.copyId = CC.copyId WHERE CC.sellerId = ? AND GC.gameId = ?";
+        $diff = $actualCopies["num"] - $newCopies;
+        $types = "";
+        $query = "";
+        if($diff < 0) {
+            $line = "INSERT INTO game_copy (gameId, price) values (?, ?); INSERT INTO copy_in_catalogue (copyId, sellerId) values ((SELECT MAX(copyId) FROM game_copy), ?);";
+            for($n = -$diff; $n > 0; $n--) {
+                $query = $query.$line;
+                $types = $types."idi";
+            }
+            parent::executeInsert($query, $types, [$gameId, $seller_id, $price, $seller_id]);
+        } else if($diff > 0) {
+            //$query = "DELETE FROM game_copy GC JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId WHERE GC.gameId = ? LIMIT ?";
+            $types = "ii";
+            parent::executeDelete($query, $types, [$gameId, $diff]);
+        }
+        
+        return parent::executeUpdate($query, "iidi", [$sellerId, $gameId, $newPrice, $newCopies]);
+    }
+
 
     //TODO
     public function changeArticlePrice($seller_id, $article_id): bool
