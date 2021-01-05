@@ -103,7 +103,7 @@
                 if(count($templateParams["creditCards"]) == 0){
                     echo "<h2> Non hai metodi di pagamento associati </h2>";
                 };
-                if(count($templateParams["creditCards"]) == 0){
+                if(count($templateParams["addresses"]) == 0){
                     echo "<h2> Non hai indirizzi di spedizione associati </h2>";
                 };
             endif;
@@ -119,7 +119,7 @@
                         </div>
                         <div class="form-group text-left">
                             <label for="ccnumber">Numero della carta: </label>
-                            <input type="text" min="16" max="16" class="form-control w-50" id="ccnumber" maxlength="20" size="20" name="ccnumber" required />
+                            <input type="text" min="16" max="16" class="form-control w-50" id="ccnumber" maxlength="16" minlength="16" name="ccnumber" required />
                         </div>
                         <div class="form-group text-left">
                             <label for="expiration">Expiration: </label>
