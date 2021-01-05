@@ -25,6 +25,12 @@ class Database_Updater extends DatabaseHelper
             SET name=?, phone=?, password=?
             WHERE sellerId=?;","sssi",[$name,$phone,$hashed_password,$id]);
     }
+    public function updateGameCopyAsSold($copyId){
+        $query = "UPDATE game_copy SET sold = 1 WHERE copyId = ?";
+        parent::executeUpdate($query,"i",[$copyId]);
+    }
+
+
     //TODO
     public function changeArticlePrice($seller_id, $article_id): bool
     {

@@ -20,25 +20,7 @@ class Database_Creater extends DatabaseHelper
         return parent::executeInsert($query, "sssss", [$name,$p_iva,$phone,$email,$password]);
     }
 
-    public function placeOrder($userId, $addressId, $total) {
-        $query = "SELECT copyId FROM copy_in_cart WHERE userId = ?;";
-        $copies = parent::executeRead($query,'i',[$userId]);
 
-        $today = date("Y-m-d");
-        $query="INSERT INTO _order (addressId, orderDate, total, userId) VALUES (?, ?, ?, ?);";
-        parent::executeInsert($query, "isii", [$addressId, $today, $total, $userId]);
-
-        $orderId = parent::executeRead("SELECT MAX(orderId) as id FROM _order");
-        $orderId = $orderId[0]["id"];
-
-        foreach($copies as $copy) {
-            $copyId = $copy["copyId"];
-            parent::executeInsert("INSERT INTO copy_in_order (copyId, orderId) VALUES ($copyId, $orderId);");
-            parent::executeUpdate("UPDATE game_copy SET sold = 1 WHERE copyId = $copyId");
-        }
-
-        parent::executeDelete("DELETE FROM copy_in_cart WHERE userId = $userId");
-    }
 
     public function addUserAddress($userId, $country, $city, $street, $postCode) {
         $query= "INSERT INTO address (country, city, street, postCode) VALUES (?, ?, ?, ?)";
@@ -54,8 +36,7 @@ class Database_Creater extends DatabaseHelper
 
     public function addCreditCard($userId, $accountHolder, $ccnumber, $expiration, $cvv) {
         $query = "INSERT INTO credit_card (userId, accountHolder, ccnumber, expiration, cvv) VALUES (?, ?, ?, ?, ?)";
-        $expDate = $expiration."-01";
-        parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expDate, $cvv]);
+        parent::executeInsert($query,'isisi', [$userId, $accountHolder, $ccnumber, $expiration, $cvv]);
     }
     
     public function addToCart($userId, $copyId): int
@@ -82,18 +63,18 @@ class Database_Creater extends DatabaseHelper
         return  parent::executeInsert($query, "ii", [$copyId, $catalogueId]);
     }
 
-    public function insertNewCatalogueSeller($sellerId): int
+    public function insertNewOrder($addressId,$total,$userId): int
     {
-        return parent::executeInsert("INSERT INTO catalogue(catalogueId, sellerId) VALUES (?,?)","ii",[$sellerId,$sellerId]);
+        $today = date("Y-m-d");
+        $query="INSERT INTO _order (addressId, orderDate, total, userId) VALUES (?, ?, ?, ?);";
+        return parent::executeInsert($query, "isii", [$addressId, $today, $total, $userId]);
 
     }
+    public function insertNewCopyOrder($copyId,$orderId){
+        $query = "INSERT INTO copy_in_order (copyId, orderId) VALUES (?,?);";
+        parent::executeInsert($query,"ii",[$copyId,$orderId]);
 
-    public function insertNewCustomerCart(int $id): int
-    {
-
-        return parent::executeInsert("INSERT INTO cart(cartId, userId) VALUES (?,?)","ii",[$id,$id]);
     }
-
     public function insertNotifyForCustomer($userId,$string): int
     {
         return parent::executeInsert("INSERT INTO notification(userId, description, timeReceived) VALUES (?,?,?)"

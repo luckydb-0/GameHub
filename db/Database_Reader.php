@@ -7,7 +7,8 @@ class Database_Reader extends DatabaseHelper
         parent::__construct("database.ozny.it", "prova", "prova", "gamehub", 3306);
     }
 
-    public function checkLogin($email, $password){
+    public function checkLogin($email, $password): string
+    {
         if($hashed_password = $this->getCustomerPassword($email))
             if(password_check($password,$hashed_password))
                 if ($tmp = $this->getCustomerLogin($email, $hashed_password))
@@ -228,21 +229,6 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query,$types,[$price,...$gamesId]);
     }
 
-    public function getCatalogueId($sellerId){
-        $query = "SELECT catalogueId FROM catalogue WHERE sellerId = ?";
-        return parent::executeRead($query,'i', [$sellerId]);
-    }
-
-    public function getSellerCatalogue($catalogueId){
-        $query = "SELECT V.title, V.image, P.name,GC.copyId, GC.gameId, GC.price,COUNT(GC.gameId) as copies
-                    FROM videogame V JOIN game_copy GC ON V.gameId = GC.gameId 
-                    JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId 
-                    JOIN seller S ON S.sellerId = CC.sellerId 
-                    JOIN platform P ON V.platformId = P.platformId 
-                    WHERE S.sellerId = ? GROUP BY GC.gameId ;";
-        return parent::executeRead($query,'i', [$catalogueId]);
-    }
-
     public function getGames() {
         $query = "SELECT V.title, V.image, P.name, V.gameId FROM videogame V JOIN platform P 
                   ON P.platformId = V.platformId ORDER BY V.gameId";
@@ -323,5 +309,8 @@ class Database_Reader extends DatabaseHelper
         if($result = parent::executeRead("SELECT password FROM seller WHERE email='$email';"))
             return $result[0]['password'];
         else return null;
+    }
+    public function getTotalPriceCart($userId): double{
+
     }
 }

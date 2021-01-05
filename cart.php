@@ -18,15 +18,35 @@
             }
 
             if(isset($_POST["saveMethod"])) {
-                $dbi->addCreditCard($userId, $_POST["accountHolder"], $_POST["ccnumber"], $_POST["expiration"], $_POST["cvv"]);
+                $expiration_date = $_POST['exp_year']."-".$_POST['exp_month']."-"."28";
+                $expiration_date = check_input($expiration_date);
+                $_POST['accountHolder'] = check_input($_POST['accountHolder']);
+                $_POST['ccnumber'] = check_input($_POST['ccnumber']);
+                $_POST['cvv'] = check_input($_POST['cvv']);
+                $dbi->addCreditCard($userId, $_POST["accountHolder"], $_POST["ccnumber"], $expiration_date, $_POST["cvv"]);
             }
     
             if(isset($_POST["saveAddress"])) {
+                $_POST['country'] = check_input($_POST['country']);
+                $_POST['street'] = check_input($_POST['street']);
+                $_POST['postCode'] = check_input($_POST['postCode']);
                 $dbi->addUserAddress($userId, $_POST["country"], $_POST["city"], $_POST["street"], $_POST["postCode"]);
             }
     
             if(isset($_POST["creditCard"]) && isset($_POST["addressId"])) {
-                $dbi->placeOrder($userId, $_POST["addressId"], $_POST["total"]);
+                if(doubleval($_POST['total']) > $dbr->getTotalPriceCart($userId)){
+                    $orderId = $dbi->insertNewOrder($_POST["addressId"],$_POST['total'],$userId);
+                    if($copies = $dbr->getCopiesIncart($userId)) {
+                        foreach ($copies as $copy) {
+                            $dbi->insertNewCopyOrder($copy, $orderId);
+                            $dbu->updateGameCopyAsSold($copy);
+                            $dbd->removeFromCart($userId, $copy);
+                        }
+                        //TODO need notify seller that copies has been sold
+                    }
+                    $dbi->insertNotifyForCustomer($userId,"Il tuo ordine è stato completato con sucesso con codice ordine -> ".$idOrder);
+                } else
+                    echo "notify"; //TODO notification that order couldn't complete
             } elseif(isset($_POST["creditCard"]) || isset($_POST["addressId"])) {
                 $templateParams["error"] = "Selezionare una carta ed un indirizzo di spedizione";
             }

@@ -112,22 +112,42 @@
             <div class="col-12">
             <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addCard"><p>Aggiungi un metodo di pagamento</p></button>
                 <div id="addCard" class="collapse mt-3">
-                    <form action="#" method="POST">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                         <div class="form-group text-left">
                             <label for="accountHolder">Titolare della carta: </label>
                             <input type="text" class="form-control w-50" id="accountHolder" name="accountHolder" required />
                         </div>
                         <div class="form-group text-left">
                             <label for="ccnumber">Numero della carta: </label>
-                            <input type="text" class="form-control w-50" id="ccnumber" maxlength="20" size="20" name="ccnumber" required />
+                            <input type="text" min="16" max="16" class="form-control w-50" id="ccnumber" maxlength="20" size="20" name="ccnumber" required />
                         </div>
                         <div class="form-group text-left">
                             <label for="expiration">Expiration: </label>
-                            <input type="month" class="form-control w-50" id="expiration" name="expiration" required/>
+                            <select name="exp_year" required>
+                                <?php
+                                for ($i=intval(substr(date("Y"),2)); $i<=99; $i++)
+                                {
+                                    ?>
+                                    <option value="<?php echo substr(date("Y"),0,2) . $i;?>"><?php echo $i;?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                            <select name="exp_month" required>
+                                <?php
+                                for ($i=1 ; $i<=12; $i++)
+                                {
+                                    ?>
+                                    <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+
                         </div>
                         <div class="form-group text-left">
                             <label for="cvv">CVV: </label>
-                            <input type="text" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" required />
+                            <input type="text" min="3" max="3" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" required />
                         </div>
                             <input type="hidden" name="saveMethod">
                         <div class="text-right">
