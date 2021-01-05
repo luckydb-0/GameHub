@@ -20,8 +20,6 @@ class Database_Creater extends DatabaseHelper
         return parent::executeInsert($query, "sssss", [$name,$p_iva,$phone,$email,$password]);
     }
 
-
-
     public function addUserAddress($userId, $country, $city, $street, $postCode) {
         $query= "INSERT INTO address (country, city, street, postCode) VALUES (?, ?, ?, ?)";
         parent::executeInsert($query,"sssi", [$country, $city, $street, $postCode]);
@@ -70,16 +68,24 @@ class Database_Creater extends DatabaseHelper
         return parent::executeInsert($query, "isii", [$addressId, $today, $total, $userId]);
 
     }
+
     public function insertNewCopyOrder($copyId,$orderId){
         $query = "INSERT INTO copy_in_order (copyId, orderId) VALUES (?,?);";
         parent::executeInsert($query,"ii",[$copyId,$orderId]);
 
     }
+
     public function insertNotifyForCustomer($userId,$string): int
     {
         return parent::executeInsert("INSERT INTO notification(userId, description, timeReceived) VALUES (?,?,?)"
         ,"iss",[$userId,$string,date("YY-m-d",time())]);
     }
+
     public function insertNotifyForSeller($sellerId,$string){
+    }
+
+    public function addToWishlist($userId, $gameId) {
+        $query = "INSERT INTO game_in_wishlist (userId, gameId) VALUES (?, ?);";
+        return parent::executeInsert($query, "ii", [$userId, $gameId]);
     }
 }

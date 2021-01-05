@@ -22,7 +22,11 @@
             $dbi->addToCart($userId, $templateParams["copy"][0]["copyId"]);
         }
 
-        if(isset($_POST["title"])) {
+        if(isset($_POST["addToWishlist"])) {
+            $dbi->addToWishlist($userId, $gameId);
+        }
+
+        if(isset($_POST["sendReview"])) {
             $dbi->addReview($userId, $gameId, $_POST["title"], $_POST["rating"], $_POST["description"]);
         }
 

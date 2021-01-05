@@ -41,13 +41,19 @@
                         <?php if(!isUserLoggedIn()): ?>
                             <p id="logCheck"> Devi effettuare l'accesso per poter aggiungere al carrello </p>
                         <?php else: ?>
-                        <form action="#" method="POST">
+                        <form action="#" method="POST" class ="my-5">
                             <input type="hidden" id="addToCart" name="addToCart" value="<?php echo $_GET["game"]; ?>">
                             <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
                         </form>
                         <?php endif; ?>
                     <?php else: ?>
-                        Non sono presenti copie del gioco disponibili
+                        <p class="my-5"> Non sono presenti copie del gioco disponibili </p>
+                    <?php endif; ?>
+                    <?php if(isUserLoggedIn()): ?>
+                    <form action="#" method="POST">
+                        <input type="hidden" id="addToCart" name="addToWishlist" value="<?php echo $_GET["game"]; ?>">
+                        <input type="submit" class="btn btn-light" value="Aggiungi alla lista dei desideri"/>
+                    </form>
                     <?php endif; ?>
                     </div>
                 </div>
@@ -179,7 +185,7 @@
                         <textarea class="form-control" id="description" name="description" rows="5" placeholder="Inserisci recensione..." required></textarea>
                     </div>
                     <div class="text-right my-4">
-                        <input type="submit" class="btn btn-light" value="Invia recensione"/>
+                        <input type="submit" class="btn btn-light" name="sendReview" value="Invia recensione"/>
                     </div>
                 </form>
             </div>
