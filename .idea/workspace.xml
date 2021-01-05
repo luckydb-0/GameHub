@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/seller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template-notifications.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-notifications.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template-search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/template-subscribe.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-subscribe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,12 +62,22 @@
       <workItem from="1609659696547" duration="17537000" />
       <workItem from="1609678959491" duration="9388000" />
       <workItem from="1609749469810" duration="20225000" />
-      <workItem from="1609838645607" duration="9928000" />
+      <workItem from="1609838645607" duration="11382000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

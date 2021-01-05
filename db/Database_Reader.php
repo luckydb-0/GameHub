@@ -88,7 +88,15 @@ class Database_Reader extends DatabaseHelper
         WHERE userId = ?;";
         return parent::executeRead($query,'i',[$userId]);
     }
-
+    public function getSellerCatalogue($catalogueId){
+        $query = "SELECT V.title, V.image, P.name,GC.copyId, GC.gameId, GC.price,COUNT(GC.gameId) as copies
+                    FROM videogame V JOIN game_copy GC ON V.gameId = GC.gameId 
+                    JOIN copy_in_catalogue CC ON CC.copyId = GC.copyId 
+                    JOIN seller S ON S.sellerId = CC.sellerId 
+                    JOIN platform P ON V.platformId = P.platformId 
+                    WHERE S.sellerId = ? GROUP BY GC.gameId ;";
+        return parent::executeRead($query,'i', [$catalogueId]);
+    }
     public function getUserAddress($user_id) {
         $query = "SELECT A.country, A.city, A.street, A.postCode FROM address A JOIN
         shipping S ON A.addressId = S.addressId JOIN customer C ON C.userId = ?;";
@@ -310,7 +318,13 @@ class Database_Reader extends DatabaseHelper
             return $result[0]['password'];
         else return null;
     }
-    public function getTotalPriceCart($userId): double{
+    public function getTotalPriceCart($userId): float{
 
+    }
+
+    public function getSellerIdFromCopy($copyId):int
+    {
+        $query="SELECT sellerId from copy_in_catalogue WHERE copyId=?";
+        return parent::executeRead($query,"i",[$copyId]);
     }
 }

@@ -41,12 +41,13 @@
                             $dbi->insertNewCopyOrder($copy, $orderId);
                             $dbu->updateGameCopyAsSold($copy);
                             $dbd->removeFromCart($userId, $copy);
+                            $dbi->insertNotifyForSeller($dbr->getSellerIdFromCopy($copy),
+                            "Your copy has been sold! Check your orders to confirm!");
                         }
-                        //TODO need notify seller that copies has been sold
                     }
-                    $dbi->insertNotifyForCustomer($userId,"Il tuo ordine è stato completato con sucesso con codice ordine -> ".$idOrder);
+                    $dbi->insertNotifyForCustomer($userId,"Il tuo ordine è stato completato con sucesso con codice ordine -> ".$orderId);
                 } else
-                    echo "notify"; //TODO notification that order couldn't complete
+                    $dbi->insertNotifyForCustomer($userId,"Il tuo ordine non è stato possibile complementarlo...!");//TODO
             } elseif(isset($_POST["creditCard"]) || isset($_POST["addressId"])) {
                 $templateParams["error"] = "Selezionare una carta ed un indirizzo di spedizione";
             }
