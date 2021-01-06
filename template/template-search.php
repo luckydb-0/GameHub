@@ -6,60 +6,65 @@
         <div id="advanced-search" class="collapse col bg-dark">
             <div class="row">
                 <form class="p-3" action="search.php">
+                    <fieldset>
+                    <legend class="sr-only">Ricerca avanzata</legend>
                     <div class="form-row">
-                        <label for="id-name" class="col-12 text-left mt-2">Titolo:</label>
-                        <label class="form-check-label">
+                        <div class="col-12 col-md-4">
+                            <h2 class="col-12 pl-0 mt-2 search">Titolo:</h2>
                             <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search">
-                        </label>
+                            <label class="form-check-label sr-only" for="id-name">Titolo
+                            </label>
+                        </div>
                     </div>
                     <div class="form-row">
-                        <label for="platform" class="col-12 text-left mt-2">Console:</label>
+                        <h2 class="col-12 text-left mt-2 search">Console:</h2>
                         <?php 
                             $platforms = $dbr->getPlatforms();
                             foreach($platforms as $platform):
                         ?>
                         <div class="form-check mx-2">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo $platform["name"]; ?>">
-                                <label for="id-<?php echo $platform["name"]; ?>"><?php echo $platform["name"]; ?></label>
+                            <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo str_replace(" ", "", $platform["name"]); ?>">
+                            <label class="form-check-label" for="id-<?php echo str_replace(" ", "", $platform["name"]); ?>">
+                                <?php echo $platform["name"]; ?>
                             </label>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     <div class="form-row">
-                        <label for="category" class="col-12 text-left mt-2">Categorie:</label>
+                        <h2 class="col-12 text-left mt-2 search">Categorie:</h2>
                         <?php
                             $categories = $dbr->getCategories();
                             foreach($categories as $category):
                         ?>
                         <div class="form-check mx-2">
-                            <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo $category["categoryName"]; ?>">
-                                <label for="id-<?php echo $category["categoryName"]; ?>"><?php echo $category["categoryName"]; ?></label>
+                            <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo str_replace(" ", "", $category["categoryName"]); ?>">
+                            <label class="form-check-label"  for="id-<?php echo str_replace(" ", "", $category["categoryName"]); ?>">
+                                <?php echo $category["categoryName"]; ?>
                             </label>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     <div class="form-row">
-                        <label for="developer" class="col-12 text-left mt-2">Sviluppatore:</label>
+                        <h2 class="col-12 text-left mt-2 search">Sviluppatore:</h2>
                         <?php
                             $developers = $dbr->getDevelopers();
                             foreach($developers as $developer):
                         ?>
                         <div class="form-check mx-2">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo $developer["name"]; ?>">
-                                <label for="id-<?php echo $developer["name"]; ?>"><?php echo $developer["name"]; ?></label>
+                            <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo str_replace(" ", "", $developer["name"]); ?>">
+                            <label class="form-check-label" for="id-<?php echo str_replace(" ", "", $developer["name"]); ?>">
+                                <?php echo $developer["name"]; ?>
                             </label>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     <div class="row">
-                        <label for="price" class="col-12 text-left mt-2">Prezzo massimo:</label>
+                        <h2 class="col-12 text-left mt-2 search">Prezzo massimo:</h2>
                         <div class="col-11 text-left">
                             <div class="row slidecontainer ml-1">
                                 <div class="col-9">
-                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="myRange" name="price">
+                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="priceRange" name="price">
+                                    <label for="priceRange" class="sr-only">Prezzo massimo</label>
                                 </div>
                                 <div class="col-3">
                                 <div id="demo"></div>
@@ -72,6 +77,7 @@
                             <input type="submit" class="btn btn-light ml-3" value="Cerca">
                         </div>
                     </div>
+                    </fieldset>
                 </form>
             </div>
         </div>
