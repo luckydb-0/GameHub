@@ -32,18 +32,18 @@
                         <div class="col-12 col-md-5 my-auto text-center">
                             <div class="my-auto">
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
-                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
-                                    <figcaption><?php echo $game["title"]; ?></figcaption>
+                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail mb-2" alt="<?php echo $game["title"]; ?>">
                                 </a>
+                                    <p><?php echo $game["title"]; ?></p>
                             </div>
                         </div>
                         <?php $game = $values[++$counter]; ?>
                         <div class="col-12 col-md-5 my-auto text-center">
                             <div class="my-auto">
                                 <a href="article.php?game=<?php echo $game["gameId"]; ?>">
-                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail">
-                                    <figcaption><?php echo $game["title"]; ?></figcaption>
+                                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]; ?>" class="img-thumbnail mb-2">
                                 </a>
+                                    <p><?php echo $game["title"]; ?></p>
                             </div>
                         </div>
                     </div>
@@ -62,42 +62,42 @@
         </div>
     </div>
 </div>
-        <div class="row mx-0">
-            <div class="col-*-12 mt-3 ml-4">
-                <h2>Preordina</h2>
-            </div>
+<div class="row mx-0">
+    <div class="col-*-12 mt-3 ml-4">
+        <h2>Preordina</h2>
+    </div>
+</div>
+<div class="row bg-dark mx-0">
+    <?php 
+        $preorders = $dbr->getGamesToPreorder(6);
+        foreach($preorders as $game):
+    ?>
+    <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
+        <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+            <img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]; ?>" class="img-thumbnail mb-2"/>
+        </a>
+            <p><?php echo $game["title"]; ?></p>
+    </div>
+    <?php endforeach; ?>
+</div>
+<div class="row mx-0">
+    <div class="col-*-12 mt-3 ml-4">
+        <h2>I più venduti</h2>
+    </div>
+</div>
+<?php
+    $mostSold = $dbr->getMostSoldGames(12);
+    $chunks = array_chunk($mostSold, 6, false); 
+    foreach($chunks as $row):
+?>  
+    <div class="row bg-dark mx-0">
+        <?php foreach($row as $game): ?>
+        <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
+            <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+                <img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]; ?>" class="img-thumbnail mb-2"/>
+            </a>
+                <p><?php echo $game["title"]; ?></p>
         </div>
-        <div class="row bg-dark mx-0">
-            <?php 
-                $preorders = $dbr->getGamesToPreorder(6);
-                foreach($preorders as $game):
-            ?>
-            <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
-                <a href="article.php?game=<?php echo $game["gameId"]; ?>">
-                    <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
-                    <figcaption><?php echo $game["title"]; ?></figcaption>
-                </a>
-            </div>
-            <?php endforeach; ?>
-        </div>
-        <div class="row mx-0">
-            <div class="col-*-12 mt-3 ml-4">
-                <h2>I più venduti</h2>
-            </div>
-        </div>
-        <?php
-            $mostSold = $dbr->getMostSoldGames(12);
-            $chunks = array_chunk($mostSold, 6, false); 
-            foreach($chunks as $row):
-        ?>  
-            <div class="row bg-dark mx-0">
-                <?php foreach($row as $game): ?>
-                <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
-                    <a href="article.php?game=<?php echo $game["gameId"]; ?>">
-                        <img src="<?php echo IMG_DIR.$game["image"]; ?>" class="img-thumbnail"/>
-                        <figcaption><?php echo $game["title"]; ?></figcaption>
-                    </a>
-                </div>
-                <?php endforeach; ?>
-            </div>
         <?php endforeach; ?>
+    </div>
+<?php endforeach; ?>
