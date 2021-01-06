@@ -10,7 +10,7 @@
         </div>
         <div class="row justify-content-between mt-3 p-3">
             <div class="col-12 col-md-4 col-lg-7 mb-4 text-center">
-                <img class="img-fluid img-thumbnail" src="<?php echo IMG_DIR.$game["image"]; ?>" alt="" />
+                <img class="img-fluid img-thumbnail" src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]." - ".$game["name"] ?>"/>
             </div>
             <div class="col-12 col-md-8 col-lg-5 pl-5">
                 <div class="row my-2">
@@ -51,7 +51,7 @@
                     <?php endif; ?>
                     <?php if(isUserLoggedIn()): ?>
                     <form action="#" method="POST" class="my-5">
-                        <input type="hidden" id="addToCart" name="addToWishlist" value="<?php echo $_GET["game"]; ?>">
+                        <input type="hidden" id="addToWishlist" name="addToWishlist" value="<?php echo $_GET["game"]; ?>">
                         <input type="submit" class="btn btn-light" value="Aggiungi alla lista dei desideri"/>
                     </form>
                     <?php endif; ?>
@@ -93,7 +93,7 @@
                         ?>
                         <div class="carousel-item <?php if($isFirst){ echo "active"; $isFirst = !$isFirst;}; ?>">
                             <a href="article.php?game=<?php echo $suggested["gameId"]; ?>">
-                                <img src="<?php echo IMG_DIR.$suggested["image"]; ?>" alt="" class="img-thumbnail">
+                                <img src="<?php echo IMG_DIR.$suggested["image"]; ?>" alt="<?php echo $suggested["title"]." - ".$suggested["name"]; ?>" class="img-thumbnail">
                                 <p class="my-3"><?php echo $suggested["title"]; ?></p>
                             </a>  
                         </div>
@@ -179,7 +179,7 @@
                         <input type="text" class="form-control w-50" id="title" name="title" required />
                     </div>
                     <div class="form-group text-left">
-                        <label for="title">Valutazione (da 0 a 5): </label>
+                        <label for="rating">Valutazione (da 0 a 5): </label>
                         <!-- //TODO
                         <div class="ratings row ">
                             <span class="fa fa-star fa-2x"></span>
@@ -189,11 +189,11 @@
                             <span class="fa fa-star fa-2x"></span>
                         </div>
                         -->
-                        <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" style="width: 5%" required/>
+                        <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" style="width: 5%" required />
                     </div>
                     <div class="form-group text-left">
-                        <label for="title">Recensione: </label>
-                        <textarea class="form-control" id="description" name="description" rows="5" placeholder="Inserisci recensione..." required></textarea>
+                        <label for="description">Recensione: </label>
+                        <textarea class="form-control" id="description" name="description" rows="5" placeholder="Inserisci recensione..." required ></textarea>
                     </div>
                     <div class="text-right my-4">
                         <input type="submit" class="btn btn-light" name="sendReview" value="Invia recensione"/>
