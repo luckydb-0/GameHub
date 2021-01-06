@@ -20,8 +20,8 @@
                     <input type="tel" class="form-control col-11" name="phone_number" id="phone_number" aria-describedby="" value="<?php echo $sellerData["phone"]; ?>">
                 </div>    
                 <div class="form-group col-md-6 my-4">
-                    <label for="iva" class="col-11 text-left mt-2">Partita IVA:</label>
-                    <input type="text" name="p_iva" class="form-control col-11" disabled id="iva" aria-describedby="" value="<?php echo $sellerData["p_iva"]; ?>">
+                    <label for="p_iva" class="col-11 text-left mt-2">Partita IVA:</label>
+                    <input type="text" name="p_iva" class="form-control col-11" id="p_iva" aria-describedby="" value="<?php echo $sellerData["p_iva"]; ?>" disabled />
                 </div>
             </div>
             <div class="form-row">
@@ -39,4 +39,7 @@
             </div>
         </form>
     </div>
+    <?php if(isset($templateParams["error"])) {
+        echo $templateParams["error"];
+    }; ?>
 </div>

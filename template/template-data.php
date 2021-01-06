@@ -44,4 +44,7 @@
             </div>
         </form>
     </div>
+    <?php if(isset($templateParams["error"])) {
+        echo $templateParams["error"];
+    }; ?>
 </div>

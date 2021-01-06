@@ -7,11 +7,11 @@
             <tr>
                 <th id="Cod.Ordine">Cod. Ordine</th>
                 <th id="Immagine">Immagine</th>
-                <th id="Nome">Nome</th>
+                <th id="Titolo">Titolo</th>
                 <th id="Piattaforma">Piattaforma</th>
                 <th id="Prezzo">Prezzo</th>
                 <th id="Totale">Totale</th>
-                <th id="Consegnato il">Consegnato il: </th>
+                <th id="Consegnatoil">Consegnato il: </th>
             </tr>
         </thead>
         <tbody>
@@ -30,10 +30,10 @@
                 <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["c"."$copyId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
                 <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["c"."$copyId"][0]["title"]; ?></td>
                 <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["c"."$copyId"][0]["platform"]; ?></td>
-                <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]; ?></form></td>
+                <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]; ?></td>
                 <?php if($isFirstRow): $isFirstRow = false; ?>
                 <td headers="Totale" data-label="Totale" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>"><?php echo $order["total"]; ?></td>
-                <td headers="Consegnato il" data-label="Consegnato il" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>">
+                <td headers="Consegnatoil" data-label="Consegnato il" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>">
                 <?php 
                     if($order["deliverDate"] == NULL){
                         echo "L'ordine non è ancora stato consegnato";

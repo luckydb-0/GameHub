@@ -3,15 +3,19 @@
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
 
-    if(isset($_POST['modifies']))
-        if($_POST['modifies']=='perform')
-        if($result = input_check_seller($_POST['name'], $_POST['password'],
-            $_POST['repeat_password'],$_POST['phone_number'],$_POST['email'],$_POST['p_iva'])) {
-            $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
-                $result['name'], $result['password'], $result['phone_number']);
-            $_POST['modifies'] = 'updated';
+    if(isset($_POST['modifies'])) {
+        var_dump($_POST);
+        if($_POST['modifies']=='perform') {
+            if($result = input_check_seller($_POST['name'], $_POST['password'],
+                $_POST['repeat_password'],$_POST['phone_number'],$_POST['email'],$_POST['p_iva'])) {
+                $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
+                    $result['name'], $result['password'], $result['phone_number']);
+                $_POST['modifies'] = 'updated';
+            } else {
+                $templateParams["error"] = "Le password non corrispondono.";
+            }
         }
-    
+    }
     if(!isLoggedIn()) {
         header("Location: login.php");
     } else {
@@ -91,4 +95,4 @@
     }
 
     require 'template/base.php';
-    ?>
+?>
