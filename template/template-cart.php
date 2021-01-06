@@ -27,7 +27,7 @@
                     <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></td>
                     <td headers="Rimuovi" data-label="Rimuovi">
                         <form action="#" method="POST">
-                            <button type="submit" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0 remove"><i class="fa fa-trash"></i></button>
+                            <button type="submit" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0 remove"><span class="fa fa-trash"></span></button>
                         </form>
                     </td>
                 </tr>

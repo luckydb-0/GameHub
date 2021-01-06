@@ -4,11 +4,11 @@
         <form class="bg-dark mt-4 mb-4 px-5 py-4 rounded" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
         <h2>Registrati come: </h2>
         <button name="subscriptionType" value="seller" type="submit" class="btn btn-outline-white">
-            <i class="fa fa-address-card fa-5x" aria-hidden="true"></i>
+            <span class="fa fa-address-card fa-5x" aria-hidden="true"></span>
         <label>Venditore</label>
         </button>
         <button name="subscriptionType" value="customer" type="submit" class="btn btn-outline-white ml-5">
-            <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+            <span class="fa fa-user-circle-o fa-5x" aria-hidden="true"></span>
             <label>Cliente</label>
         </button>
         </form>
