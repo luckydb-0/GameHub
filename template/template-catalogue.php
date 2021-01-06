@@ -62,8 +62,12 @@
                             <div class="row">
                                 Copie Disponibili:
                             </div>
-                            <div class="row">
-                                <input type="number" name="mod-copies" id="id-copies">
+                            <div class="row input-group">
+                                <span class="input-group-btn">
+                                     <span><button type="button" onclik="console.log(1)" class="btn btn-success btn-number" data-val="-1" id="minus"><i class="fa fa-minus" aria-hidden="true"></i></button></span>
+                                    <input class="" min="0" type="number" name="mod-copies" id="id-copies"/>
+                                    <span><button type="button" onclik="console.log($(#id-copies).val())"class="btn btn-success btn-number" data-val="1" id="plus"><i class="fa fa-plus" aria-hidden="true"></i></button></span>
+                                </span>
                             </div>
                         <input type="hidden" name="mod-gameId" id="id-id">
                     </div>
