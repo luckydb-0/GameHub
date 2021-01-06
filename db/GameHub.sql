@@ -98,6 +98,7 @@ create table _order (
      total float not null,
      userId int not null,
      addressId int not null,
+     deliverDate date,
      constraint IDorder_id primary key (orderId));
 
 create table copy_in_order (

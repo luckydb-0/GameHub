@@ -260,7 +260,7 @@ insert into customer (name, surname, birthDate, email, password, phone, activati
 /* GAME COPY */
 
 insert into game_copy (gameId, price, sold) values
-(1, 21.99, 0),
+(1, 21.99, 1),
 (2, 80.99, 0),
 (3, 80.99, 0),
 (4, 59.99, 0),
