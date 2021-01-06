@@ -122,10 +122,10 @@
                             <input type="text" class="form-control w-50" id="ccnumber" minlength="16" maxlength="16" name="ccnumber" required />
                         </div>
                         <div class="form-group text-left">
-                            <label for="expiration">Expiration: </label>
-                            <div id="expiration">
-                                <select name="exp_year" size="99" required>
-                                    <option></option>
+                            <span>
+                                <label for="exp_year">Year: </label>
+                                <select id="exp_year" name="exp_year" required>
+                                    <option value="" label="YY"></option>
                                     <?php
                                     for ($i=intval(substr(date("Y"),2)); $i<=99; $i++)
                                     {
@@ -135,8 +135,9 @@
                                     }
                                     ?>
                                 </select>
-                                <select name="exp_month" size="12" required>
-                                <option></option>
+                                <label for="exp_month">Month:</label>
+                                <select name="exp_month" id="exp_month"  required>
+                                    <option value="" label="MM"></option>
                                     <?php
                                     for ($i=1 ; $i<=12; $i++)
                                     {
@@ -146,7 +147,7 @@
                                     }
                                     ?>
                                 </select>
-                            </div>        
+                                </span>
                         </div>
                         <div class="form-group text-left">
                             <label for="cvv">CVV: </label>

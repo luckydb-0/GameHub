@@ -180,15 +180,15 @@
                     </div>
                     <div class="form-group text-left">
                         <label for="rating">Valutazione (da 0 a 5): </label>
-                        <!-- //TODO
+                        <!-- //TODO -->
                         <div class="ratings row ">
-                            <span class="fa fa-star fa-2x"></span>
-                            <span class="fa fa-star fa-2x"></span>
-                            <span class="fa fa-star fa-2x"></span>
-                            <span class="fa fa-star fa-2x"></span>
-                            <span class="fa fa-star fa-2x"></span>
+                            <input type="radio"/>
+                            <span id="star-1" class="fa fa-star fa-2x star-x"></span>
+                            <span id="star-1" class="fa fa-star fa-2x star-x"></span>
+                            <span id="star-1" class="fa fa-star fa-2x star-x"></span>
+                            <span id="star-1" class="fa fa-star fa-2x star-x"></span>
+                            <span id="star-1" class="fa fa-star fa-2x star-x"></span>
                         </div>
-                        -->
                         <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" style="width: 5%" required />
                     </div>
                     <div class="form-group text-left">
