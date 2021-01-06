@@ -135,7 +135,7 @@ create table videogame (
      platformId int not null,
      image varchar(128) not null,
      suggestedPrice float not null,
-     description varchar(256) not null,
+     description varchar(2048) not null,
      constraint IDvideogame_id primary key (gameId));
 
 create table notification_user (
@@ -252,7 +252,7 @@ alter table videogame add constraint FKis_in_platform
      foreign key (platformId)
      references platform (platformId);
 
-alter table notification_customer add constraint FK_notify_customer
+alter table notification_user add constraint FK_notify_customer
      foreign key (userId)
      references customer (userId);
 
