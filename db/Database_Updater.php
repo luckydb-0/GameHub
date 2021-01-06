@@ -82,10 +82,9 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query,"ii",[$state,$notifyId]);
     }
 
-    public function updatePrice($gameId)
-    {
-
+    public function updateOrderDeliver($orderId) {
+        $now = date("Y-m-d");
+        $query = "UPDATE _order SET deliverDate = ? WHERE orderId = ?";
+        return parent::executeUpdate($query, "si", [$now, $orderId]);
     }
-
-
 }

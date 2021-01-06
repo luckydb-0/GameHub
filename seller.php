@@ -25,7 +25,6 @@
             $catId = substr($_SESSION["userId"], 2);
             foreach(range(1,intval($copies)) as $copy) {
                 $dbi->insertNewSellerArticle($gameId, $price, $catId);
-                //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
         }
         if(isset($_POST["mod-gameId"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
@@ -47,8 +46,9 @@
             }
         }
 
-        //TODO missing process modifies catalogue
-        //TODO missing process selected order
+        if(isset($_POST["orderId"])) {
+            $dbu->updateOrderDeliver($_POST["orderId"]);
+        }
 
         if(!isset($_GET["page"])) {
             $templateParams["page"] = "seller-data";

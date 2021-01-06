@@ -60,13 +60,16 @@
             </div>
         </div>
     </div>
+    <?php if($order["orderDate"] == NULL): ?>
     <div class="row mb-3">
         <div class="col text-right my-3">
-            <button type="button" class="btn btn-primary">
-                Spedisci
-            </button>
+            <form action="#" method="POST">
+                <input type="hidden" name="orderId" value="<?php echo $order["orderId"]; ?>" />
+                <input type="submit" class="btn btn-primary" value="Contrassegna come consegnato" />
+            </form>
         </div>
     </div>
+    <?php endif; ?>
     <?php endforeach; ?>
 </div>
 

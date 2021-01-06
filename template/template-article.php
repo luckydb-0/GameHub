@@ -73,7 +73,7 @@
                         <h2>Consigliati</h2>
                     </div>
                 </div>
-                <div id="consigliati" class="carousel slide text-center" data-ride="carousel">
+                <div id="suggested" class="carousel slide text-center" data-ride="carousel">
 
                     <!-- Indicators -->
                     <ul class="carousel-indicators">
@@ -81,7 +81,7 @@
                             $current = 0;
                             foreach($templateParams["suggested"] as $suggested): 
                         ?>
-                        <li data-target="#consigliati" data-slide-to="<?php echo $current; ?>" <?php if($current == 0) echo 'class="active"'; ?> ></li>
+                        <li data-target="#suggested" data-slide-to="<?php echo $current; ?>" <?php if($current == 0) echo 'class="active"'; ?> ></li>
                         <?php $current++; endforeach; ?>
                     </ul>
                 
@@ -101,11 +101,11 @@
                     </div>
                 
                     <!-- Left and right controls -->
-                    <a class="carousel-control-prev" href="#consigliati" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
+                    <a class="carousel-control-prev" href="#suggested" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
                     </a>
-                    <a class="carousel-control-next" href="#consigliati" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
+                    <a class="carousel-control-next" href="#suggested" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
                     </a>
                 </div>
             </div>
