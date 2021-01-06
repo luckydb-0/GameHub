@@ -51,7 +51,7 @@
 
 
     <div class="modal fade text-dark" id="modifyArticle" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog">
             <div class="modal-content mx-3">
                 <div class="modal-header">
                     <h3 class="modal-title">Modifica articolo</h3>
@@ -59,8 +59,8 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <img id="id-image" src="img/GoW.jpg" alt="Gioco selezionato">
-                <form action="#" method="POST">
+                <form action="#" method="POST" class="text-center">
+                    <img id="id-image" src="img/GoW.jpg" alt="Gioco selezionato">
                     <div class="modal-body ml-3">
                             <div class="row">
                                 Prezzo:
@@ -96,7 +96,7 @@
                 
                     <!-- The Modal -->
                     <div class="modal fade text-dark" id="newArticle">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         
                         <!-- Modal Header -->
@@ -112,7 +112,7 @@
                                 <legend class="sr-only">Seleziona:</legend>
                                 <div class="form-row">
                                     <h4>Seleziona videogioco:</h4>
-                                    <table class="table table-striped">
+                                    <table class="table table-striped" id="addCopies">
                                         <thead>
                                             <tr class="pl-0">
                                                 <th id="Selezione" class="px-4"></th>
