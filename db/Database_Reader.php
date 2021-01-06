@@ -243,8 +243,8 @@ class Database_Reader extends DatabaseHelper
     }
     
     public function getSuggestedGames($gameId) {
-        $query = "SELECT V.gameId, V.title, V.image 
-                  FROM videogame V JOIN game_category GC ON V.gameId = GC.gameId JOIN developer D ON D.developerId = V.developerId
+        $query = "SELECT V.gameId, V.title, V.image, P.name
+                  FROM videogame V JOIN game_category GC ON V.gameId = GC.gameId JOIN developer D ON D.developerId = V.developerId JOIN platform P ON V.platformId = P.platformId
                   WHERE (GC.categoryId IN (SELECT GC.categoryId FROM videogame V JOIN game_category GC on V.gameId = GC.gameId WHERE V.gameId = ?)
                   OR D.developerId IN (SELECT developerId FROM videogame WHERE gameId = ?))
                   AND V.platformId IN (SELECT platformId FROM videogame WHERE gameId = ?)

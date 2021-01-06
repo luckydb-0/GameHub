@@ -59,8 +59,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12">
+        <div class="row justify-content-center mb-4">
+            <div class="col-11">
+            <h3> Descrizione </h3>
                 <?php echo $game["description"]; ?>
             </div>
         </div>
