@@ -139,7 +139,7 @@ create table notification_user (
      userId int not null,
      description char(128) not null,
      timeReceived timestamp not null,
-     isRead boolean not null,
+     isRead boolean default  0 not null,
      constraint IDNOTIFICATION_CUSTOMER primary key (notificationId));
 
 create table notification_seller (
@@ -147,7 +147,7 @@ create table notification_seller (
      sellerId int not null,
      description char(128) not null,
      timeReceived timestamp not null,
-     isRead boolean not null,
+     isRead boolean default 0 not null,
      constraint IDNOTIFICATION_SELLER primary key (notificationId));
 
 -- Constraints Section
