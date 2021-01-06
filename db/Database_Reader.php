@@ -220,11 +220,11 @@ class Database_Reader extends DatabaseHelper
             $result = $resultsArrays[0];
         } else {
             $result = array_intersect(...$resultsArrays);
-            if(count($result) > 0) {
-                $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
-            }
         }
-
+        
+        if(count($result) > 0) {
+            $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
+        }
         return array_values($result);
     }
 
@@ -297,6 +297,7 @@ class Database_Reader extends DatabaseHelper
     }
     //TODO
     public function getGamePriceById($id){
+        
         return parent::executeRead("","",[$id]);
     }
     //TODO
