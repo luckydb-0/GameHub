@@ -2,15 +2,17 @@
     require_once 'bootstrap.php';
     $templateParams["title"] = "GameHub - Venditore";
     $templateParams["name"] = "template/template-seller.php";
-
-    if(isset($_POST['modifies']))
-        if($_POST['modifies']=='perform')
-        if($result = input_check_seller($_POST['name'], $_POST['password'],
-            $_POST['repeat_password'],$_POST['phone_number'],$_POST['email'],$_POST['p_iva'])) {
-            $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
-                $result['name'], $result['password'], $result['phone_number']);
-            $_POST['modifies'] = 'updated';
+    if(isset($_POST['modifies'])) {
+        if ($_POST['modifies'] == 'perform')
+            if ($result = input_check_seller($_POST['name'], $_POST['password'],
+                $_POST['repeat_password'], $_POST['phone_number'], $_POST['email'], $_POST['p_iva'])) {
+                if (!isset($result['password_error']))
+                    $dbu->updateSellerInfo(substr($_SESSION['userId'], 2),
+                        $result['name'], $result['password'], $result['phone_number']);
+                else $_POST['password_error'] = $result['password_error'];
         }
+        $_POST['modifies'] = 'updated';
+    }
     
     if(!isLoggedIn()) {
         header("Location: login.php");

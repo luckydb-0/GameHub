@@ -33,11 +33,17 @@
                 <div class="form-group col-md-6 my-4">
                     <label for="password"  class="col-11 text-left mt-2">Password:</label>
                     <input type="password" name="password" class="form-control col-11" id="password" placeholder="Modifica password" required>
+                    <?php if(isset($_POST['password_error']))
+                        echo '<label for="password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
+                    ?>
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="repeat_password" class="col-11 text-left mt-2">Ripeti password:</label>
                     <input type="password" name="repeat_password" class="form-control col-11" id="repeat_password" aria-describedby="" placeholder="Modifica password"required>
-                </div>    
+                    <?php if(isset($_POST['password_error']))
+                        echo '<label for="repeat_password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
+                    ?>
+                </div>
             </div>
             <div class="form-group text-right mt-3">
                 <button type="submit" value="perform" name="modifies"class="btn btn-light">Salva modifiche</button>
