@@ -11,7 +11,7 @@
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="email" class="col-11 text-left mt-2">Email:</label>
-                    <input type="email" class="form-control col-11" name="email" id="email" aria-describedby="emailHelp" disabled  value="<?php echo $sellerData["email"]; ?>">
+                    <input type="email" class="form-control col-11" name="email" id="email" aria-describedby="emailHelp" readonly value="<?php echo $sellerData["email"]; ?>">
                 </div>        
             </div>
             <div class="form-row">
@@ -20,18 +20,25 @@
                     <input type="tel" class="form-control col-11" name="phone_number" id="phone_number" aria-describedby="" value="<?php echo $sellerData["phone"]; ?>">
                 </div>    
                 <div class="form-group col-md-6 my-4">
-                    <label for="p_iva" class="col-11 text-left mt-2">Partita IVA:</label>
-                    <input type="text" name="p_iva" class="form-control col-11" id="p_iva" aria-describedby="" value="<?php echo $sellerData["p_iva"]; ?>" disabled />
+                    <label for="iva" class="col-11 text-left mt-2">Partita IVA:</label>
+                    <input type="text" name="p_iva" class="form-control col-11"  id="p_iva" aria-describedby="" readonly value="<?php echo $sellerData["p_iva"]; ?>">
+
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="password"  class="col-11 text-left mt-2">Password:</label>
                     <input type="password" name="password" class="form-control col-11" required id="password" placeholder="Modifica password">
+                    <?php if(isset($_POST['password_error']))
+                        echo '<label for="password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
+                    ?>
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="repeat_password" class="col-11 text-left mt-2">Ripeti password:</label>
                     <input type="password" name="repeat_password" class="form-control col-11" required id="repeat_password" aria-describedby="" placeholder="Modifica password">
+                    <?php if(isset($_POST['password_error']))
+                        echo '<label for="repeat_password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
+                    ?>
                 </div>    
             </div>
             <div class="form-group text-right mt-3">
