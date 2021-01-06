@@ -154,7 +154,7 @@
                             <label for="cvv">CVV: </label>
                             <input type="text" class="form-control w-25" id="cvv" minlength="3" maxlength="3" name="cvv" required />
                         </div>
-                            <input type="hidden" name="saveMethod">
+                            <input type="hidden" name="saveMethod" />
                         <div class="text-right">
                             <input type="submit" class="btn btn-light" value="Salva modifiche"/>
                         </div>
@@ -184,7 +184,7 @@
                             <label for="postCode"> CAP: </label>
                             <input type="text" class="form-control w-25" id="postCode" minlength="5" maxlength="5" name="postCode" required />
                         </div>
-                        <input type="hidden" name="saveAddress">
+                        <input type="hidden" name="saveAddress" />
                         <div class="text-right">
                             <input type="submit" class="btn btn-light" value="Salva modifiche"/>
                         </div>

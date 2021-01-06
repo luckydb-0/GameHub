@@ -9,7 +9,7 @@
                     <div class="form-row">
                         <label for="id-name" class="col-12 text-left mt-2">Titolo:</label>
                         <label class="form-check-label">
-                            <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search">
+                            <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search" />
                         </label>
                     </div>
                     <div class="form-row">
@@ -20,7 +20,7 @@
                         ?>
                         <div class="form-check mx-2">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo $platform["name"]; ?>">
+                                <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo $platform["name"]; ?>" />
                                 <label for="id-<?php echo $platform["name"]; ?>"><?php echo $platform["name"]; ?></label>
                             </label>
                         </div>
@@ -34,7 +34,7 @@
                         ?>
                         <div class="form-check mx-2">
                             <label class="form-check-label">
-                                <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo $category["categoryName"]; ?>">
+                                <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo $category["categoryName"]; ?>" />
                                 <label for="id-<?php echo $category["categoryName"]; ?>"><?php echo $category["categoryName"]; ?></label>
                             </label>
                         </div>
@@ -48,7 +48,7 @@
                         ?>
                         <div class="form-check mx-2">
                             <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo $developer["name"]; ?>">
+                                <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo $developer["name"]; ?>" />
                                 <label for="id-<?php echo $developer["name"]; ?>"><?php echo $developer["name"]; ?></label>
                             </label>
                         </div>
@@ -59,7 +59,7 @@
                         <div class="col-11 text-left">
                             <div class="row slidecontainer ml-1">
                                 <div class="col-9">
-                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="myRange" name="price">
+                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="myRange" name="price" />
                                 </div>
                                 <div class="col-3">
                                 <div id="demo"></div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col text-right">
-                            <input type="submit" class="btn btn-light ml-3" value="Cerca">
+                            <input type="submit" class="btn btn-light ml-3" value="Cerca" />
                         </div>
                     </div>
                 </form>

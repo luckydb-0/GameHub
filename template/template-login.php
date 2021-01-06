@@ -7,11 +7,11 @@
             <?php endif; ?>
             <div class="form-group row my-4">
                 <label for="email" class="col-2 text-left offset-1 mt-2">Email:</label>
-                <input type="email" class="form-control col-6" id="email" name="email" aria-describedby="emailHelp" placeholder="Inserisci email">
+                <input type="email" class="form-control col-6" id="email" name="email" aria-describedby="emailHelp" placeholder="Inserisci email" />
             </div>
             <div class="form-group row">
                 <label for="password"  class="col-2 text-left offset-1 mt-2">Password:</label>
-                <input type="password" class="form-control col-6" id="password" name="password" placeholder="Inserisci password">
+                <input type="password" class="form-control col-6" id="password" name="password" placeholder="Inserisci password" />
             </div>
             <div class="form-group text-right">
                 <input type="submit" name="Invia" value="Invia" class="btn btn-light" />
