@@ -1,3 +1,5 @@
+Nota: i file nella cartella html sono solo dimostrativi del processo produttivo.
+
 # GameHub
 Per registrarsi correttamente è necessario seguire i seguenti passi:
 
