@@ -94,6 +94,10 @@
                     if(isset($templateParams["games"])):
                         foreach($templateParams["games"] as $gameId):
                             $game = $dbr->getGameById($gameId)[0];
+                            $suggestedPrice = $dbr->getGameLowestPriceAndSeller($gameId)[0];
+                            if($suggestedPrice["lowestPrice"] == NULL) {
+                                $suggestedPrice["lowestPrice"] = $game["suggestedPrice"];
+                            }
                 ?>
                 <tr>
                     <td headers="Immagine" data-label="Immagine">
@@ -101,9 +105,9 @@
                             <img src="<?php echo IMG_DIR.$game["image"]?>" alt="<?php echo $game["title"]?> - PS4" class="img-thumbnail">
                         </a>
                     </td>
-                    <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]?></td>
-                    <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]?></td>
-                    <td headers="Prezzo" data-label="Prezzo"><?php echo $game["suggestedPrice"] ?></td>
+                    <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]; ?></td>
+                    <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["name"]; ?></td>
+                    <td headers="Prezzo" data-label="Prezzo"><?php echo $suggestedPrice["lowestPrice"]; ?></td>
                 </tr>
                 
                 <?php 
