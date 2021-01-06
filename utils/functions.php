@@ -60,7 +60,7 @@
     function input_check_customer($name,$surname,$password,$rep_password,$phone,$email):array{
         $result = array();
         if( $password != $rep_password) {
-            $result['password-error'] = "Password doesn't match";
+            $result['password_error'] = "Password doesn't match";
             return $result;
         }
         $result['password'] = check_input($password);
@@ -78,6 +78,7 @@
             $result['password_error'] = "Password doesn't match";
             return $result;
         }
+        $result['password'] = check_input($password);
         $result['name'] = check_input($name);
         $result['phone_number'] = check_input($phone);
         $result['p_iva'] = check_input($p_iva);
