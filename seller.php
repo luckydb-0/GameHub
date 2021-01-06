@@ -30,7 +30,7 @@
             }
             $gameName = $dbr->getGameNameById($gameId);
             foreach($dbr->getUsersFromGameInWhishList($gameId) as $user)
-                $dbi->insertNotifyForCustomer($user['userId'],"Il gioco - ".$gameName." è disponibile nel catalogo!");
+                $dbi->insertNotifyForCustomer($user['userId'],"Il gioco: ".$gameName." è disponibile nel catalogo!");
         }
         if(isset($_POST["mod-gameId"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
             $gameId = $_POST["mod-gameId"];
@@ -47,7 +47,7 @@
                 }
                 $gameName= $dbr->getGameNameById($gameId);
                 foreach($dbr->getUsersFromGameInWhishList($gameId) as $user)
-                    $dbi->insertNotifyForCustomer($user['userId'],"Il gioco - ".$gameName." è disponibile nel catalogo!");
+                    $dbi->insertNotifyForCustomer($user['userId'],"Il gioco: ".$gameName." è disponibile nel catalogo!");
             }
             else {
                 $dbd->removeCopies($gameId,$sellerId,abs($n));
