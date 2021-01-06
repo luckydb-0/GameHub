@@ -1,3 +1,4 @@
+<?php if(count($templateParams["seller-orders"]) > 0): ?>
 <div class="col-md-7 my-4 offset-md-1" id="seller-order-recap">
     <?php
         $counter = 0;
@@ -72,4 +73,7 @@
     <?php endif; ?>
     <?php endforeach; ?>
 </div>
-
+<?php else: ?>
+<div class="col-md-7 my-4 offset-md-1 bg-dark rounded text-center py-5 my-auto">
+    <h2> Non sono stati effettuati ordini </h2>
+<?php endif; ?>
