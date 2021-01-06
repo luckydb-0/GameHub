@@ -25,7 +25,6 @@
             $catId = substr($_SESSION["userId"], 2);
             foreach(range(1,intval($copies)) as $copy) {
                 $dbi->insertNewSellerArticle($gameId, $price, $catId);
-                //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
             $gameName = $dbr->getGameNameById($gameId);
             foreach($dbr->getUsersFromGameInWhishList($gameId) as $user)
@@ -51,6 +50,10 @@
             else {
                 $dbd->removeCopies($gameId,$sellerId,abs($n));
             }
+        }
+
+        if(isset($_POST["orderId"])) {
+            $dbu->updateOrderDeliver($_POST["orderId"]);
         }
 
         if(!isset($_GET["page"])) {
@@ -88,7 +91,4 @@
     }
 
     require 'template/base.php';
-
-    function notifyCustomerProductAvailable($gameId){
-    }
     ?>

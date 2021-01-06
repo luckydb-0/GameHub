@@ -11,6 +11,7 @@
                 <th id="Piattaforma">Piattaforma</th>
                 <th id="Prezzo">Prezzo</th>
                 <th id="Totale">Totale</th>
+                <th id="Consegnato il">Consegnato il: </th>
             </tr>
         </thead>
         <tbody>
@@ -32,6 +33,15 @@
                 <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]; ?></form></td>
                 <?php if($isFirstRow): $isFirstRow = false; ?>
                 <td headers="Totale" data-label="Totale" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>"><?php echo $order["total"]; ?></td>
+                <td headers="Consegnato il" data-label="Consegnato il" rowspan="<?php echo count($templateParams["o"."$orderId"]); ?>">
+                <?php 
+                    if($order["deliverDate"] == NULL){
+                        echo "L'ordine non è ancora stato consegnato";
+                    } else {
+                        echo reverseDate($order["deliverDate"]);
+                    } 
+                ?>
+                </td>
                 <?php endif; ?> 
             </tr>
             <?php endforeach; endforeach;?>

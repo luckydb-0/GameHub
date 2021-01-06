@@ -1,6 +1,11 @@
 <div class="col-md-8">
     <div class="row">
-        <div class="col-md-12 my-4 offset-md-1 pl-md-4 pl-lg-4 pl-xl-5">
+        <div class="col-md-12 my-auto offset-md-1 pl-md-4 pl-lg-4 pl-xl-5">
+            <?php if(empty(($dbr->getSellerCatalogue($templateParams["sellerId"])))): ?>
+                <div class="bg-dark my-5 py-5 px-3 rounded text-center">
+                <h2>Il tuo catalogo è vuoto<h2>
+                </div>
+            <?php else: ?>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
@@ -37,12 +42,13 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?php endif; ?>
         </div>
     </div>
 
 
     <div class="modal fade text-dark" id="modifyArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content mx-3">
                 <div class="modal-header">
                     <h5 class="modal-title">Modifica articolo</h5>

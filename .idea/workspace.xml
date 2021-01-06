@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/db/GameHub.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/GameHub.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Updater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Updater.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orders.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/seller.php" beforeDir="false" afterPath="$PROJECT_DIR$/seller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-article.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-catalogue.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-catalogue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-search.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-seller-orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-seller-orders.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

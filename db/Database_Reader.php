@@ -53,7 +53,7 @@ class Database_Reader extends DatabaseHelper
     }
 
     public function getUserOrders($userId){
-        $query = "SELECT orderId, total FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?;";
+        $query = "SELECT orderId, total, deliverDate FROM _order O JOIN customer C ON C.userId = O.userId WHERE C.userId = ?;";
         return parent::executeRead($query,'i',[$userId]);
     }
 
