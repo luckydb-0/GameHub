@@ -144,13 +144,13 @@
                     </div>
                     <div class="col">
                         <?php for($i = 0; $i < $review["rating"]; $i++) {
-                        echo '<span class="fa fa-star"></span> ';
+                        echo '★ ';
                         };
                         ?>  
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-2">
+                <div class="col-12">
                         <p> <?php echo $review["description"]; ?> </p>
                     </div>
                 </div>
