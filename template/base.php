@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./css/index.css" />
     <title><?php echo $templateParams["title"]; ?></title>
-    <!-- Per ora questo sotto è inutile. Sarebbe da mettere al posto degli <script> sopra. E analogamente andrebbe fatto per gli stylesheet. -->
     <?php
     if(isset($templateParams["js"])):
         foreach($templateParams["js"] as $script):
@@ -41,7 +40,7 @@
             ?>
             <li class="nav-item dropdown active mr-2">
               <a class="nav-link dropdown-toggle" href="profile.php" id="navbardrop" data-toggle="dropdown">
-                Profilo <?php if($newNotifies) echo '<span class="badge badge-pill"><i class="fa fa-bell"></i></span>'; ?>
+                Profilo <?php if($newNotifies) echo '<span class="badge badge-pill"><span class="fa fa-bell"></span></span>'; ?>
               </a>
               <?php if(isUserLoggedIn()): ?>
               <div class="dropdown-menu bg-dark py-0">
@@ -75,13 +74,13 @@
             <?php endif; ?>
             <?php if(isUserLoggedIn()):?>
             <li class="nav-item active">
-              <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart"></i> Carrello</a>
+              <a class="nav-link" href="cart.php"><span class="fa fa-shopping-cart"></span> Carrello</a>
             </li>
             <?php endif; ?>
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-md-3 mr-lg-5" action="search.php" method="GET">
-            <input class="form-control mr-1 col-11 col-md-9" name="name" type="search" placeholder="Cerca..." aria-label="Search">
-            <button class="btn my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+            <label class="sr-only" for="txtSearch">Titolo da cercare</label><input class="form-control mr-1 col-11 col-md-9" name="name" type="search" placeholder="Cerca..." aria-label="Search" id="txtSearch"/>
+            <label class="sr-only" for="btnSearch">Cerca</label><button class="btn my-2 my-sm-0" type="submit" id="btnSearch"><span class="fa fa-search"></span></button>
           </form>
         </div>
     </nav>   

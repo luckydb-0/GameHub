@@ -220,11 +220,11 @@ class Database_Reader extends DatabaseHelper
             $result = $resultsArrays[0];
         } else {
             $result = array_intersect(...$resultsArrays);
-            if(count($result) > 0) {
-                $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
-            }
         }
-
+        
+        if(count($result) > 0) {
+            $result = disassemble_array($this->filterGamesByPrice($result, $maxPrice));
+        }
         return array_values($result);
     }
 
@@ -302,13 +302,13 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead("","",[$id]);
     }
     //TODO
-    public function getGamePriceById($gameId,$sellerId){
-        $query="SELECT gc.price FROM game_copy gc join `copy_in_catalogue` cc ON
+    public function getGamePriceById($gameId,$sellerId)
+    {
+        $query = "SELECT gc.price FROM game_copy gc join `copy_in_catalogue` cc ON
                     gc.copyId = cc.copyId
                     where gc.gameId= ? and cc.sellerId=? limit 1;";
-        return parent::executeRead($query,"ii",[$gameId,$sellerId])[0]['price'];
+        return parent::executeRead($query, "ii", [$gameId, $sellerId])[0]['price'];
     }
-    //TODO
     public function getCategoryById($idcategory){
         return parent::executeRead("","",[$idcategory]);
     }
