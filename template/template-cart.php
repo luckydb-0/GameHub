@@ -10,7 +10,7 @@
             <thead>
                 <tr>
                     <th id="Immagine">Immagine</th>
-                    <th id="Nome">Nome</th>
+                    <th id="Titolo">Titolo</th>
                     <th id="Piattaforma">Piattaforma</th>
                     <th id="Prezzo">Prezzo</th>
                     <th id="Rimuovi"></th>
@@ -24,7 +24,7 @@
                     <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["c"."$copyId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
                     <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["c"."$copyId"][0]["title"]; ?></td>
                     <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["c"."$copyId"][0]["platform"]; ?></td>
-                    <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></form></td>
+                    <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></td>
                     <td headers="Rimuovi" data-label="Rimuovi">
                         <form action="#" method="POST">
                             <button type="submit" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0 remove"><i class="fa fa-trash"></i></button>
@@ -75,7 +75,7 @@
                 ?>
                         <div class="form-check text-left">
                             <label class="form-check-label" for="<?php echo $address["city"]." - ".$address["street"]; ?>">
-                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]." - ".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
+                            <input type="radio" class="form-check-input" id="<?php echo $address["city"]."-".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
                             <?php echo $address["city"]." - ".$address["street"]." - ".$address["postCode"]; ?>
                             </label>
                             
@@ -110,7 +110,7 @@
         ?>
         <div class="row">
             <div class="col-12">
-            <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addCard"><p>Aggiungi un metodo di pagamento</p></button>
+            <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addCard">Aggiungi un metodo di pagamento</button>
                 <div id="addCard" class="collapse mt-3">
                     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                         <div class="form-group text-left">
@@ -119,35 +119,38 @@
                         </div>
                         <div class="form-group text-left">
                             <label for="ccnumber">Numero della carta: </label>
-                            <input type="text" min="16" max="16" class="form-control w-50" id="ccnumber" maxlength="16" minlength="16" name="ccnumber" required />
+                            <input type="text" class="form-control w-50" id="ccnumber" minlength="16" maxlength="16" name="ccnumber" required />
                         </div>
                         <div class="form-group text-left">
                             <label for="expiration">Expiration: </label>
-                            <select name="exp_year" required>
-                                <?php
-                                for ($i=intval(substr(date("Y"),2)); $i<=99; $i++)
-                                {
-                                    ?>
-                                    <option value="<?php echo substr(date("Y"),0,2) . $i;?>"><?php echo $i;?></option>
+                            <div id="expiration">
+                                <select name="exp_year" size="99" required>
+                                    <option></option>
                                     <?php
-                                }
-                                ?>
-                            </select>
-                            <select name="exp_month" required>
-                                <?php
-                                for ($i=1 ; $i<=12; $i++)
-                                {
+                                    for ($i=intval(substr(date("Y"),2)); $i<=99; $i++)
+                                    {
+                                        ?>
+                                        <option value="<?php echo substr(date("Y"),0,2) . $i;?>"><?php echo $i;?></option>
+                                        <?php
+                                    }
                                     ?>
-                                    <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                </select>
+                                <select name="exp_month" size="12" required>
+                                <option></option>
                                     <?php
-                                }
-                                ?>
-                            </select>
-
+                                    for ($i=1 ; $i<=12; $i++)
+                                    {
+                                        ?>
+                                        <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>        
                         </div>
                         <div class="form-group text-left">
                             <label for="cvv">CVV: </label>
-                            <input type="text" min="3" max="3" class="form-control w-25" id="cvv" maxlength="3" size="3" name="cvv" required />
+                            <input type="text" class="form-control w-25" id="cvv" minlength="3" maxlength="3" name="cvv" required />
                         </div>
                             <input type="hidden" name="saveMethod">
                         <div class="text-right">
@@ -160,7 +163,7 @@
         
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addShipping"><p>Aggiungi un indirizzo di spedizione </p></button>
+                <button type="button" class="btn btn-light my-3" data-toggle="collapse" data-target="#addShipping">Aggiungi un indirizzo di spedizione</button>
                 <div id="addShipping" class="collapse mt-3">
                     <form action="#" method="POST">
                         <div class="form-group text-left">
