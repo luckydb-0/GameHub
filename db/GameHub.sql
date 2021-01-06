@@ -167,11 +167,14 @@ alter table credit_card add constraint FKhas_card
 
 alter table game_copy add constraint FKcopy
      foreign key (gameId)
-     references videogame (gameId);
+     references videogame (gameId)
+        on delete cascade;
 
 alter table copy_in_catalogue add constraint FKcop_COP_FK
      foreign key (copyId)
-     references game_copy (copyId);
+     references game_copy (copyId)
+        on delete cascade;
+
 
 alter table copy_in_catalogue add constraint FKR
      foreign key (sellerId)

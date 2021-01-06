@@ -78,5 +78,10 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query,"ii",[$state,$notifyId]);
     }
 
+    public function updatePrice($gameId)
+    {
+
+    }
+
 
 }
