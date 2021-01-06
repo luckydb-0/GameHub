@@ -93,4 +93,14 @@ class Database_Updater extends DatabaseHelper
             return $result;
         else return false;
     }
+
+    public function changePasswordById($userId,$hash_password): bool
+    {
+        $query ="update customer set password=? where userId=? ;";
+        if($result = parent::executeUpdate($query,"si",[$hash_password,$userId]))
+            return $result;
+        $query ="update seller set password=? where sellerId=? ;";
+        if($result = parent::executeUpdate($query,"si",[$hash_password,$userId]))
+            return $result;
+    }
 }

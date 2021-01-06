@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="322fca52-969e-404d-b66c-9f0bacc0af5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/activate.php" beforeDir="false" afterPath="$PROJECT_DIR$/activate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Reader.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Reader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/Database_Updater.php" beforeDir="false" afterPath="$PROJECT_DIR$/db/Database_Updater.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recover_password.php" beforeDir="false" afterPath="$PROJECT_DIR$/recover_password.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template/template-recover-password.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/template-recover-password.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

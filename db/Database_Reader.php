@@ -355,4 +355,15 @@ class Database_Reader extends DatabaseHelper
         $query="SELECT c.userId FROM customer c join game_in_wishlist gw on c.userId = gw.userId where gw.gameId=? ";
         return parent::executeRead($query,"i",[$gameId]);
     }
+
+    public function getUserIdFromEmail($email)
+    {
+        $query = "select userId from customer where email=?";
+        if($result = parent::executeRead($query,"s",[$email]))
+            return $result[0]['userId'];
+        $query = "select sellerId from seller where email=?";
+        if($result = parent::executeRead($query,"s",[$email]))
+            return $result[0]['sellerId'];
+        else return null;
+    }
 }
