@@ -12,12 +12,13 @@
                 </div>
                 <div class="col-2 text-right ">
                     <div class="row d-flex justify-content-end">
-                            <?php if(!$notification['isRead'])
-                                    echo '<button class="remove" name="read" value="'.$notification['notificationId'].'"><i class="fa fa-envelope" aria-hidden="true"></i></button>';
+                            <?php 
+                                if(!$notification['isRead'])
+                                    echo '<button class="remove" name="read" value="'.$notification['notificationId'].'"><span class="fa fa-envelope" aria-hidden="true"></span></button>';
                                 else
-                                    echo '<button class="remove" name="unread" value="'.$notification['notificationId'].'"><i class="fa fa-envelope-open" aria-hidden="true"></i></button>';
-                                echo '<button class="remove" name="delete" value="'.$notification['notificationId'].'"><i class="fa fa-trash" aria-hidden="true"></i></button>';
-                                ?>
+                                    echo '<button class="remove" name="unread" value="'.$notification['notificationId'].'"><span class="fa fa-envelope-open" aria-hidden="true"></span></button>';
+                                    echo '<button class="remove" name="delete" value="'.$notification['notificationId'].'"><span class="fa fa-trash" aria-hidden="true"></span></button>';
+                            ?>
                     </div>
                 </div>
             </div>
