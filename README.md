@@ -1,5 +1,5 @@
 # GameHub
-Progetto Tecnologie Web
+Per registrarsi correttamente è necessario seguire i seguenti passi:
 
 
 ## Configurazione Progetto
@@ -18,3 +18,13 @@ Progetto Tecnologie Web
     *  auth_password=Gamehub98!
     *  error_logfile=error.log
     *  force_sender=gamehub2021@libero.it
+
+In alternativa, utilizzare queste credenziali:
+Cliente:
+mail: prova@cliente.it
+password: cliente
+
+Venditore:
+mail: prova@venditore.it
+password: venditore
+
