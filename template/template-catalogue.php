@@ -67,7 +67,7 @@
                             </div>
                             <div class="row">
                                 <label for="id-price" class="sr-only">Nuovo prezzo</label>
-                                <input type="number" name="mod-price" step="0.01" id="id-price">
+                                <input type="number" name="mod-price" step="0.01" id="id-price" />
                             </div>
                             <div class="row">
                                 Copie Disponibili:
@@ -76,7 +76,7 @@
                                 <label for="id-copies" class="sr-only">Nuove copie</label>
                                 <input class="" min="0" type="number" name="mod-copies" id="id-copies"/>
                             </div>
-                        <input type="hidden" name="mod-gameId" id="id-id">
+                        <input type="hidden" name="mod-gameId" id="id-id" />
                     </div>
                     <div class="modal-footer">
                         <button type="submit" name="modifies" class="btn btn-primary">Salva modifiche</button>
@@ -128,7 +128,7 @@
                                                 foreach($games as $game):
                                             ?>
                                             <tr>
-                                                <td class="px-4"><label class="sr-only" for="id-<?php echo $game["gameId"]; ?>"><?php echo $game["title"]." - ".$game["name"]; ?></label><input type="radio" class="form-check-input" name="gameId" id="id-<?php echo $game["gameId"]; ?>" value="<?php echo $game["gameId"]; ?>"></td>
+                                                <td class="px-4"><label class="sr-only" for="id-<?php echo $game["gameId"]; ?>"><?php echo $game["title"]." - ".$game["name"]; ?></label><input type="radio" class="form-check-input" name="gameId" id="id-<?php echo $game["gameId"]; ?>" value="<?php echo $game["gameId"]; ?>" /></td>
                                                 <td headers="Codice"><?php echo $game["gameId"]; ?></td>
                                                 <td headers="NuovaImmagine" data-label="NuovaImmagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]." - ".$game["name"]; ?>" class="img-thumbnail"></td>
                                                 <td headers="NuovoTitolo" data-label="Titolo"><?php echo $game["title"]; ?></td>
@@ -140,11 +140,11 @@
                                 </div>
                                 <div class="form-row">
                                     <label for="price" class="col-11 text-left mt-2">Prezzo:</label>
-                                    <input type="number" step="0.01" min="0" class="form-control col-11" id="price" name="price" placeholder="Inserisci prezzo">
+                                    <input type="number" step="0.01" min="0" class="form-control col-11" id="price" name="price" placeholder="Inserisci prezzo" />
                                 </div>
                                 <div class="form-row">
                                     <label for="copies" class="col-11 text-left mt-2">Copie disponibili:</label>
-                                    <input type="number" class="form-control col-11" id="copies" name="copies" placeholder="Inserisci copie disponibili">
+                                    <input type="number" class="form-control col-11" id="copies" name="copies" placeholder="Inserisci copie disponibili" />
                                 </div>
                                 <div class="form-row">
                                     <div class="col">

@@ -16,7 +16,7 @@
                 <td headers="DataOra" data-label="Data e Ora" ><?php echo $notification["timeReceived"]; ?></td>
                 <td headers="Descrizione" data-label="Descrizione"><?php echo $notification["description"]; ?></td>
                 <td headers="Azioni" data-label="Azioni"><form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
-                    <input type="hidden" name="page" value="notifications"/>
+                    <input type="hidden" name="page" value="notifications" />
                     <?php if(!$notification['isRead'])
                         echo '<button class="remove" name="read" value="'.$notification['notificationId'].'"><span class="fa fa-envelope" aria-hidden="true"></span></button>';
                     else
