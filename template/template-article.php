@@ -42,8 +42,8 @@
                             <p id="logCheck"> Devi effettuare l'accesso per poter aggiungere al carrello </p>
                         <?php elseif(isUserLoggedIn()): ?>
                         <form action="#" method="POST" class ="mt-5">
-                            <input type="hidden" id="addToCart" name="addToCart" value="<?php echo $_GET["game"]; ?>">
-                            <input type="submit" class="btn btn-light" value="Aggiungi al carrello"/>
+                            <input type="hidden" id="addToCart" name="addToCart" value="<?php echo $_GET["game"]; ?>" />
+                            <input type="submit" class="btn btn-light" value="Aggiungi al carrello" />
                         </form>
                         <?php endif; ?>
                     <?php else: ?>
@@ -51,8 +51,8 @@
                     <?php endif; ?>
                     <?php if(isUserLoggedIn()): ?>
                     <form action="#" method="POST" class="my-5">
-                        <input type="hidden" id="addToWishlist" name="addToWishlist" value="<?php echo $_GET["game"]; ?>">
-                        <input type="submit" class="btn btn-light" value="Aggiungi alla lista dei desideri"/>
+                        <input type="hidden" id="addToWishlist" name="addToWishlist" value="<?php echo $_GET["game"]; ?>" />
+                        <input type="submit" class="btn btn-light" value="Aggiungi alla lista dei desideri" />
                     </form>
                     <?php endif; ?>
                     </div>

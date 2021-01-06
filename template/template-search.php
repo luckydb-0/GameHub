@@ -11,7 +11,7 @@
                     <div class="form-row">
                         <div class="col-12 col-md-4">
                             <h2 class="col-12 pl-0 mt-2 search">Titolo:</h2>
-                            <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search">
+                            <input id="id-name" class="form-control mr-2 col-10" name="name" type="search" placeholder="Inserisci titolo" aria-label="Search" />
                             <label class="form-check-label sr-only" for="id-name">Titolo
                             </label>
                         </div>
@@ -23,7 +23,7 @@
                             foreach($platforms as $platform):
                         ?>
                         <div class="form-check mx-2">
-                            <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo str_replace(" ", "", $platform["name"]); ?>">
+                            <input type="checkbox" class="form-check-input" name="plt-<?php echo $platform["name"]; ?>" value="<?php echo $platform["name"]; ?>" id="id-<?php echo str_replace(" ", "", $platform["name"]); ?>" />
                             <label class="form-check-label" for="id-<?php echo str_replace(" ", "", $platform["name"]); ?>">
                                 <?php echo $platform["name"]; ?>
                             </label>
@@ -37,7 +37,7 @@
                             foreach($categories as $category):
                         ?>
                         <div class="form-check mx-2">
-                            <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo str_replace(" ", "", $category["categoryName"]); ?>">
+                            <input type="checkbox" class="form-check-input" name="cat-<?php echo $category["categoryName"]; ?>" value="<?php echo $category["categoryName"]; ?>" id="id-<?php echo str_replace(" ", "", $category["categoryName"]); ?>" />
                             <label class="form-check-label"  for="id-<?php echo str_replace(" ", "", $category["categoryName"]); ?>">
                                 <?php echo $category["categoryName"]; ?>
                             </label>
@@ -51,7 +51,7 @@
                             foreach($developers as $developer):
                         ?>
                         <div class="form-check mx-2">
-                            <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo str_replace(" ", "", $developer["name"]); ?>">
+                            <input type="radio" class="form-check-input" name="developer" value="<?php echo $developer["name"]; ?>" id="id-<?php echo str_replace(" ", "", $developer["name"]); ?>" />
                             <label class="form-check-label" for="id-<?php echo str_replace(" ", "", $developer["name"]); ?>">
                                 <?php echo $developer["name"]; ?>
                             </label>
@@ -63,7 +63,7 @@
                         <div class="col-11 text-left">
                             <div class="row slidecontainer ml-1">
                                 <div class="col-9">
-                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="priceRange" name="price">
+                                    <input type="range" min="1" max="1000" value="1000" class="slider" id="priceRange" name="price" />
                                     <label for="priceRange" class="sr-only">Prezzo massimo</label>
                                 </div>
                                 <div class="col-3">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col text-right">
-                            <input type="submit" class="btn btn-light ml-3" value="Cerca">
+                            <input type="submit" class="btn btn-light ml-3" value="Cerca" />
                         </div>
                     </div>
                     </fieldset>

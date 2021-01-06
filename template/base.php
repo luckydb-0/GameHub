@@ -49,8 +49,8 @@
                 <a class="dropdown-item text-light" href="profile.php?page=wishlist">La mia lista dei desideri</a>
                 <a class="dropdown-item justify-content-between d-flex align-items-center text-light" href="profile.php?page=notifications">Notifiche
                 <?php if($newNotifies): ?>
-                <span class="badge badge-pill"><?php echo $dbr->getUnreadNotifies(substr($_SESSION['userId'],2));?></span></a>
-                <?php endif;?>
+                <span class="badge badge-pill"><?php echo $dbr->getUnreadNotifies(substr($_SESSION['userId'],2));?></span>
+                <?php endif;?></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-light" href="login.php?logout">Esci</a>
               </div>
@@ -79,7 +79,7 @@
             <?php endif; ?>
           </ul>
           <form class="form-inline my-2 my-lg-0 mr-md-3 mr-lg-5" action="search.php" method="GET">
-            <label class="sr-only" for="txtSearch">Titolo da cercare</label><input class="form-control mr-1 col-11 col-md-9" name="name" type="search" placeholder="Cerca..." aria-label="Search" id="txtSearch"/>
+            <label class="sr-only" for="txtSearch">Titolo da cercare</label><input class="form-control mr-1 col-11 col-md-9" name="name" type="search" placeholder="Cerca..." id="txtSearch"/>
             <label class="sr-only" for="btnSearch">Cerca</label><button class="btn my-2 my-sm-0" type="submit" id="btnSearch"><span class="fa fa-search"></span></button>
           </form>
         </div>

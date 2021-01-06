@@ -28,14 +28,14 @@
             <div class="form-row">
                 <div class="form-group col-md-6 my-4">
                     <label for="password"  class="col-11 text-left mt-2">Password:</label>
-                    <input type="password" name="password" class="form-control col-11" required id="password" placeholder="Modifica password">
+                    <input type="password" name="password" class="form-control col-11" required id="password" placeholder="Modifica password" />
                     <?php if(isset($_POST['password_error']))
                         echo '<label for="password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
                     ?>
                 </div>
                 <div class="form-group col-md-6 my-4">
                     <label for="repeat_password" class="col-11 text-left mt-2">Ripeti password:</label>
-                    <input type="password" name="repeat_password" class="form-control col-11" required id="repeat_password" placeholder="Modifica password">
+                    <input type="password" name="repeat_password" class="form-control col-11" required id="repeat_password" placeholder="Modifica password" />
                     <?php if(isset($_POST['password_error']))
                         echo '<label for="repeat_password"  class="col-11 text-left mt-2 error">'.$_POST['password_error'].'</label>';
                     ?>
