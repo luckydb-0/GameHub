@@ -74,7 +74,7 @@
                     break;
                 case "orders":
                     $templateParams["page"] = "orders";
-                    $templateParams["header"] = "Ordini in sospeso";
+                    $templateParams["header"] = "Storico ordini";
                     $templateParams["seller-orders"] = $dbr->getSellerOrders($templateParams["sellerId"]);
 
                     break;

@@ -96,7 +96,7 @@
                 
                     <!-- The Modal -->
                     <div class="modal fade text-dark" id="newArticle">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         
                         <!-- Modal Header -->
@@ -112,7 +112,7 @@
                                 <legend class="sr-only">Seleziona:</legend>
                                 <div class="form-row">
                                     <h4>Seleziona videogioco:</h4>
-                                    <table class="table table-striped">
+                                    <table class="table table-striped" id="addCopies">
                                         <thead>
                                             <tr class="pl-0">
                                                 <th id="Selezione" class="px-4"></th>

@@ -11,7 +11,7 @@
         <ul class="list-group pl-0 mt-0">
             <li class="list-group-item bg-dark"><a href="seller.php">Dati venditore</a></li>
             <li class="list-group-item bg-dark"><a href="seller.php?page=catalogue">Catalogo</a></li>
-            <li class="list-group-item bg-dark"><a href="seller.php?page=orders">Ordini in sospeso</a></li>
+            <li class="list-group-item bg-dark"><a href="seller.php?page=orders">Storico ordini</a></li>
             <li class="list-group-item bg-dark justify-content-between d-flex align-items-center">
                 <a href="seller.php?page=notifications">Notifiche</a>
                 <?php if($nNotifies = $dbr->getUnreadNotifies($sellerId))
