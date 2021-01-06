@@ -91,11 +91,11 @@
         }
     ?>
     </main>
-    <footer>
-        <div class="row bg-dark py-2 mt-5 mx-0">
-            <div class="col text-center"><p>GameHub</p></div>
-        </div>
-    </footer>
 </div>
+<footer>
+  <div class="row bg-dark py-2 mx-0">
+      <div class="col text-center"><p>GameHub</p></div>
+  </div>
+</footer>
 </body>
 </html>
