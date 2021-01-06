@@ -244,7 +244,9 @@ Scopri il prequel unico di NieR:Automata, il capolavoro acclamato dalla critica,
 
 Il protagonista è un giovane di buon cuore che vive in un villaggio remoto. Per salvare sua sorella Yonah, gravemente malata di Necrografia, parte con Grimoire Weiss, uno strano tomo parlante, alla ricerca dei Versi sigillati.
 
-Per la prima volta in occidente, scopri la storia di NieR Replicant attraverso gli occhi del protagonista e di un fratello amorevole.");
+Per la prima volta in occidente, scopri la storia di NieR Replicant attraverso gli occhi del protagonista e di un fratello amorevole."),
+('Elden Ring', 0, '2021/12/12', 10, 3, 'EldenRing-PS4.jpg', 79.90,"La nuova opera di George RR Martin insieme al creatore di Dark Souls.");
+
 
 /* CUSTOMERS */
 
@@ -400,7 +402,9 @@ insert into game_category (gameId, categoryId) values (1, 1),
 (31, 4),
 (32, 2),
 (33, 4),
-(33, 2);
+(33, 2),
+(34, 4),
+(34, 1);
 
 /* SELLER ADDRESS */
 
