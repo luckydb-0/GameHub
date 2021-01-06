@@ -6,14 +6,12 @@ $(document).ready(function () {
         $("#id-id").val($(e.relatedTarget).data('id'));
         $("#id-image").attr("src",$(e.relatedTarget).data('image'));
     });
+    $('#minus').click(function (e){
 
-    $('#btn-number').click(function (e){
+    });
 
-        let current = $("#id-copies").val();
-        let add = $(e.relatedTarget).data('val');
-        console.log(add);
-        console.log(current);
-        current += add;
-        $("#id-copies").val(current);
+    $('#plus').click(function (e){
+        console.log("plus");
     });
 });
+
