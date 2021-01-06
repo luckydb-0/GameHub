@@ -183,7 +183,7 @@ class Database_Reader extends DatabaseHelper
         $consoleResults = array();
         $developerResults = array();
 
-        $nameResults = disassemble_array($this->searchGamesByName($name)); // From functions.php
+        $nameResults = disassemble_array($this->searchGamesByName($name));
         if(!empty($nameResults)) {
             $resultsArrays[] = $nameResults;
         }
@@ -230,9 +230,9 @@ class Database_Reader extends DatabaseHelper
 
 
     public function filterGamesByPrice($gamesId, $price) {
-        $in = str_repeat('?,', count($gamesId) - 1).'?'; // To generate as many ? wildcards as the array length
+        $in = str_repeat('?,', count($gamesId) - 1).'?';
         $query = "SELECT gameId FROM videogame WHERE suggestedPrice <= ? AND gameId IN ($in);";
-        $types = 'i'.str_repeat('s', count($gamesId)); // To concatenate as many s needed
+        $types = 'i'.str_repeat('s', count($gamesId));
         return parent::executeRead($query,$types,[$price,...$gamesId]);
     }
 
@@ -282,10 +282,6 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query,"ii",[$sellerId,$gameId])[0]['copies'];
     }
 
-    /* DA IMPLEMENTARE */
-
-    // n = number of random games
-    //TODO
     public function getGameSellers($game_name){
         return parent::executeRead("","",[$game_name]);
     }
@@ -305,7 +301,7 @@ class Database_Reader extends DatabaseHelper
                     where gc.gameId= ? and cc.sellerId=? limit 1;";
         return parent::executeRead($query, "ii", [$gameId, $sellerId])[0]['price'];
     }
-    //TODO
+
     public function getCategoryById($idcategory){
         return parent::executeRead("","",[$idcategory]);
     }

@@ -51,8 +51,7 @@ class Database_Creater extends DatabaseHelper
 
     public function insertNewSellerArticle($gameId, $price, $catalogueId): int
     {
-        // Devo creare nuova game copy, e conseguentemente copy in catalogue
-        $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)"; // Manca numero copie
+        $query = "INSERT INTO game_copy (gameId, price) VALUES (?, ?)";
         $copyId = parent::executeInsert($query, 'id', [$gameId, $price]);
         $query = "INSERT INTO copy_in_catalogue (copyId, sellerId) VALUES (?, ?)";
         return  parent::executeInsert($query, "ii", [$copyId, $catalogueId]);
