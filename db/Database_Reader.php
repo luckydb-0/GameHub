@@ -289,19 +289,15 @@ class Database_Reader extends DatabaseHelper
     public function getGameSellers($game_name){
         return parent::executeRead("","",[$game_name]);
     }
-    //TODO
-    public function getRandomGames($n){
-        return parent::executeRead("","",[$n]);
-    }
-    //TODO
+
     public function getImageNameById($id){
-        return parent::executeRead("","",[$id]);
+        $query = "select image from videogame where gameId=?";
+        return parent::executeRead($query,"i",[$id])[0]['image'];
     }
-    //TODO
     public function getGameNameById($id){
-        return parent::executeRead("","",[$id]);
+        $query = "select title from videogame where gameId=?";
+        return parent::executeRead($query,"i",[$id])[0]['title'];
     }
-    //TODO
     public function getGamePriceById($gameId,$sellerId)
     {
         $query = "SELECT gc.price FROM game_copy gc join `copy_in_catalogue` cc ON
@@ -309,6 +305,7 @@ class Database_Reader extends DatabaseHelper
                     where gc.gameId= ? and cc.sellerId=? limit 1;";
         return parent::executeRead($query, "ii", [$gameId, $sellerId])[0]['price'];
     }
+    //TODO
     public function getCategoryById($idcategory){
         return parent::executeRead("","",[$idcategory]);
     }
@@ -353,13 +350,9 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query,'i', [$userId]);
     }
 
-    public function removeCopies($gameId, $sellerId, $n)
+    public function getUsersFromGameInWhishList($gameId)
     {
-        $query="delete from game_copy where copyId IN
-                (select * from (select gc.copyId from game_copy gc inner join 
-                 copy_in_catalogue cc on 
-                 cc.copyId = gc.copyId 
-                 where gc.gameId=? and cc.sellerId=? limit ?)as result);";
-        return parent::executeDelete($query,"iii",[$gameId,$sellerId,$n]);
+        $query="SELECT c.userId FROM customer c join game_in_wishlist gw on c.userId = gw.userId where gw.gameId=? ";
+        return parent::executeRead($query,"i",[$gameId]);
     }
 }

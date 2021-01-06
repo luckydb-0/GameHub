@@ -65,12 +65,6 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query, $types, [$price, $gameId, $sellerId]);
     }
 
-    //TODO
-    public function changeArticleCopies($seller_id, $article_id): bool
-    {
-        return parent::executeUpdate("");
-    }
-
     public function updateNotifyCustomerState($notifyId, $state): bool
     {
         $query= "UPDATE notification_user SET isRead=? WHERE notificationId=?";
@@ -81,11 +75,5 @@ class Database_Updater extends DatabaseHelper
         $query= "UPDATE notification_seller SET isRead=? WHERE notificationId=?";
         return parent::executeUpdate($query,"ii",[$state,$notifyId]);
     }
-
-    public function updatePrice($gameId)
-    {
-
-    }
-
 
 }

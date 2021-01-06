@@ -30,5 +30,14 @@ class Database_Deleter extends DatabaseHelper
         $query="DELETE FROM notification_seller WHERE notificationId = ?";
         return parent::executeDelete($query,'i', [$notifyId]);
     }
+    public function removeCopies($gameId, $sellerId, $n): bool
+    {
+        $query="delete from game_copy where copyId IN
+                (select * from (select gc.copyId from game_copy gc inner join 
+                 copy_in_catalogue cc on 
+                 cc.copyId = gc.copyId 
+                 where gc.gameId=? and cc.sellerId=? limit ?)as result);";
+        return parent::executeDelete($query,"iii",[$gameId,$sellerId,$n]);
+    }
 
 }

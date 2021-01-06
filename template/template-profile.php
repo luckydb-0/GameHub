@@ -17,7 +17,9 @@
             <li class="list-group-item bg-dark"><a href="profile.php?page=orders">I miei ordini</a></li>
             <li class="list-group-item bg-dark"><a href="profile.php?page=wishlist">La mia lista dei desideri</a></li>
             <li class="list-group-item bg-dark justify-content-between d-flex align-items-center"><a href="profile.php?page=notifications">Notifiche</a>
-                <span class="badge badge-light badge-pill"><?php echo $dbr->getUnreadNotifies($userId); ?></span></li>
+                <?php if($nNotifies = $dbr->getUnreadNotifies($userId))
+                    echo '<span class="badge badge-light badge-pill">'.$nNotifies.'</span></li>';
+                ?>
         </ul>
     </div>
     <?php

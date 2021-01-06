@@ -27,6 +27,9 @@
                 $dbi->insertNewSellerArticle($gameId, $price, $catId);
                 //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
+            $gameName = $dbr->getGameNameById($gameId);
+            foreach($dbr->getUsersFromGameInWhishList($gameId) as $user)
+                $dbi->insertNotifyForCustomer($user['userId'],"Il gioco - ".$gameName." è disponibile nel catalogo!");
         }
         if(isset($_POST["mod-gameId"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
             $gameId = $_POST["mod-gameId"];
@@ -41,14 +44,14 @@
                 foreach(range(0,$n - 1 ) as $i){
                     $dbi->insertNewSellerArticle($gameId,$price,$sellerId);
                 }
+                $gameName= $dbr->getGameNameById($gameId);
+                foreach($dbr->getUsersFromGameInWhishList($gameId) as $user)
+                    $dbi->insertNotifyForCustomer($user['userId'],"Il gioco - ".$gameName." è disponibile nel catalogo!");
             }
             else {
-                $dbr->removeCopies($gameId,$sellerId,abs($n));
+                $dbd->removeCopies($gameId,$sellerId,abs($n));
             }
         }
-
-        //TODO missing process modifies catalogue
-        //TODO missing process selected order
 
         if(!isset($_GET["page"])) {
             $templateParams["page"] = "seller-data";

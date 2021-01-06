@@ -14,7 +14,9 @@
             <li class="list-group-item bg-dark"><a href="seller.php?page=orders">Ordini in sospeso</a></li>
             <li class="list-group-item bg-dark justify-content-between d-flex align-items-center">
                 <a href="seller.php?page=notifications">Notifiche</a>
-                <span class="badge badge-light badge-pill"><?php echo $dbr->getUnreadNotifiesSeller($sellerId); ?></span>
+                <?php if($nNotifies = $dbr->getUnreadNotifies($sellerId))
+                    echo '<span class="badge badge-light badge-pill">'.$nNotifies.'</span></li>';
+                ?>
             </li>
         </ul>
     </div>
