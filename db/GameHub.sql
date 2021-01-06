@@ -16,6 +16,8 @@ create table customer (
      phone char(10) not null,
      email varchar(128) not null,
      password varchar(128) not null,
+     activation_code varchar(128) not null,
+     active boolean not null default 0,
      constraint IDcustomer_id primary key (userId));
 
 create table game_in_wishlist (
@@ -115,6 +117,8 @@ create table seller (
      password varchar(128) not null,
      p_iva char(11) not null,
      phone char(10) not null,
+     activation_code varchar(128) not null,
+     active boolean not null default 0,
      constraint IDseller_id primary key (sellerId));
 
 create table order_seller (

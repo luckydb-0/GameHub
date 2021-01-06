@@ -6,18 +6,18 @@ class Database_Creater extends DatabaseHelper
     public function __construct(){
         parent::__construct("database.ozny.it", "prova", "prova", "gamehub", 3306);
     }
-    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password): int
+    public function insertNewCustomer($name, $surname, $birthdate, $phone, $email, $password,$activation_code): int
     {
         $password = hash_password($password);
-        $query = "INSERT INTO customer(name,surname,birthDate,phone,email,password) VALUES (?, ?, ?, ?, ?, ?);";
-        return parent::executeInsert($query, "ssssss", [$name,$surname,$birthdate,$phone,$email,$password]);
+        $query = "INSERT INTO customer(name,surname,birthDate,phone,email,password,activation_code) VALUES (?, ?, ?, ?, ?, ?,?);";
+        return parent::executeInsert($query, "sssssss", [$name,$surname,$birthdate,$phone,$email,$password,$activation_code]);
     }
 
-    public function insertNewSeller($name, $p_iva, $phone, $email, $password): int
+    public function insertNewSeller($name, $p_iva, $phone, $email, $password,$activation_code): int
     {
         $password = hash_password($password);
-        $query = "INSERT INTO seller(name,p_iva,phone,email,password) VALUES (?, ?, ?, ?, ?);";
-        return parent::executeInsert($query, "sssss", [$name,$p_iva,$phone,$email,$password]);
+        $query = "INSERT INTO seller(name,p_iva,phone,email,password,activation_code) VALUES (?, ?, ?, ?, ?,?);";
+        return parent::executeInsert($query, "ssssss", [$name,$p_iva,$phone,$email,$password,$activation_code]);
     }
 
     public function addUserAddress($userId, $country, $city, $street, $postCode) {

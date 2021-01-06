@@ -86,4 +86,20 @@
             strlen($p_iva) === 11 && strlen($email) <= 48 ;
         return $result;
     }
+    function sendEmail($target,$subject,$content){
+        $headers = 'From: '.$target . "\r\n" .
+            'Reply-To: noreply@gamehub.it' . "\r\n" .
+            'X-Mailer: PHP/' . phpversion();
+        return mail($target,$subject,$content,$headers);
+    }
+    function createActivationCode($length):string{
+        return md5(uniqid(rand(), true));
+    }
+    function createActivationLink($userId,$code): string
+    {
+        return "id=".base64_encode($userId)."&code=".base64_encode($code);
+    }
+    function decodeSubscription($parameter){
+        return base64_decode($parameter);
+    }
 ?>

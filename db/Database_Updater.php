@@ -76,9 +76,21 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query,"ii",[$state,$notifyId]);
     }
 
-    public function updateOrderDeliver($orderId) {
+    public function updateOrderDeliver($orderId): bool
+    {
         $now = date("Y-m-d");
         $query = "UPDATE _order SET deliverDate = ? WHERE orderId = ?";
         return parent::executeUpdate($query, "si", [$now, $orderId]);
+    }
+
+    public function activateNewUser($userId,$activation_code):bool
+    {
+        $query = "update customer set active=1 where activation_code=? and userId=?";
+        if($result = parent::executeUpdate($query,"si",[$activation_code,$userId]))
+            return $result;
+        $query = "update seller set active=1 where activation_code=? and sellerId=?";
+        if($result = parent::executeUpdate($query,"si",[$activation_code,$userId]))
+            return $result;
+        else return false;
     }
 }
