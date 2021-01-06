@@ -12,6 +12,7 @@
                     $dbu->updateCustomerInfo(substr($_SESSION['userId'], 2),
                         $result['name'], $result['surname'], $result['phone_number'], $result['password']);
                 else $_POST['password_error'] = $result['password_error'];
+
             }
         }
         $_POST['modifies'] = 'updated';

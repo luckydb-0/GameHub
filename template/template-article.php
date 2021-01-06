@@ -143,7 +143,7 @@
                     </div>
                     <div class="col">
                         <?php for($i = 0; $i < $review["rating"]; $i++) {
-                        echo '<i class="fa fa-star"></i> ';
+                        echo '<span class="fa fa-star"></span> ';
                         };
                         ?>  
                     </div>

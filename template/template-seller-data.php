@@ -22,6 +22,7 @@
                 <div class="form-group col-md-6 my-4">
                     <label for="iva" class="col-11 text-left mt-2">Partita IVA:</label>
                     <input type="text" name="p_iva" class="form-control col-11"  id="p_iva" aria-describedby="" readonly value="<?php echo $sellerData["p_iva"]; ?>">
+
                 </div>
             </div>
             <div class="form-row">
@@ -45,4 +46,7 @@
             </div>
         </form>
     </div>
+    <?php if(isset($templateParams["error"])) {
+        echo $templateParams["error"];
+    }; ?>
 </div>

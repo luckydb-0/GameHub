@@ -21,13 +21,13 @@
                     $copyId = $copy["copyId"];
                 ?>
                 <tr> 
-                    <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["c"."$copyId"][0]["image"]; ?>" alt="God of War - PS4" class="img-thumbnail"></td>
+                    <td headers="Immagine" data-label="Immagine"><img src="img/<?php echo $templateParams["c"."$copyId"][0]["image"]; ?>" alt="<?php echo $templateParams["c"."$copyId"][0]["title"]; ?>" class="img-thumbnail"></td>
                     <td headers="Titolo" data-label="Titolo"><?php echo $templateParams["c"."$copyId"][0]["title"]; ?></td>
                     <td headers="Piattaforma" data-label="Piattaforma"><?php echo $templateParams["c"."$copyId"][0]["platform"]; ?></td>
                     <td headers="Prezzo" data-label="Prezzo"><?php echo $templateParams["c"."$copyId"][0]["price"]."€"; ?></td>
                     <td headers="Rimuovi" data-label="Rimuovi">
                         <form action="#" method="POST">
-                            <button type="submit" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0 remove"><i class="fa fa-trash"></i></button>
+                            <button type="submit" name="remove" value="<?php echo $copyId?>" class="mt-0 pt-0 remove"><span class="fa fa-trash"></span></button>
                         </form>
                     </td>
                 </tr>
@@ -74,7 +74,7 @@
                     foreach($templateParams["addresses"] as $address):
                 ?>
                         <div class="form-check text-left">
-                            <label class="form-check-label" for="<?php echo $address["city"]." - ".$address["street"]; ?>">
+                            <label class="form-check-label" for="<?php echo $address["city"]."-".$address["street"]; ?>">
                             <input type="radio" class="form-check-input" id="<?php echo $address["city"]."-".$address["street"]; ?>" name="addressId" value="<?php echo $address["addressId"] ?>" <?php if($isFirst) echo "checked"; $isFirst = false; ?> />
                             <?php echo $address["city"]." - ".$address["street"]." - ".$address["postCode"]; ?>
                             </label>
@@ -126,6 +126,7 @@
                                 <label for="exp_year">Year: </label>
                                 <select id="exp_year" name="exp_year" required>
                                     <option value="" label="YY"></option>
+
                                     <?php
                                     for ($i=intval(substr(date("Y"),2)); $i<=99; $i++)
                                     {

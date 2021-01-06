@@ -13,7 +13,7 @@
         }
         $_POST['modifies'] = 'updated';
     }
-    
+
     if(!isLoggedIn()) {
         header("Location: login.php");
     } else {
@@ -93,4 +93,4 @@
     }
 
     require 'template/base.php';
-    ?>
+?>

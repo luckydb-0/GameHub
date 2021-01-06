@@ -35,7 +35,7 @@
                         <td headers="Copie-vendute" data-label="Copie-vendute"><?php echo $item["sold"]; ?></td>
                         <td>
                             <button class="btn btn-primary" data-price="<?php echo $item['price'] ?>" data-copies="<?php echo $item['copies'];  ?>"data-id="<?php echo $item['gameId'];?>" data-image="<?php echo IMG_DIR.$item['image'] ?>" type="button" data-toggle="modal" data-target="#modifyArticle">
-                                <i class="fa fa-edit"></i>
+                                <span class="fa fa-edit"></span>
                             </button>
                         </td>
                     </tr>
@@ -70,9 +70,9 @@
                             </div>
                         <!-- //TODO -->
                             <div class="row">
-                                <button type="button" class="btn btn-success btn-number" data-val="-1" id="minus"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-success btn-number" data-val="-1" id="minus"><span class="fa fa-minus" aria-hidden="true"></span></button>
                                 <input class="" min="0" type="number" name="mod-copies" id="id-copies"/>
-                                <button type="button" class="btn btn-success btn-number" data-val="1" id="plus"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-success btn-number" data-val="1" id="plus"><span class="fa fa-plus" aria-hidden="true"></span></button>
                             </div>
                         <input type="hidden" name="mod-gameId" id="id-id">
                     </div>
