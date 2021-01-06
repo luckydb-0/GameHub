@@ -1,6 +1,8 @@
 <?php
 require_once 'bootstrap.php';
-var_dump($_GET);
+$templateParams["title"] = "GameHub - Attivazione";
+$templateParams["name"] = "template/template-confirmation.php";
+
 if(isset($_GET['id'])){
     $userId = decodeSubscription($_GET['id']);
     $activation_code = decodeSubscription($_GET['code']);
