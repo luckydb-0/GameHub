@@ -108,21 +108,21 @@ Un’anelante campagna in solitaria di 34 livelli.
 Un arsenale brutale con 15 armi diverse per ritrovare la memoria.
 Combattimenti multigiocatore brutali."),
 ('Grand Theft Auto V', 500, '2013/09/17', 9, 3, 'GTA5-PS4.jpg', 69.90,"Los Santos: un'enorme e soleggiata metropoli piena di sedicenti guru, attricette e celebrità sul viale del tramonto. Un tempo era l'invidia del mondo occidentale, ma ora è costretta ad arrangiarsi per restare a galla in un'epoca di incertezza economica e TV via cavo da quattro soldi.
-In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una "pensione" meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
+In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una pensione meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
 Con il più grande, il più dinamico e il più vario mondo di gioco mai creato, Grand Theft Auto V mescola sapientemente storia e gioco in modi del tutto nuovi, con i giocatori intenti a passare da una vita all'altra dei tre protagonisti e a vivere l'intreccio delle loro avventure.
 Ritornano tutti gli elementi distintivi tipici della serie, compresa l'incredibile attenzione ai dettagli e il pungente umorismo di Grand Theft Auto, oltre che un nuovo e ambizioso approccio al mondo di gioco in multiplayer.
 
 Los Santos & Blaine County:
 Il mondo di Grand Theft Auto V (di gran lunga il più grande visto finora) è completamente accessibile fin dall'inizio e unisce zone molto distanti tra loro, sia dal punto di vista geografico che da quello culturale. I visitatori della metropoli di Los Santos e della rurale Blaine County incontreranno celebrità in declino, drogati, festaioli, bande violente, escursionisti, motociclisti e ogni tipo di curioso abitante. Sarete in grado di spostarvi ovunque, dalla cima delle montagne alle strade di Los Santos e persino nelle profondità dell'oceano."),
 ('Grand Theft Auto V', 310, '2013/09/17', 9, 4, 'GTA5-XBoxOne.jpg', 69.90,"Los Santos: un'enorme e soleggiata metropoli piena di sedicenti guru, attricette e celebrità sul viale del tramonto. Un tempo era l'invidia del mondo occidentale, ma ora è costretta ad arrangiarsi per restare a galla in un'epoca di incertezza economica e TV via cavo da quattro soldi.
-In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una "pensione" meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
+In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una pensione meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
 Con il più grande, il più dinamico e il più vario mondo di gioco mai creato, Grand Theft Auto V mescola sapientemente storia e gioco in modi del tutto nuovi, con i giocatori intenti a passare da una vita all'altra dei tre protagonisti e a vivere l'intreccio delle loro avventure.
 Ritornano tutti gli elementi distintivi tipici della serie, compresa l'incredibile attenzione ai dettagli e il pungente umorismo di Grand Theft Auto, oltre che un nuovo e ambizioso approccio al mondo di gioco in multiplayer.
 
 Los Santos & Blaine County:
 Il mondo di Grand Theft Auto V (di gran lunga il più grande visto finora) è completamente accessibile fin dall'inizio e unisce zone molto distanti tra loro, sia dal punto di vista geografico che da quello culturale. I visitatori della metropoli di Los Santos e della rurale Blaine County incontreranno celebrità in declino, drogati, festaioli, bande violente, escursionisti, motociclisti e ogni tipo di curioso abitante. Sarete in grado di spostarvi ovunque, dalla cima delle montagne alle strade di Los Santos e persino nelle profondità dell'oceano."),
 ('Grand Theft Auto V', 402, '2013/09/17', 9, 6, 'GTA5-PC.jpg', 69.90,"Los Santos: un'enorme e soleggiata metropoli piena di sedicenti guru, attricette e celebrità sul viale del tramonto. Un tempo era l'invidia del mondo occidentale, ma ora è costretta ad arrangiarsi per restare a galla in un'epoca di incertezza economica e TV via cavo da quattro soldi.
-In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una "pensione" meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
+In mezzo a tutto questo, tre criminali molto diversi tra loro si danno da fare per sopravvivere e realizzarsi, ognuno a modo suo: l'ambizioso Franklin è a caccia di soldi e di opportunità; Michael, un ex criminale professionista, sta facendo i conti con una 	pensione meno rosea del previsto; e Trevor, un maniaco violento, pensa solo a farsi e al prossimo, grande colpo. I tre non hanno altra scelta: decidono di rischiare il tutto per tutto in una serie di colpi audaci e pericolosi che potrebbero sistemarli per la vita.
 Con il più grande, il più dinamico e il più vario mondo di gioco mai creato, Grand Theft Auto V mescola sapientemente storia e gioco in modi del tutto nuovi, con i giocatori intenti a passare da una vita all'altra dei tre protagonisti e a vivere l'intreccio delle loro avventure.
 Ritornano tutti gli elementi distintivi tipici della serie, compresa l'incredibile attenzione ai dettagli e il pungente umorismo di Grand Theft Auto, oltre che un nuovo e ambizioso approccio al mondo di gioco in multiplayer.
 
@@ -148,7 +148,7 @@ L'INTELLIGENZA CALCISTICA consente di vivere al massimo ogni attimo sul campo: c
 Gameplay VOLTA: esprimi il tuo stile con un sistema di gioco completamente nuovo improntato al realismo. Ispirato al calcio a ranghi ridotti giocato nelle strade, nelle gabbie e nei campi di calcio a 5 di tutto il mondo;
 Prova l'INTELLIGENZA CALCISTICA, che presenta un cambio di prospettiva tale da offrire un livello di realismo senza precedenti.
 L'INTELLIGENZA CALCISTICA consente di vivere al massimo ogni attimo sul campo: con la palla, senza palla e attraverso la palla."),
-('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,"Vesti i panni dell'ex motociclista fuorilegge Deacon St. John: vagabondo, cacciatore di taglie, avanzo di umanità errante. In un mondo devastato da una pandemia globale St. John rifiuta i "sicuri" accampamenti allestiti in aree selvagge dagli ultimi superstiti umani e sfida la sorte sulle strade accidentate.
+('Days Gone', 80, '2019/04/26', 4, 3, 'DG.jpg', 69.90,"Vesti i panni dell'ex motociclista fuorilegge Deacon St. John: vagabondo, cacciatore di taglie, avanzo di umanità errante. In un mondo devastato da una pandemia globale St. John rifiuta i sicuri accampamenti allestiti in aree selvagge dagli ultimi superstiti umani e sfida la sorte sulle strade accidentate.
 
 Ambientato in un martoriato scenario vulcanico nel Pacifico nord-occidentale, Days Gone ti invita a esplorare un mondo sconvolto da mostri umani degenerati noti come Freaker. Esplora questo mondo devastato alla ricerca di provviste, risorse ma soprattutto di una ragione per cui continuare a vivere.
 
@@ -250,17 +250,17 @@ Per la prima volta in occidente, scopri la storia di NieR Replicant attraverso g
 
 /* CUSTOMERS */
 
-insert into customer (name, surname, birthDate, email, password, phone) values
-('Giorgio', 'Rossi', '1998/12/31', 'giorgio.rossi98@gmail.com', 'rossipower', '3551204567'),
-('Gianluca', 'De Bonis', '1998/09/23', 'gianluca.debonis@gmail.com', 'debonispower', '3448900222'),
-('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower', '3451119834'),
-('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower', '3449923610');
+insert into customer (name, surname, birthDate, email, password, phone, activation_code) values
+('Giorgio', 'Rossi', '1998/12/31', 'giorgio.rossi98@gmail.com', 'rossipower', '3551204567', ''),
+('Gianluca', 'De Bonis', '1998/09/23', 'gianluca.debonis@gmail.com', 'debonispower', '3448900222', ''),
+('Andrea', 'De Crescenzo', '2000/05/31', 'andrea.dec@gmail.com', 'decpower', '3451119834', ''),
+('Lorenzo', 'Pagliazzi', '1998/03/18', 'lorenzo.paglia@gmail.com', 'pagliapower', '3449923610', '');
 
 
 /* GAME COPY */
 
 insert into game_copy (gameId, price, sold) values
-(1, 21.99, 0),
+(1, 21.99, 1),
 (2, 80.99, 0),
 (3, 80.99, 0),
 (4, 59.99, 0),
@@ -297,9 +297,9 @@ insert into copy_in_cart (userId, copyId) values (1, 3);
 
 /* SELLERS */
 
-insert into seller (name, email, password, p_iva, phone) values ('Viggì', 'Viggì@vg.it', 'wearevg', '01234567890', '0123456789');
+insert into seller (name, email, password, p_iva, phone, activation_code) values ('Viggì', 'Viggì@vg.it', 'wearevg', '01234567890', '0123456789', '');
 
-insert into seller (name, email, password, p_iva, phone) values ('Grandi Venditori', 'gv@gv.it', 'wearegv', '12345678901', '1234567890');
+insert into seller (name, email, password, p_iva, phone, activation_code) values ('Grandi Venditori', 'gv@gv.it', 'wearegv', '12345678901', '1234567890', '');
 
 /* CREDIT CARDS */
 
