@@ -28,7 +28,7 @@
                     <tr>
                         <th id="Immagine">Immagine</th>
                         <th id="Cod.Articolo">Cod. Articolo</th>
-                        <th id="Nome">Nome</th>
+                        <th id="Titolo">Nome</th>
                         <th id="Piattaforma">Piattaforma</th>
                         <th id="Prezzo">Prezzo (Euro €)</th>
                     </tr>
@@ -40,7 +40,7 @@
                             $game = $dbr->getGameFromCopy($gameCopy["copyId"])[0];
                     ?>
                     <tr>
-                        <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["name"]." - ".$game["platform"]; ?>" class="img-thumbnail"></td>
+                        <td headers="Immagine" data-label="Immagine"><img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]." - ".$game["platform"]; ?>" class="img-thumbnail"></td>
                         <td headers="Cod.Articolo" data-label="Cod.Articolo">1</td>
                         <td headers="Titolo" data-label="Titolo"><?php echo $game["title"]; ?></td>
                         <td headers="Piattaforma" data-label="Piattaforma"><?php echo $game["platform"]; ?></td>

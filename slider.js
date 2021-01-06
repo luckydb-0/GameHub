@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var slider = document.getElementById("myRange");
+    var slider = document.getElementById("priceRange");
     var output = document.getElementById("demo");
     output.innerHTML = (slider.value).concat( "€"); // Display the default slider value
 
