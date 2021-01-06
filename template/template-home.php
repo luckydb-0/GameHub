@@ -89,15 +89,17 @@
     $mostSold = $dbr->getMostSoldGames(12);
     $chunks = array_chunk($mostSold, 6, false); 
     foreach($chunks as $row):
-?>  
-    <div class="row bg-dark mx-0">
-        <?php foreach($row as $game): ?>
-        <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
-            <a href="article.php?game=<?php echo $game["gameId"]; ?>">
-                <img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]; ?>" class="img-thumbnail mb-2"/>
-            </a>
-                <p><?php echo $game["title"]; ?></p>
-        </div>
-        <?php endforeach; ?>
+?>
+<div class="mb-5">
+<div class="row bg-dark mx-0">
+    <?php foreach($row as $game): ?>
+    <div class="col-6 col-md-3 col-lg-2 my-auto p-2 text-center">
+        <a href="article.php?game=<?php echo $game["gameId"]; ?>">
+            <img src="<?php echo IMG_DIR.$game["image"]; ?>" alt="<?php echo $game["title"]; ?>" class="img-thumbnail mb-2"/>
+        </a>
+            <p><?php echo $game["title"]; ?></p>
     </div>
+    <?php endforeach; ?>
+</div>
 <?php endforeach; ?>
+</div>  
