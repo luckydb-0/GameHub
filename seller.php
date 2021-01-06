@@ -28,11 +28,23 @@
                 //TODO if a customer has in whishlist a game that has no copy and game gets available again
             }
         }
-
-        if(isset($_POST["mod-id"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
+        if(isset($_POST["mod-gameId"]) && isset($_POST["mod-price"]) && isset($_POST["mod-copies"])) {
             $gameId = $_POST["mod-gameId"];
             $price = $_POST["mod-price"];
             $copies = $_POST["mod-copies"];
+            $oldCopies = $dbr->getAvailableCopy($sellerId,$gameId);
+            $oldPrice = $dbr->getGamePriceById($gameId,$sellerId);
+            if($price != $oldPrice){
+                $dbu->changeCopiesPrice($sellerId,$gameId,$price);
+            }
+            if(($n = $copies - $oldCopies ) > 0){
+                foreach(range(0,$n - 1 ) as $i){
+                    $dbi->insertNewSellerArticle($gameId,$price,$sellerId);
+                }
+            }
+            else {
+                $dbr->removeCopies($gameId,$sellerId,abs($n));
+            }
         }
 
         //TODO missing process modifies catalogue

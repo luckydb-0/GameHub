@@ -276,6 +276,12 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead($query,"i",[$n]);
     }
 
+    public function getAvailableCopy($sellerId,$gameId){
+        $query="select count(gc.sold) as copies from game_copy gc join copy_in_catalogue cc ON
+                cc.copyId=gc.copyId where cc.sellerId = ? and gc.gameId = ? and sold = 0;";
+        return parent::executeRead($query,"ii",[$sellerId,$gameId])[0]['copies'];
+    }
+
     /* DA IMPLEMENTARE */
 
     // n = number of random games
@@ -296,8 +302,11 @@ class Database_Reader extends DatabaseHelper
         return parent::executeRead("","",[$id]);
     }
     //TODO
-    public function getGamePriceById($id){
-        return parent::executeRead("","",[$id]);
+    public function getGamePriceById($gameId,$sellerId){
+        $query="SELECT gc.price FROM game_copy gc join `copy_in_catalogue` cc ON
+                    gc.copyId = cc.copyId
+                    where gc.gameId= ? and cc.sellerId=? limit 1;";
+        return parent::executeRead($query,"ii",[$gameId,$sellerId])[0]['price'];
     }
     //TODO
     public function getCategoryById($idcategory){
@@ -342,5 +351,15 @@ class Database_Reader extends DatabaseHelper
     {
         $query = "SELECT notificationId, timeReceived, description,isRead FROM notification_seller WHERE sellerId = ? order by timeReceived desc;";
         return parent::executeRead($query,'i', [$userId]);
+    }
+
+    public function removeCopies($gameId, $sellerId, $n)
+    {
+        $query="delete from game_copy where copyId IN
+                (select * from (select gc.copyId from game_copy gc inner join 
+                 copy_in_catalogue cc on 
+                 cc.copyId = gc.copyId 
+                 where gc.gameId=? and cc.sellerId=? limit ?)as result);";
+        return parent::executeDelete($query,"iii",[$gameId,$sellerId,$n]);
     }
 }

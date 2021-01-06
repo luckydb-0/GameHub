@@ -55,12 +55,16 @@ class Database_Updater extends DatabaseHelper
         return parent::executeUpdate($query, "iidi", [$sellerId, $gameId, $newPrice, $newCopies]);
     }
 
-
-    //TODO
-    public function changeArticlePrice($seller_id, $article_id): bool
+    public function changeCopiesPrice($sellerId, $gameId, $price): bool
     {
-        return parent::executeUpdate("");
+        $query = "UPDATE game_copy join copy_in_catalogue 
+        on game_copy.copyId= copy_in_catalogue.copyId 
+        set price = ? where game_copy.gameId=? and 
+        copy_in_catalogue.sellerId=? and game_copy.sold = 0";
+        $types = "dii";
+        return parent::executeUpdate($query, $types, [$price, $gameId, $sellerId]);
     }
+
     //TODO
     public function changeArticleCopies($seller_id, $article_id): bool
     {
